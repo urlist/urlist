@@ -1,0 +1,42 @@
+<div class="page-beta_search clearfix" data-source="BetaSearch:main">
+
+    <div class="page-header">
+        <div class="js-stats-hook"></div>
+    </div>
+
+    <div class="page-actions">
+        <div class="content-std-elastic is--fluid">
+            <div class="toolbar js-toolbar">
+                <ul class="nav left nav--navigation">
+                    <li data-location="me"><a href="/search/me/{{query}}" class="js-navigate">My Lists</a></li>
+                    <li data-location="network"><a href="/search/network/{{query}}" class="js-navigate">My Network</a></li>
+                    <li data-location="global"><a href="/search/{{query}}" class="js-navigate">Global</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-full-elastic">
+
+        <div class="toolbar toolbar-changedisplay">
+            <ul class="nav center">
+                <li>
+                    <span class="input-switcher changedisplay-switcher js-changedisplay-switcher">
+
+                        {{#if-equal scope "global"}}
+                            <a class="state state-a js-navigate" href="/search/{{query}}" data-location="lists">Lists</a>
+                            <a class="state state-b js-navigate" href="/search/{{query}}/links" data-location="links">Links</a>
+                        {{else}}
+                            <a class="state state-a js-navigate" href="/search/{{scope}}/{{query}}" data-location="lists">Lists</a>
+                            <a class="state state-b js-navigate" href="/search/{{scope}}/{{query}}/links" data-location="links">Links</a>
+                        {{/if-equal}}
+
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="js-widgets-hook"></div>
+    </div>
+
+</div>

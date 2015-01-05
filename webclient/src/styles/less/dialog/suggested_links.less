@@ -1,0 +1,41 @@
+.dialog-wrapper.suggested-links .dialog-content {
+    padding: 0;
+}
+
+.suggested_links-list {
+    // @riccardo: for testing purposes?
+     overflow-y: auto;
+    max-height: 422px;
+}
+.suggested_links-item {
+    padding: 15px 15px 15px 30px;
+    border-bottom: 1px solid #eeeeee;
+}
+.suggested_links-item:last-child {
+    border-bottom: none;
+}
+
+.suggested_links-item .title {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: @text;
+}
+.suggested_links-item .url {
+    display: block;
+    font-size: 14px;
+    color: #6b6b6b;
+}
+.suggested_links-item .author a {
+    font-weight: 600;
+    color: @link;
+}
+.suggested_links-item .timestamp {
+    color: #9d9d9d;
+}
+.suggested_links-item .toolbar {
+    margin-top: 10px;
+}
+.suggested_links-item .button {
+    min-width: 82px;
+}

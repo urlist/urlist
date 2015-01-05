@@ -1,0 +1,164 @@
+<div class="discovery-page" data-view="discovery" data-source="Discovery">
+    <h1 class="hidden">Discover</h1>
+    {{!<div class="page-header">
+        <div class="content-std-elastic is--fluid">
+            <h1 class="page-title">Discover</h1>
+        </div>
+    </div>}}
+
+    <div class="page-actions">
+        <div class="content-std-elastic is--fluid">
+            <div class="toolbar js-toolbar">
+                <ul class="nav left nav--navigation">
+                    {{#LOGGED}}
+                    <li class="network"><a href="/" class="js-navigate">My Network</a></li>
+                    {{/LOGGED}}
+                    {{#LOGGED}}
+                    <li class="follow"><a href="/discover/follow" class="js-navigate"><i class="mini-icon icon-small-add-user"></i> Follow more</a></li>
+                    {{/LOGGED}}
+                    {{#ANON}}
+                    <li class="follow"><a href="/discover/follow" class="js-navigate"><i class="mini-icon icon-small-add-user"></i> Build your network</a></li>
+                    {{/ANON}}
+                    {{#LOGGED}}
+                    <li class="js-activity">
+                        <a class="has-bdg js-navigate" href="/activity">
+                            Activity
+                            <b class="bgd-notif-length js-pending-counter" data-count="{{notifications_amount}}">
+                            </b>
+                        </a>
+                    </li>
+                    {{/LOGGED}}
+                </ul>
+                {{!<ul class="nav right nav--navigation">
+                    <li>
+                        <span>
+                            <a href="#" class="button narrow js-share-page">
+                                <i class="mini-icon icon-small-share"></i>
+                                Recommend
+                            </a>
+                        </span>
+                    </li>
+                </ul>}}
+            </div>
+        </div>
+    </div>
+
+    <div class="discover--category-grid js-slide">
+        <div class="content-std-elastic is--fluid">
+            <a class="discover--category-item discover--category-trigger js-slide--trigger" href="/category/science-nature">
+                <span class="item-content">
+                    <img class="item-image" src="/static/assets/_cats/view-more.png" alt="">
+                    <span class="item-label">More</span>
+                </span>
+            </a>
+            <ul class="discover--category-list">
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/discover">
+                        <img class="item-image" src="/static/assets/_cats/popular.png" alt="">
+                        <span class="item-label">Popular</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/technology">
+                        <img class="item-image" src="/static/assets/_cats/technology.png" alt="">
+                        <span class="item-label">Technology</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/education">
+                        <img class="item-image" src="/static/assets/_cats/education.png" alt="">
+                        <span class="item-label">Education</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/information-media">
+                        <img class="item-image" src="/static/assets/_cats/information-media.png" alt="">
+                        <span class="item-label">Information &amp; Media</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/passions-hobbies">
+                        <img class="item-image" src="/static/assets/_cats/passions-hobbies.png" alt="">
+                        <span class="item-label">Passions &amp; Hobbies</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/culture-arts">
+                        <img class="item-image" src="/static/assets/_cats/culture-arts.png" alt="">
+                        <span class="item-label">Culture &amp; Arts</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/business">
+                        <img class="item-image" src="/static/assets/_cats/business.png" alt="">
+                        <span class="item-label">Business</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/science-nature">
+                        <img class="item-image" src="/static/assets/_cats/science-nature.png" alt="">
+                        <span class="item-label">Science &amp; Nature</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/society-politics">
+                        <img class="item-image" src="/static/assets/_cats/society-politics.png" alt="">
+                        <span class="item-label">Society &amp; Politics</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/cooking">
+                        <img class="item-image" src="/static/assets/_cats/cooking.png" alt="">
+                        <span class="item-label">Cooking</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/controversial">
+                        <img class="item-image" src="/static/assets/_cats/controversial.png" alt="">
+                        <span class="item-label">Controversial</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/places">
+                        <img class="item-image" src="/static/assets/_cats/places.png" alt="">
+                        <span class="item-label">Places</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/category/activism">
+                        <img class="item-image" src="/static/assets/_cats/activism.png" alt="">
+                        <span class="item-label">Activism</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/hashtag/bitcoin">
+                        <img class="item-image" src="/static/assets/_cats/tag.png" alt="">
+                        <span class="item-label">#bitcoin</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/hashtag/javascript">
+                        <img class="item-image" src="/static/assets/_cats/tag.png" alt="">
+                        <span class="item-label">#javascript</span>
+                    </a>
+                </li>
+                <li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/hashtag/dev">
+                        <img class="item-image" src="/static/assets/_cats/tag.png" alt="">
+                        <span class="item-label">#dev</span>
+                    </a>
+                </li>
+                {{!<li class="discover--category-item">
+                    <a class="item-content js-navigate" href="/hashtag/contribute">
+                        <img class="item-image" src="/static/assets/_cats/tag.png" alt="">
+                        <span class="item-label">#contribute</span>
+                    </a>
+                </li>}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="discovery-content clearfix" data-view="content"></div>
+
+</div>
+

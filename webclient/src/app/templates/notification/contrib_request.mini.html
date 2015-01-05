@@ -1,0 +1,8 @@
+<li class="notification-item{{^read_at}} new{{/read_at}}">
+    <a class="js-navigate" href="/{{data.list_hash}}">
+        <b class="sender">{{user_screen_name}}</b>
+        <span class="action">invited you to add links to</span>
+        <b class="target">{{data.list_title}}</b>
+        <time class="timestamp">{{prettydate sent_at}}</time>
+    </a>
+</li>

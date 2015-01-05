@@ -1,0 +1,25 @@
+<div id="{{title_slug}}" class="{{#unless urls_amount}}{{#unless policies.add_url}}hide {{/unless}}{{/unless}}link-group ui-urls-section {{type}}-section-{{id}}" data-cid="{{cid}}">
+
+    <div class="link-group-header">
+        <span class="section-title js-section-title">{{or title empty_title}}</span>
+        <span class="section-link-amount"><span class="js-section-link-amount">{{urls_amount}}</span> {{pluralize urls_amount "link"}}</span>
+        {{#if policies.add_section}}
+        <a class="section-edit js-edit-sections" href="#">Edit</a>
+        {{/if}}
+    </div>
+
+    <div class="section-content link-group-actions clearfix">
+        {{#if policies.add_url}}
+        <form class="sub-add-url ui-sub-add-url">
+            <label>
+                <input class="ui-add-link-txt" type="text" placeholder="http://" />
+                <input type="submit" class="button" value="Add" />
+            </label>
+        </form>
+        {{/if}}
+    </div>
+
+    <ul class="list-items ui-urls {{#unless policies.add_url}}list-items-no-add{{/unless}}" data-section_id="{{section_id}}">
+    </ul>
+
+</div>

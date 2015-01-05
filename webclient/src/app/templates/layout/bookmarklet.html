@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div id="header">
+        <div class="header-bookmarklet">
+            <ul class="nav left">
+                <li>
+                    <a class="bookmarklet-logo" href="//urli.st" target="_blank" title="Go to Urlist website">
+                        <img src="/static/assets/logo-bookmarklet.png" alt="Urlist" />
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav right">
+                <li>
+                    {{#LOGGED}}
+                    <span class="log-info">You're logged in as <b class="screenname">{{CURRENT "user" "screen_name"}}</b></span>
+                    {{/LOGGED}}
+                    {{#ANON}}
+                    <span class="log-info">Please login</span>
+                    {{/ANON}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="content" class="content-bookmarklet"></div>
+
+</div>

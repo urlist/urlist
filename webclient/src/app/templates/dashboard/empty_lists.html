@@ -1,0 +1,10 @@
+<div class="empty-placeholder empty-placeholder-dashboard" data-source="Dashboard:onboarding">
+    {{^is_mine}}
+    <p>No Lists created yet</p>
+    {{/is_mine}}
+
+    {{#is_mine}}
+    <p>There is nothing here :(</p>
+    <a href="#" class="button action js-new-list">Create your first list</a>
+    {{/is_mine}}
+</div>

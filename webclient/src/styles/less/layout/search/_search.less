@@ -1,0 +1,89 @@
+// Name: Beta Search
+// Desc: Our still-in-beta Search Section
+//
+// Template base:
+// ...
+.page-beta_search {
+
+    .column.eleven { padding-right: 5px; }
+    .column.one { padding-left: 5px; }
+    .beta-search {
+        padding-top: 40px;
+        padding-bottom: 30px;
+    }
+
+    .simple-input {
+        position: relative;
+        top: 2px;
+        display: block;
+        white-space: normal;
+        margin: 0;
+        width: 100%;
+        min-height: 37px;
+        padding: 4px 10px 6px;
+        color: #575757;
+        .placeholder-color(#9d9d9d);
+        font: normal 16px/24px "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        border: 1px solid #b8b8b8;
+        .border-radius(2px);
+        -webkit-font-smoothing: antialiased;
+           -moz-font-smoothing: antialiased;
+            -ms-font-smoothing: antialiased;
+                font-smoothing: antialiased;
+
+        &:focus {
+            outline: none;
+            color: inherit;
+            .placeholder-color(#c6c6c6);
+            border-color: #a6a6a6;
+            // border-color: darken(#94dff0, 4%);
+            box-shadow: inset 0 1px 1px rgba(000,000,000,0.10);
+        }
+    }
+    .search-submit {
+        font-family: "listicons";
+        font-size: 16px;
+        font-weight: normal;
+        padding-top: 10px;
+        box-shadow: none;
+    }
+
+    .page-header {
+        overflow: hidden;
+        min-height: 137px;
+    }
+
+    .beta-search-new {
+        position: relative;
+        min-height: inherit;
+    }
+    .beta-search-new .query {
+        margin: 40px 0 0;
+        margin: 30px 0 0;
+        line-height: 1;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .beta-search-new .result-log {
+        line-height: 40px;
+        font-size: 19px;
+        color: #9d9d9d;
+    }
+    .beta-search-new .result-log em {
+        color: @text;
+        font-style: normal;
+    }
+
+    .save-search {
+        position: absolute;
+        right: 0;
+        bottom: 10px;
+        bottom: -10px;
+    }
+
+    // @riccardo: added border-top for sub header
+    .page-actions {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+}

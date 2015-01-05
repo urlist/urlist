@@ -1,0 +1,5 @@
+{"env.api_url": "http://urli.st/api",
+ "env.webclient_url": "http://urli.st",
+ "env.data_root": "/srv",
+ "env.motherbrain_data": "/srv",
+ "oauth.cookie_domain": ".urli.st"}

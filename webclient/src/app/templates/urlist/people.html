@@ -1,0 +1,36 @@
+<div class="content-author ui-author">
+</div>
+
+
+<div class="toolbar contributors-actions js-contributors-container {{show-if contributors-amount}}">
+    <ul class="nav left">
+        <li>
+            <span>Contributors (<b class="counter-contributors js-contributors-count">{{contributors_amount}}</b>)</span>
+        </li>
+    </ul>
+</div>
+
+<div class="contributors-area">
+    <ul class="collaborators-list contributors-list clearfix js-contributors js-contributors-list"></ul>
+
+    {{#if policies.add_contributor}}
+    <a href="#" class="button small wide edit-contributors js-edit-contributors">
+        Invite Contributors
+    </a>
+    {{/if}}
+</div>
+
+
+{{!
+<div class="toolbar contributors-actions js-other-contributors-container { { show-if other-contributors-amount } }">
+    <ul class="nav left">
+        <li>
+            <span>Contributors (<b class="counter-contributors">other_contributors_amount</b>)</span>
+        </li>
+    </ul>
+</div>
+
+<div class="contributors-area">
+    <ul class="collaborators-list contributors-list clearfix js-other-contributors js-other-contributors-list"></ul>
+</div>
+}}

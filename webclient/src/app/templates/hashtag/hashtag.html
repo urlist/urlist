@@ -1,0 +1,39 @@
+<div class="discovery-page">
+    <div class="page-header">
+        <div class="content-std-elastic is--fluid">
+            <h1 class="page-title">#{{titlecase hashtag}}</h1>
+        </div>
+    </div>
+    <div class="page-actions">
+        <div class="content-std-elastic is--fluid">
+            <div class="toolbar actions js-toolbar">
+                <ul class="nav left nav--navigation">
+                    <li>
+                        <a href="/hashtag/{{slugify hashtag}}/popular" class="js-navigate js-popularity">Popular</a>
+                    </li>
+                    <li>
+                        <a href="/hashtag/{{slugify hashtag}}/new" class="js-navigate js--creation_time">Recent</a>
+                    </li>
+
+                    {{#LOGGED}}
+                    <li>
+                        <a href="/hashtag/{{slugify hashtag}}/network" class="js-navigate js-network">My Network</a>
+                    </li>
+                    {{/LOGGED}}
+
+                    {{^saved}}
+                    {{!<li>
+                        <a href="#" class="button js-save-search">
+                            <i class="mini-icon icon-small-add"></i>
+                            Save this search
+                        </a>
+                    </li>}}
+                    {{/saved}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-full-elastic">
+        <div class="widget-wrapper"></div>
+    </div>
+</div>

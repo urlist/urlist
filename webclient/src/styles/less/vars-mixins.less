@@ -1,0 +1,252 @@
+// 
+// 00 - Variables & Mixins
+// 
+
+// Variables 
+
+@link: #2e9ccc;
+@aColor: #2e9ccc;
+    @dark-link: darken(@link, 10%);
+@aAltColor: #2e9ccc;
+@text: #32363b;
+@fgColor: #32363b;
+@bgColor: #ffffff;
+
+@bgHeader: #4c4c4c;
+
+// Colors 
+@brand-middlegrey: #6b6b6b;
+@red:       #e6224c;
+@orange:    #ff7016;
+@yellow:    #e6d800;
+@green:     #88d228;
+@blue:      #4189ff;
+@purple:    #bf3a88;
+@tortora:   #806d59;
+@grey:      #e3e4e6;
+@black:     #333333;
+@turquoise: #2e9ccc;
+@white:     #ffffff;
+
+// Mixins 
+
+.border-radius (@radius: 2px) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.roundedFull (@radius: 999px) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+.gradient (@from, @to) {
+    background-color: @from;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+    background-image: -webkit-linear-gradient(top, @from, @to);
+    background-image:    -moz-linear-gradient(top, @from, @to);
+    background-image:      -o-linear-gradient(top, @from, @to);
+    background-image:         linear-gradient(to bottom, @from, @to);
+}
+
+.h-gradient (@from, @to) {
+    background-color: @from;
+    background-image: -webkit-gradient(linear, left, right, from(@from), to(@to));
+    background-image: -webkit-linear-gradient(left, @from, @to);
+    background-image:    -moz-linear-gradient(left, @from, @to);
+    background-image:      -o-linear-gradient(left, @from, @to);
+    background-image:         linear-gradient(to right, @from, @to);
+}
+
+.text-stroked (@alpha: 0.07) {
+    text-shadow: 0 0 0 10px rgba(000,000,000,@alpha);
+}
+
+.text-pressed (@alpha: 0.5) {
+    text-shadow: 0 1px 0 rgba(255,255,255,@alpha);
+}
+
+.text-released (@alpha: 0.07) {
+    text-shadow: 0 1px 0 rgba(0,0,0,@alpha);
+}
+
+.box-shadow (@arguments) {
+    -webkit-box-shadow: @arguments;
+            box-shadow: @arguments;
+}
+
+.anim (@property: all, @speed: 0.1s, @function: linear) {
+    -webkit-transition: @arguments;
+       -moz-transition: @arguments;
+        -ms-transition: @arguments;
+         -o-transition: @arguments;
+            transition: @arguments;
+}
+
+.transition (@arguments: none){
+    -webkit-transition: @arguments;
+       -moz-transition: @arguments;
+        -ms-transition: @arguments;
+         -o-transition: @arguments;
+            transition: @arguments;
+}
+
+.transform (@arguments: none){
+    -webkit-transform: @arguments;
+       -moz-transform: @arguments;
+        -ms-transform: @arguments;
+         -o-transform: @arguments;
+            transform: @arguments;
+}
+
+.filter (@arguments: none){
+    -webkit-filter: @arguments;
+       -moz-filter: @arguments;
+        -ms-filter: @arguments;
+         -o-filter: @arguments;
+            filter: @arguments;
+}
+
+.backface-visibility (@arguments: hidden) {
+    -webkit-backface-visibility: @arguments;
+       -moz-backface-visibility: @arguments;
+        -ms-backface-visibility: @arguments;
+         -o-backface-visibility: @arguments;
+            backface-visibility: @arguments;
+}
+
+.user-select (@arguments: none) {
+    -webkit-user-select: @arguments;
+       -moz-user-select: @arguments;
+        -ms-user-select: @arguments;
+         -o-user-select: @arguments;
+            user-select: @arguments;
+}
+
+.full-height (@arguments) {
+    height: @arguments;
+    line-height: @arguments;
+}
+
+.pseudo-block () {
+    content: "";
+    display: block;
+    position: absolute;
+}
+
+.size (@w, @h) {
+    width: @w;
+    height: @h;
+}
+
+.square (@l) {
+    width: @l;
+    height: @l;
+}
+
+.placeholder-color(@color) {
+    &:-moz-placeholder {
+        color: darken(@color, 20%);
+    }
+    &::-moz-placeholder {
+        color: darken(@color, 20%);
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+}
+
+.appearance (@what) {
+    -webkit-appearance: @what;
+       -moz-appearance: @what;
+        -ms-appearance: @what;
+         -o-appearance: @what;
+            appearance: @what;
+}
+
+.cursor-grab () {
+    cursor: move; // 1
+    cursor: grab;
+    cursor:-moz-grab;
+    cursor:-webkit-grab;
+    // 1. Cursor fallback
+}
+.cursor-grabbing () {
+    cursor: move; // 1
+    cursor: grabbing;
+    cursor:-moz-grabbing;
+    cursor:-webkit-grabbing;
+    // 1. Cursor fallback
+}
+
+.placeholder (@display: block) {
+    display: @display;
+    text-align: center;
+    color: #9d9d9d;
+    cursor: default;
+    .user-select();
+
+    .mini-icon {
+        display: block !important;
+        font-size: 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin: 0 auto !important;
+        color: #ccc;
+    }
+
+    strong {
+        display: block;
+        margin: 0.25em auto -0.25em;
+        font-size: 16px;
+    }
+}
+
+.avatar-fix () {
+    overflow: hidden !important;
+}
+
+.avatar-img-fix () {
+    vertical-align: middle !important;
+    display: block !important;
+    overflow: hidden !important;
+    height: auto !important;
+}
+
+// Nicolas Gallagher's micro clearfix
+.clearfix () {
+    zoom: 1;
+    &:before, &:after {
+        content: "";
+        display: table; // can be "block"
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Avatar abstraction
+// Template base: figure.avatar>img
+.avatar {
+    position: relative;
+    overflow: hidden;
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: inherit;
+        height: inherit;
+        background: none;
+        border-radius: inherit;
+    }
+    img {
+        display: block;
+        width: inherit; // or 100% ?
+    }
+}

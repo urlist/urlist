@@ -1,0 +1,49 @@
+<div class="dialog-header--contextual">
+    Already registered? <a class="js-login" href="#">Login</a>
+</div>
+
+<div class="dialog-content">
+
+    <p class="subheading">
+        To confirm your suggestion, please signup
+    </p>
+
+    <a class="button button-facebook" data-track-source href="{{facebook_url}}">Connect with <span>Facebook</span></a>
+
+    <div class="js-toggle-one emailpswd-one">
+        <a class="button button-emailpswd js-toggle" href="#">Use email/password</a>
+    </div>
+
+    <div class="js-toggle-two emailpswd-two hide">
+        <p class="instruction">Email/Password Signup</p>
+
+        <div class="instruction simple-alert error-message hide" data-error="already-exists">
+            The email address is already taken.<br />
+            <a class="js-recover-password" href="#">Have you forgot your password?</a></p>
+        </div>
+
+        <div class="instruction simple-alert error-message hide" data-error="too-short">
+            Password must be at least 6 characters
+        </div>
+
+        <div class="instruction simple-alert error-message hide" data-error="invalid-password">
+            Password can contain only <a href="https://en.wikipedia.org/wiki/ASCII">a-z, A-Z and 0-9</a>. <br/>You can also sign in with Facebook
+        </div>
+
+        <dl class="form-item form-item--signup">
+            <label class="hidden">Your Email</label>
+            <input class="textfield" type="email" placeholder="Your Email" name="email" data-validator="email"/>
+
+            <label class="hidden">Choose a Password</label>
+            <input class="textfield" type="password" placeholder="Choose a Password" name="password" data-validator="not-empty" />
+
+            <input class="button confirm widest button--signup js-signup-me" type="submit" value="Confirm" />
+        </dl>
+    </div>
+
+    <p class="legal">
+        By creating an account, I accept Urlist’s <a href="/resources/terms" target="_blank">Terms of Service</a> and <a href="/resources/privacy" target="_blank">Privacy Policy</a>.
+    </p>
+
+</div>
+

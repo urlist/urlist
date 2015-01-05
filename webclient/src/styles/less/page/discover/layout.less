@@ -1,0 +1,110 @@
+.discover--category-grid {
+    position: relative;
+    margin-top: -11px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #eee;
+    .content-std-elastic {
+        position: relative;
+    }
+}
+
+.discover--category-list {
+    overflow: hidden;
+    max-height: 40px;
+    height: 40px;
+    .no-touch & { .transition(max-height 5s linear); }
+}
+.discover--category-grid.active {
+    .discover--category-list {
+        max-height: 9999px;
+        height: auto;
+    }
+    .discover--category-trigger {
+        display: none;
+    }
+    .discover--category-item {
+        min-height: 80px;
+        height: 80px;
+    }
+    .item-image {
+        height: 50px;
+        opacity: 1;
+    }
+}
+
+.discover--category-item {
+    display: block;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    float: left;
+    width: 12.5%; // 1/8
+    height: auto;
+    display: table;
+    min-height: 40px;
+    height: 40px;
+    .no-touch & { .transition(all .1s linear); }
+}
+
+.discover--category-item .item-content {
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block; // fallback
+    display: table-cell;
+}
+
+.discover--category-item .item-image {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    height: 0;
+    opacity: 0;
+    .no-touch & { .transition(all .1s linear); }
+}
+.discover--category-item .item-label {
+    display: inline-block;
+    color: @text;
+    font-size: 12px;
+    // font-weight: 600;
+    padding: 0 1em;
+    line-height: 1.125;
+    text-transform: uppercase;
+    opacity: 0.85;
+}
+.discover--category-grid.active .discover--category-item .item-label {
+    padding: 0;
+}
+.discover--category-item:hover .item-label {
+    opacity: 1;
+}
+.discover--category-item:hover .item-label {
+    color: @text;
+}
+
+.discover--category-trigger {
+    position: absolute;
+    z-index: 2;
+    float: none;
+    top: 0;
+    right: 0;
+    left: auto;
+    background-color: white;
+    opacity: 1 !important;
+}
+.discover--category-trigger .item-label {
+    // font-weight: normal;
+}
+.discover--category-trigger:hover .item-label {
+    background-color: @link;
+    color: #ffffff;
+    padding: 0.125em 0.5em 0.25em;
+    margin: -0.25em -0.5em -0.25em;
+    border-radius: 1em;
+    opacity: 1;
+    opacity: 0.75;
+    // font-weight: normal;
+}
+.discover--category-trigger .item-label:before {
+    content: "+ ";
+}

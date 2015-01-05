@@ -1,0 +1,45 @@
+<div class="dialog-header">
+    Not registered? <a class="js-signup" href="#">Sign up here</a>
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <h4 class="heading">Login into your account</h4>
+
+    <div class="content-alert alert-error alert-small js-login-error hide">
+        Please, provide a valid email or username and password, or get access to Urlist through the Social buttons
+    </div>
+
+    <div class="line break-mobile">
+        <!-- <div class="column six main-column"> -->
+        <div class="column six sub-column">
+            <ul class="buttons-social">
+                <li><a class="button big wide facebook" href="{{facebook_url}}">Facebook</a></li>
+                <li><a class="button big wide gplus" href="{{google_url}}">Google+</a></li>
+                <li><a class="button big wide twitter" href="{{twitter_url}}">Twitter</a></li>
+            </ul>
+        </div>
+
+        <div class="column six main-column">
+
+            <label class="form-item form-item--alone">
+                <label class="hidden">Username or Email</label>
+                <input class="textfield" type="text" name="username" placeholder="Email or Username" data-validator="not-empty" />
+            </label>
+
+            <label class="form-item form-item--alone">
+                <label class="hidden">Password</label>
+                <input class="textfield" type="password" name="password" placeholder="Password" data-validator="not-empty"/>
+            </label>
+
+            <p class="align-right"><a class="dialog-notice_middle js-recover-password" href="#">Forgot your password?</a></p>
+
+            <input class="button wide confirm button-login" type="submit" value="Log In" />
+        </div>
+
+
+
+    </div>
+
+</div>

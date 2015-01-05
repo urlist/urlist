@@ -1,0 +1,104 @@
+.activity-heading {
+    margin: 21px 0 22px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.indepth-notification-list {
+    margin-bottom: 40px;
+}
+.indepth-notification-item {
+    .clearfix;
+    width: 100%;
+    line-height: 21px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ebebeb;
+
+    // @riccardo: I've added this rule here
+    &.new {
+        background-color: #fffcf0;
+    }
+
+    // @riccardo: and add this :not stuff
+    &:not(.new)&:hover {
+        background-color: #f7f7f7;
+    }
+}
+.indepth-notification-item .notification-content {
+    position: relative;
+    margin-top: 12px;
+    float: left;
+    width: 70%;
+    padding-left: 50px;
+}
+.indepth-notification-item .notification-content:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 3px;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    font-family: "listicons";
+    line-height: 16px;
+    color: #4c4c4c;
+}
+.indepth-notification-item .notification-content.new-bookmark:after {
+    content: "\e000";
+}
+.indepth-notification-item .notification-content.new-follower:after {
+    content: "\e010";
+}
+.indepth-notification-item .notification-content.new-link:after {
+    content: "\e00a";
+}
+.indepth-notification-item .notification-content.new-contributor-request:after {
+    content: "\e017";
+}
+.indepth-notification-item .notification-content.new-link-request:after {
+    content: "\e00a";
+}
+.indepth-notification-item .notification-content.new-relist:after {
+    content: "\e026"; // the small relist icon
+    content: "\e001"; // the regular relist icon
+}
+
+
+
+
+.indepth-notification-item .action-toolbar {
+    margin-top: 20px;
+    float: right;
+    line-height: 21px;
+}
+.indepth-notification-item .action-toolbar li {
+    float: left;
+    line-height: inherit;
+    margin-left: 7px;
+}
+
+.indepth-notification-item .sender {
+    font-weight: 600;
+}
+.indepth-notification-item .object {
+    &:before { content: "\201C" }
+    &:after  { content: "\201D" }
+}
+
+.indepth-notification-item .action-toolbar .button,
+.indepth-notification-item .action-toolbar .timestamp {
+    display: block;
+}
+.indepth-notification-item .action-toolbar .button {
+    margin-top: -22px;
+    width: 80px;
+    padding: 7px 0;
+}
+
+// @riccardo: updated margin right
+.indepth-notification-item .action-toolbar .timestamp {
+    margin: -4px 10px 0 7px;
+    font-size: 14px;
+    color: #9d9d9d;
+}

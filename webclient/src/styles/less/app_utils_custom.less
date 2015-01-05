@@ -1,0 +1,521 @@
+.list-details {
+    top: 40px;
+    right: 40px;
+    position: absolute;
+    .icon-private {
+        top: -3px;
+    }
+}
+
+.dialog-wrapper .section-relist .ui-autocomplete {
+    width: 504px;
+    width: 336px;
+    width: 380px;
+}
+
+.section-relist {
+    height: auto;
+    position: relative;
+}
+
+.ui-helper-hidden-accessible {
+    display: none;
+}
+
+.ui-autocomplete-container {
+    position: absolute;
+    max-height: 200px;
+    box-shadow: 0 1px 1px rgba(000,000,000,0.07);
+}
+.ui-autocomplete {
+    background: #fff;
+    list-style: none;
+    padding: 4px 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+
+    margin-top: 4px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    overflow: hidden;
+    overflow: auto;
+
+    box-shadow: 0 1px 1px rgba(000,000,000,0.07);
+}
+.ui-menu-item a {
+    display: block;
+
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px;
+    color: #4c4c4c;
+
+    font-weight: 600;
+}
+.ui-menu-item a i {
+    font-weight: normal;
+}
+.ui-menu-item a.ui-state-focus,
+.ui-menu-item a.ui-state-active {
+    background-color: #f7f7f7;
+    // color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.ui-menu-item a.ui-state-focus i,
+.ui-menu-item a.ui-state-active i {
+    // color: #fff;
+    font-weight: normal;
+}
+
+.ui-menu-item img {
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+    height: auto;
+    display: block;
+    float: left;
+    margin-top: -2px;
+    margin-right: 10px;
+}
+
+.input-relist-to {
+    .appearance(none);
+    display: block;
+    width: 100%;
+    margin: 5px 0 0;
+    padding: 4px 42px 6px 10px;
+    background: url(/static/assets/icon-select-arrow.png) no-repeat right center;
+    border: 1px solid #b8b8b8;
+    border-radius: 1px;
+    box-shadow: 0 2px 2px rgba(076,076,076,0.15);
+    color: #4c4c4c;
+    font: normal 14px/1.714285714em "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    .placeholder-color(#9d9d9d);
+    cursor: default;
+    resize: none;
+
+    line-height: 24px;
+    font-size: 16px;
+    .placeholder-color(#bcbcbc);
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px rgba(199,199,199,0.50);
+}
+
+.list-selector {
+    position: relative;
+    .input-relist-to {
+        cursor: text;
+        padding-left: 32px;
+    }
+    .status {
+        display: block;
+        position: absolute;
+        top: 6px;
+        left: 11px;
+        opacity: 0.5;
+    }
+}
+
+.relist-item {
+    i {
+        float: right;
+        margin-top: 4px;
+        margin-left: 0.5em;
+    }
+    .notation {
+        font-weight: normal;
+        margin-left: 0.25em;
+    }
+}
+.relist-item-new {
+    display: block;
+    position: absolute;
+    z-index: 9999999;
+    bottom: 0;
+    width: 504px;
+    padding: 4px 10px 6px;
+    height: 32px;
+    background-color: #e1f8fd;
+    border: 1px solid #aaa;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    font-size: 0.875em;
+    font-weight: 600;
+    color: #3496ab;
+    &:hover {
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+.ui-state-highlight {
+    padding: 10px;
+    background-color: #e4ecf4;
+    box-shadow: 0 -1px 0 rgba(176,179,182,0.25) inset, 0 1px 0 rgba(176,179,182,0.25) inset;
+    border: 0 !important;
+}
+.ui-state-highlight-content {
+    min-height: 67px;
+    border: 2px dashed #c8d0d8;
+    border-radius: 4px;
+}
+
+.search-result-list {
+    min-height: 0;
+    max-height: 390px;
+    overflow-y: auto;
+
+    .transition(min-height .2s ease-in-out);
+
+    &.active {
+        min-height: 100px;
+    }
+
+    .spinner {
+        top: 32px !important;
+        // background-color: tomato;
+    }
+
+    .search-result-item {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        margin: 0 1% 2%;
+        width: 23%;
+        text-align: center;
+        background-color: #dedede;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 2px;
+        cursor: pointer;
+        .transition(box-shadow .05s linear);
+        &:before {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            .pseudo-block();
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid rgba(000,000,000,0.10);
+            border-radius: 2px;
+            .transition(all .05s linear);
+        }
+        &:after {
+            content: "\e01d";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -20px;
+            margin-top: -16px;
+            display: block;
+            width: 40px;
+            height: 40px;
+            color: #FFF;
+            font: normal 32px/1 "listicons";
+            text-shadow: 0 1px 0 fade(#3ab0c9, 25%);
+            text-shadow: 0 1px 0 fade(@black, 10%);
+            opacity: 0;
+            .transform(translateY(-20px));
+            .transition(all .2s ease);
+        }
+    }
+    .search-result-item.active {
+        box-shadow:
+            inset 0  2px 0 0 @white,
+            inset 0 -2px 0 0 @white,
+            inset  2px 0 0 @white,
+            inset -2px 0 0 @white,
+            inset 0 0 0 2px @white; // I
+        &:before {
+            -webkit-box-sizing: border-box;
+               -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+            .pseudo-block();
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: fade(#3ab0c9, 50%);
+            border: 2px solid #3ab0c9;
+        }
+        &:after {
+            opacity: 1;
+            .transform(translateY(0));
+        }
+        // I: prevent some ugly artifacts. Nice, it's better than putting an higher radius, which ends to clip a little bit more the element itself.
+    }
+
+    .search-result-item.placeholder {
+        width: 100%;
+        margin: 0 0 20px 0;
+        min-height: 100px;
+        padding-top: 20px;
+        background: none;
+        border: none;
+        box-shadow: none !important;
+        .placeholder();
+
+        &:after, &:before {
+            display: none;
+        }
+    }
+    .search-result-item.empty {}
+    .search-result-item.error {}
+
+    .search-result-item img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+// niceSelect styles
+.nice-select-wrapper {
+    width: 100%;
+    position: relative;
+    background: #f7f7f7;
+    background: #fff;
+    border-radius: 1px;
+    border: 1px solid #b8b8b8;
+    box-shadow: 0 2px 2px rgba(076,076,076,0.15);
+}
+.nice-select-wrapper:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 31px;
+    height: 100%;
+    background-color: #ececec;
+    border-left: 1px solid #b8b8b8;
+}
+.nice-select-wrapper:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -4px;
+    width: 0;
+    height: 0;
+    border-left: 6.5px solid transparent;
+    border-right: 6.5px solid transparent;
+        
+    border-top: 8px solid #bcbcbc;
+    overflow: hidden;
+}
+
+.nice-select-wrapper label {
+    display: block;
+    min-height: 35px;
+    line-height: 33px;
+    padding: 1px 10px 0;
+    vertical-align: middle;
+    border-radius: inherit;
+}
+.nice-select-wrapper label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+}
+.nice-select-wrapper label .root {
+    opacity: 0.80;
+}
+.nice-select-wrapper label .root:after {
+    content: ": ";
+}
+.nice-select-wrapper label .value {
+    font-weight: bold;
+    color: #555;
+}
+
+.nice-select-wrapper select {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    vertical-align: middle;
+    font-size: 14px;
+    border: 0;
+    opacity: 0;
+    border-radius: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+// Progress bar
+// Notes: used in Follow More (Discover)
+.progressbar {
+    position: relative;
+    margin: 0 auto;
+    width: 222px !important;
+    height: 32px;
+    background-color: #fff;
+    // border-radius: 3px;
+    // overflow: hidden;
+    .transition(all .2s .4s linear);
+
+    // Conditions
+    &[data-complete="true"] {
+        height: 52px;
+        margin-bottom: 20px;
+        top: -10px;
+        .progressbar-total {
+            border-color: none;
+            position: relative;
+            z-index: 1;
+        }
+        .progressbar-value {
+            // position: relative;
+            z-index: 2;
+        }
+        .progressbar-result {
+            z-index: 3;
+            opacity: 1;
+            line-height: 50px;
+            height: 52px;
+        }
+    }
+
+    &[data-total="4"] {
+        &[data-progress="0"] .progressbar-value { width: 10px }
+        &[data-progress="1"] .progressbar-value { width:  25% }
+        &[data-progress="2"] .progressbar-value { width:  50% }
+        &[data-progress="3"] .progressbar-value { width:  75% }
+        &[data-progress="4"] .progressbar-value { width: 100% }
+    }
+
+    &[data-total="5"] {
+        &[data-progress="0"] .progressbar-value { width: 10px ;}
+        &[data-progress="1"] .progressbar-value { width:  20% ;}
+        &[data-progress="2"] .progressbar-value { width:  40% ;}
+        &[data-progress="3"] .progressbar-value { width:  60% ;}
+        &[data-progress="4"] .progressbar-value { width:  80% ;}
+        &[data-progress="5"] .progressbar-value { width: 100% ;}
+    }
+
+    .progressbar-value {
+        z-index: 2;
+        width: 10px;
+        height: inherit;
+        background-color: #94dff0;
+        -webkit-transition: width .2s linear, opacity .2s .2s linear;
+           -moz-transition: width .2s linear, opacity .2s .2s linear;
+            -ms-transition: width .2s linear, opacity .2s .2s linear;
+                transition: width .2s linear, opacity .2s .2s linear;
+        // Theme
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 1px solid #4fc1db;
+        border-radius: 3px;
+    }
+
+    .progressbar-result {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: inherit;
+        height: inherit;
+        line-height: 29px;
+        font-size: 1em;
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #4c4c4c;
+        background-color: #cde374;
+        border: 1px solid #97b324;
+        border-radius: 3px;
+        box-shadow: 0 2px 2px rgba(000,000,000,0.12);
+        opacity: 0;
+        .transition(opacity .2s .4s linear);
+        // Statuses
+        &:hover {
+            background-color: darken(#cde374, 4%);
+            border-color: darken(#cde374, 25%);
+        }
+    }
+    .progressbar-total {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #b8b8b8;
+        border-radius: 3px;
+        box-shadow: inset 0 0 5px rgba(199,199,199,0.50);
+    }
+}
+
+.progressbar--profile {
+    position: relative;
+    display: inline-block;
+    width: 122px !important;
+    height: 22px;
+    line-height: 20px;
+    &[data-total] {
+        &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            line-height: 21px;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 0 6px;
+            color: #4c4c4c;
+        }
+        &[data-progress="1"]:after { content:  "25%" }
+        &[data-progress="2"]:after { content:  "50%" }
+        &[data-progress="3"]:after { content:  "75%" }
+        &[data-progress="4"]:after { content: "100%" }
+    }
+}
+
+
+// @riccardo: I'm putting this here, move it aroud if you have a better place
+.user-settings-page .message-box.progress {
+    text-align: left;
+    padding: 20px 40px;
+    border-radius: 0;
+
+    ul {
+        list-style: disc;
+        margin-left: 35px;
+    }
+}
+
+// @riccardo: I'm putting this here, move it aroud if you have a better place
+.user-settings-page .button-group-killme {
+    text-align: right;
+    // XXX: shitty stuff
+    margin-top: -60px;
+    padding-right: 10px;
+}
+

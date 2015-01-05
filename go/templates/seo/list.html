@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> {{ .List.Title }} </title>
+  <link href="http://static.urli.st/favicon.png" type="image/png" rel="icon" />
+
+  <meta name="google-site-verification" content="{{ .Context.GoogleVerification }}" />
+  <meta property="og:title" content="{{ .List.Title }}"/>
+  <meta property="og:url" content="{{ .Context.BaseUrl }}/{{ .List.Slug }}"/>
+  <meta property="og:site_name" content="Urlist"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="{{ if .List.Description }}{{ .List.Description }}{{ else }} A list by {{ .Author.ScreenName }} {{ end }}"/>
+  <meta property="og:updated_time" content="{{ .List.UpdateTime}}"/>
+  <meta property="og:image" content="{{ .Image }}"/>
+
+  <meta property="fb:app_id" content="{{ .Context.FacebookAppId }}" />
+</head>
+<body id="list-hash-{{ .List.Hash }}">
+    <header>
+      <h1 id="list-title">{{ .List.Title }}</h1>
+
+      <img id="logo" src="{{ .Image }}" alt="{{ .List.Title }} Cover Image" />
+
+      <nav id="list-sections">
+        <ol>
+          {{ range .List.Sections }}
+          <li><a href="#{{ .Title }}" title="Jump to {{ .Title }} section }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ol>
+      </nav>
+    </header>
+
+    <ul id="list-links">
+      {{ range $k, $v := .UrlsBySection }}
+      <li>
+        <h5><a name="{{ $k }}">{{ $k }}</a></h5> 
+        <ul>
+          {{ range $v }}
+          <li>
+            <a id="url-hash-{{ .Hash }}" href="{{ $.Context.BaseUrl }}/{{ $.List.Slug }}/{{ .Slug }}" title="{{ .Title }} on Urlist">{{ .Title }}</a>
+            <p class="url-description">
+                {{ if .Description }}
+                {{ .Description }}
+                {{ else }}
+                {{ end }}
+            </p>
+          </li>
+          {{ end }}
+        </ul>
+      </li>
+      {{ end }}
+    </ul>
+
+    <aside>
+      <a id="author-username-{{ .Author.Username }}" href="{{ .Context.BaseUrl }}/user/{{ .Author.Username }}" rel="author" title="Visit {{ .Author.ScreenName }} profile">
+        <img src="{{ .Author.ProfileImage }}" alt="{{ .Author.ScreenName }}" />
+      </a>
+    </aside>
+
+    <footer>
+      <a href="{{ .Context.BaseUrl }}/i/lists/index.html" title="Browse our list directory">Urlist Lists Directory</a>
+      <a href="{{ .Context.BaseUrl}}" title="Join Urlist">Urlist</a>
+      <a rel="publisher" href="https://plus.google.com/115790304811312476586" title="Visit Urlist Google+ Profile">Urlist on Google+</a>
+    </footer>
+</body>
+</html>

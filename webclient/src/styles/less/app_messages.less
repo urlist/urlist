@@ -1,0 +1,234 @@
+// Message stack
+
+// Message (main)
+// : Simple message declarations
+.message {
+    color: #4c4c4c;
+
+    // Modifiers
+    &.is--info {
+        color: #3ab0c9;
+        background-color: #e7f5f8;
+        border-color: #7dd7ea;
+    }
+    &.is--confirm {
+        color: #7da034;
+        background-color: #edf9d3;
+        border-color: #b7cd88;
+    }
+    &.is--error {
+        color: #ef5c5c;
+        background-color: #ffeaea;
+        border-color: #f9bbbb;
+    }
+
+    &.is--hal9000 {
+        color: #ef5c5c;
+        border-color: #f9bbbb;
+        background: #ffeaea url(/static/assets/sprite-HAL9000.png) no-repeat 10px 50%;
+    }
+
+    // Childs
+    .highlight {
+        color: @link;
+    }
+    .message--text {
+        margin-right: 10px;
+    }
+    .suffix {
+        display: inline-block;
+        margin-left: 0.75em;
+    }
+}
+
+// Message Alert
+// : Shown on top of the screen over everything. Closes itself by default.
+.message-alert {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+
+    top: 35px;
+    left: 50%;
+    margin-left: -270px;
+
+    width: 540px;
+    line-height: 20px;
+
+    text-align: center;
+
+    padding: 12px;
+
+    background-color: #fffedf;
+    border: 1px solid #eee3b9;
+    border-radius: 4px;
+    box-shadow: 0 0 22px -2px rgba(076,076,076,0.60);
+
+    // Childs
+    .button {
+        // Affect the main .button class
+        margin-left: 1.75em;
+    }
+    .button-group {
+        // Extend the main .button-group class
+        margin-left: 0.5em;
+        .button {
+            margin-left: 0.25em;
+        }
+    }
+    .button-close {
+        @closeSize: 24px;
+        @closeColor: #dbdbdb;
+        @closeColor-hover: #9d9d9d;
+
+        position: absolute;
+        top: 4px;
+        right: 8px;
+        color: @closeColor;
+        font-size: @closeSize;
+        font-weight: normal;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover { color: #9d9d9d }
+    }
+}
+.cssanimations .message-alert {
+    opacity: 0;
+    -webkit-transform: translateY(-200px);
+       -moz-transform: translateY(-200px);
+            transform: translateY(-200px);
+    -webkit-animation: message_alert-entry 0.5s cubic-bezier(0.94, 0.06, 0.05, 0.95) forwards;
+       -moz-animation: message_alert-entry 0.5s cubic-bezier(0.94, 0.06, 0.05, 0.95) forwards;
+            animation: message_alert-entry 0.5s cubic-bezier(0.94, 0.06, 0.05, 0.95) forwards;
+}
+
+@-webkit-keyframes message_alert-entry {
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(20px);
+    }
+}
+@-moz-keyframes message_alert-entry {
+    to {
+        opacity: 1;
+        -moz-transform: translateY(20px);
+    }
+}
+@keyframes message_alert-entry {
+    to {
+        opacity: 1;
+        transform: translateY(20px);
+    }
+}
+
+// Message Bar
+// : Shown on top of the screen by default
+.message-bar {
+    overflow: hidden;
+    padding: 10px 0;
+    line-height: 20px;
+    background-color: #fffedf;
+
+    // Modifiers
+    &.is--rich-content {
+        text-align: left;
+        height: auto;
+        line-height: 20px;
+
+        .column {
+            display: table-cell;
+            vertical-align: middle;
+            height: 100%;
+            line-height: 100%;
+        }
+    }
+    &.is--fancy { // TMP
+        color: #ffffff;
+        background: #3a3e49 url(/static/assets/components/banner/bg-call-to-signup.png) center top repeat-x;
+    }
+
+    // Childs
+    .button {
+        margin-left: 1em;
+    }
+
+    img { display: block; }
+}
+
+
+// Message Box
+// : A box indipendent from it's container
+.message-box {
+    position: relative;
+    margin-top: 20px;
+    padding: 10px;
+
+    font-weight: 600;
+    text-align: center;
+
+    background-color: #fffedf;
+    border: 1px solid #eee3b9;
+    box-shadow: 0 1px 3px rgba(200,196,188,0.10);
+    border-radius: 2px;
+
+    // Options
+    &.is--upon {
+        margin-bottom: 20px;
+    }
+
+    // Childs
+    .button {
+        // Affect the main .button class
+        margin-left: 1.75em;
+    }
+    .button-group {
+        // Extend the main .button-group class
+        margin-left: 0.5em;
+        .button {
+            margin-left: 0.25em;
+        }
+    }
+}
+
+// @riccardo: added special case, if the message is displayed
+//            inside a #header, then remove margin-top and
+//            border radius
+.message-box.is--sticky {
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    background: #cde374;
+    border: none;
+
+    // @riccardo: I've copied the same code from "message-alert"...
+    .button-close {
+        @closeSize: 24px;
+        @closeColor: #6b6b6b;
+        @closeColor-hover: #9d9d9d;
+
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        color: @closeColor;
+        font-size: 40px;
+        font-weight: normal;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover { color: #9d9d9d }
+    }
+
+}
+
+
+// Message Block
+// : It's displayed inside the content but with its own dimensions
+.message-block {}
+
+// Message Inline
+// : It's displayed inside the content (like a phrase)
+.message-inline {
+    display: inline-block;
+}

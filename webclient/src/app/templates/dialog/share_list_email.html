@@ -1,0 +1,51 @@
+<div class="dialog-header">
+    Share by email
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <dl class="form-item form-item--prominent">
+        <dt class="column twelve">
+            <h5 class="information">Email <cite>{{title}}</cite> to your friends</h5>
+        </dt>
+    </dl>
+
+    <div class="content-alert alert-error alert-small js-recipients-error hide">
+        Please check again the recipients' emails
+    </div>
+
+    <dl class="form-item">
+        <dt class="column four">
+            <label>Email</label>
+        </dt>
+        <dd class="column eight">
+            <input class="textfield" type="text" name="emails" placeholder="Add emails separated by a comma" />
+        </dd>
+    </dl>
+
+    <dl class="form-item">
+        <dt class="column four">
+            <label>Message</label>
+        </dt>
+        <dd class="column eight">
+            <textarea class="js-simple-textarea" name="message" placeholder="I'm sharing with you this list...">
+                I think you'll find these links very interesting!
+            </textarea>
+        </dd>
+    </dl>
+
+</div>
+
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li>
+            <input class="button action js-url-save" type="submit" value="Send" />
+        </li>
+        <li>
+            <button class="button js-dialog-close js-cancel">Cancel</button>
+        </li>
+    </ul>
+
+</div>

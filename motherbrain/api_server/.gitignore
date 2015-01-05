@@ -1,0 +1,11 @@
+# use glob syntax.
+syntax: glob
+
+*.elc
+*.pyc
+*.orig
+config.json
+*~*
+development.ini
+GODMODE
+.DS_Store

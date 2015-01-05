@@ -1,0 +1,33 @@
+<div class="js-nav-sidebar">
+    <span class="stat-current js-nav-current">{{current}}</span> of <span class="stat-total js-nav-total">{{total}}</span>
+
+    <h5 class="link-title">
+        <a class="link-external" href="{{url}}" target="_blank">View</a>
+        {{title}}
+    </h5>
+
+    <div class="link-info">
+        By <a href="" class="author js-navigate js-author"></a>
+    </div>
+
+    <p class="link-description">
+        {{{html_description}}}
+    </p>
+
+    <div class="link-actions-section clearfix">
+        {{#if policies.share_list}}
+        <ul class="link-share">
+            {{!<li class="email"><a class="js-share-by-email" href="#">Share by Email</a></li>}}
+            <li class="twitter"><a class="js-share-on-twitter" href="#">Share by Twitter</a></li>
+            <li class="facebook"><a class="js-share-on-facebook" href="#">Share by Facebook</a></li>
+            <li class="gplus"><a class="js-share-on-google" href="#">Share by Google+</a></li>
+        </ul>
+        <span class="link-share-label">Share Link</span>
+        {{/if}}
+    </div>
+
+    <div class="link-list link-list-{{type}} js-urls {{type}}">
+    </div>
+
+</div>
+

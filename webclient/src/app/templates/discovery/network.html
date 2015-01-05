@@ -1,0 +1,43 @@
+{{#display_following}}
+<div class="content-std-elastic is--fluid" data-source="Discovery:onboardingnetwork">
+    <div class="empty-placeholder plain followmore">
+        <h3>It's dangerous to go alone!</h3>
+        <p class="leading">
+            Follow <b>5</b> of the <b>best curators</b> to get new content daily
+        </p>
+        <a href="/discover/follow" class="button action wider js-navigate">Get started</a>
+    </div>
+</div>
+{{/display_following}}
+
+{{#welcome}}
+<div class="content-std-elastic is--fluid js-welcome-message" data-source="Discovery:onboardingnetwork">
+    <div class="empty-placeholder plain followmore">
+        <h3>Welcome to Urlist</h3>
+        <p class="leading">
+            This is your network, feel free to explore. <br>
+            When you are done, check out <a href="/library/{{username}}" class="js-navigate">your profile</a>.
+        </p>
+        <a href="#" class="button action wider js-dismiss-welcome">OK</a>
+    </div>
+</div>
+{{/welcome}}
+
+{{#has_following}}
+<div class="content-std-elastic is--fluid">
+    <div class="toolbar toolbar-changedisplay">
+        <ul class="nav center">
+            <li>
+                <span class="input-switcher changedisplay-switcher js-changedisplay-switcher">
+                    <a class="state state-a active js-navigate" href="/discover/network">Lists</a>
+                    <a class="state state-b js-navigate" href="/discover/network/links">Links</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+{{/has_following}}
+
+<div class="content-full-elastic clearfix" data-source="Discovery:network">
+    <div class="widget-wrapper clearfix" data-view="network"></div>
+</div>

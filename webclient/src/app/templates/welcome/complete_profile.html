@@ -1,0 +1,90 @@
+<div class="category-onboarding-header">
+    <div class="wrapper">
+        <h4 class="title">Complete <strong>Your Profile</strong></h4>
+        <div class="pagination-next">
+            <a href="#" class="button js-next">Next &raquo;</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-std-elastic is--fluid">
+
+    <div class="onboarding-step onboarding-step--complete-profile">
+
+        {{!content--complete-profile}}
+        {{! Avatar }}
+        <fieldset class="complete-profile-line">
+            <figure class="avatar js-profile-image-container">
+                <img src="{{profile_image}}" class="js-profile-image" alt="">
+            </figure>
+
+            <form action="{{api_root}}api/user/profile-image" method="post" target="submit-profile-picture" enctype="multipart/form-data">
+                <h5 class="subheader">Profile Picture</h5>
+                <p class="details">PNG, GIF or JPG. Max size of 700K</p>
+
+                <a href="#" class="button small button--upload js-upload">Upload Picture</a>
+                <span class="js-upload-name"></span>
+
+                <input class="js-upload-real hide" type="file" accept="image/*" name="profile-image" />
+                <iframe class="hide js-submit-profile-picture" name="submit-profile-picture"></iframe>
+            </form>
+
+        </fieldset>
+
+        <br><br>
+
+        {{! Screen Name }}
+        <fieldset class="complete-profile-line">
+            <dl class="form-item">
+                <dt class="column three">
+                    <label>Name</label>
+                </dt>
+                <dd class="column nine">
+                    <input class="textfield js-screen-name" type="text" name="screen_name" value="{{screen_name}}" placeholder="Your profile name" data-validator="not-empty" />
+                </dd>
+            </dl>
+        </fieldset>
+
+        {{! Username (only once) }}
+        <fieldset class="complete-profile-line">
+            <dl class="form-item">
+                <dt class="column three">
+                    <label>Username</label>
+                </dt>
+                <dd class="column nine">
+                    <div class="grid">
+                        <div class="column" style="width:46%">
+                            <label>http://urli.st/library/</label>
+                        </div>
+                        <div class="column seven" style="width:54%">
+                            <input class="textfield js-username" type="text" name="username" value="{{username}}" data-validator="not-empty" placeholder="username" />
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+        </fieldset>
+
+        {{! Short Bio }}
+        <fieldset class="complete-profile-line">
+            <dl class="form-item">
+                <dt class="column three">
+                    <label>Short Bio</label>
+                </dt>
+                <dd class="column nine">
+                    <input class="textfield" type="text" placeholder="Tell us why you are awesome! (max 80 chars)" name="short_bio" value="{{short_bio}}" maxlength="80" />
+                </dd>
+            </dl>
+        </fieldset>
+
+        <fieldset class="complete-profile-line">
+            <a href="#" class="button button-save js-next">Save</a>
+            <a href="{{facebook_url}}" class="button button-facebook js-facebook-complete">Complete with Facebook in 1 click</a>
+        </fieldset>
+
+        <p class="reminder">
+            <b>*Do not include any sensitive information</b> (phone number, bank account number, etc.) in these boxes.
+        </p>
+
+    </div>
+
+</div>

@@ -1,0 +1,284 @@
+// Name: Profile Card
+// Desc: A special card tailored to show Profile details of our Users
+//
+// Template base:
+// templates/card/_profile.html (POC)
+
+// .discovery-stickyarea {
+//     min-height: 138px;
+//     background-color: none;
+//     .clearfix;
+
+//     .is-stickyarea.active-sticky h1 {
+//         margin-top: 37px;
+//     }
+// }
+
+.has-stickyarea {
+    padding-top: 149px;
+}
+
+.discovery-claim {
+    position: absolute;
+    z-index: 99;
+    height: inherit;
+    overflow: hidden;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.is-stickyarea {
+    overflow: hidden;
+    padding: 0;
+    .discovery-claim {
+        overflow: hidden;
+        // background-color: lightblue;
+    }
+}
+.active-sticky {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    margin-top: 0 inherit inherit;
+    margin-top: 0;
+    width: 100%;
+    min-height: 125px;
+    height: inherit;
+    padding: inherit;
+    & .discovery-stickyarea.completed {
+        // padding-top: 2px;
+        min-height: 145px;
+        margin-top: 12px;
+    }
+
+    background-color: @white;
+    box-shadow: 0 1px 10px rgba(000,000,000,0.10), 0 1px 0 rgba(000,000,000,0.15)
+}
+
+.profile-item {
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    clear: both;
+
+    .slide {
+        width: 1008px;
+        background-color: tomato;
+    }
+    .widget {
+        float: left;
+        margin-right: 20px;
+    }
+    .widget:last-child {
+        margin-right: 0;
+    }
+
+    .widget-toolbar,
+    .action-share-list {
+        display: none;
+    }
+    .widget-link {
+        height: 240px;
+        pointer-events: none;
+    }
+} // TMP
+.cardlist-shield,
+.cardlist-user-follow {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    width: 736px;
+    height: 322px;
+}
+.cardlist-shield.inhibit {
+    z-index: 34;
+}
+.cardlist-user-follow {
+    text-align: center;
+    line-height: 322px;
+    color: #fff;
+    font-size: 21px;
+    font-weight: bold;
+    text-shadow: 0 0 1px rgba(000,000,000,0.15);
+    background-color: rgba(000,000,000,0.5);
+    border-radius: 3px;
+    opacity: 0;
+    .transition(all .1s linear);
+}
+.cardlist-user-follow:hover,
+.cardlist-user-follow.hover {
+    text-decoration: none;
+    opacity: 1;
+}
+.cardlist-user-follow .label-follow,
+.cardlist-user-follow .label-following {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: inherit;
+    .transition(all .1s linear);
+}
+.cardlist-user-follow .label-following {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default;
+}
+.cardlist-user-follow.active {
+    background-color: fade(#3ab0c9, 50%);
+    border: 2px solid #3ab0c9;
+    opacity: 1 !important;
+    .label-follow { opacity: 0 !important; }
+    .label-following { opacity: 1 !important; }
+}
+
+// Base mixin (to extend)
+.card () {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    width: 232px;
+    height: 322px;
+    background-color: @white;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(188,188,188,0.25);
+}
+
+// Profile Card Item
+.card-profile {
+    // Mixins base
+    .card; // import card mixin
+    background-color: #4c4c4c;
+    color: #fff;
+
+    // Childs
+    .avatar {
+        display: block;
+        overflow: hidden;
+        margin: 35px auto 20px;
+        width: 150px;
+        height: 150px;
+        background-color: #fff;
+        border: 1px solid #575656;
+        // Childs
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: auto;
+        }
+    }
+    .screenname {
+        margin-bottom: 8px;
+        font: bold 18px/1 "PT Serif", Georgia, serif;
+        text-align: center;
+        // Childs
+        a {
+            color: inherit;
+        }
+    }
+    .stat-list {
+        text-align: center;
+        text-transform: lowercase;
+    }
+    .stat-list .stat-item {
+        display: inline-block;
+        margin: 0 0.25em;
+        // Modifiers
+        &.highlighted {
+            color: #3ab0c9;
+        }
+    }
+
+    .card-toolbar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden; // TMP
+        width: 100%;
+        height: 31px;
+        line-height: 31px;
+        font-size: 13px;
+        color: #9d9d9d;
+        background-color: #f7f7f7;
+    }
+
+    .card-action {
+        min-width: 90px;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        // background-color: #f0efef;
+        box-shadow: none;
+
+        &:hover {
+            // background-color: #e8e8e8;
+        }
+        &:active {
+            // background-color: #e2e2e2;
+        }
+    }
+    .following-list, .unfollow-list {
+        border-top-color: #fff;
+    }
+    .follow-list {
+        &:hover {
+            color: #3ab0c9;
+        }
+    }
+    .following-list {
+        color: #b8b8b8;
+        background: #f7f7f7;
+    }
+    .unfollow-list {
+        color: #ff7070;
+        &:hover {
+            // background: #f7f7f7;
+        }
+    }
+
+    .card-action-main {
+        margin-top: 15px;
+        text-align: center;
+        .button {
+
+        }
+    }
+
+}
+
+.widget-content {
+    position: relative;
+    height: 320px;
+    padding-top: 80px;
+
+    .title {
+        display: inline-block;
+        overflow: hidden;
+        margin: 0 0 5px 0;
+        padding: 15px 11px 4px;
+        font: bold 20px/24px "PT Serif", Georgia, serif;
+        color: #353535;
+        white-space: pre-line;
+        text-overflow: ellipsis;
+        i {
+            top: 0;
+            margin: 0;
+        }
+    }
+
+    .description {
+        margin: 5px 10px;
+        font-size: 14px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+} // end .card-profile

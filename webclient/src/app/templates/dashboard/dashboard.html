@@ -1,0 +1,115 @@
+<div class="content-dashboard clearfix" data-source="Dashboard:main">
+    <div class="library-page" data-source="Dashboard:main">
+
+        <div class="library-header">
+
+            <div class="line content-std-elastic is--fluid">
+                <div class="column twelve">
+
+                    <div class="media">
+                        <div class="medium avatar avatar-library">
+                            <img src="{{profile_image}}" alt="">
+                        </div>
+                        <div class="content content-library">
+                            <h1 class="screenname">{{screen_name}}</h1>
+                            <p class="shortbio">{{short_bio}}</p>
+
+                            <dl class="user-info">
+                                {{#if location}}
+                                <dt class="user-location">From <b class="location-value">{{location}}</b></dt>
+                                {{/if}}
+                                {{#show_facebook_link}}
+                                {{#has_facebook}}
+                                <dt class="user-facebook">Fb <a href="https://facebook.com/{{facebook_username}}" target="_blank">{{facebook_username}}</a></dt>
+                                {{/has_facebook}}
+                                {{/show_facebook_link}}
+                                {{#has_twitter}}
+                                <dt class="user-twitter"><a href="https://twitter.com/{{twitter_username}}" target="_blank">@{{twitter_username}}</a></dt>
+                                {{/has_twitter}}
+                                <dt class="user-website"><a href="{{normalizeUrl website}}" target="_blank">{{hostify website}}</a></dt>
+                            </dl>
+
+                            {{#is_mine}}
+                            {{#unless progress}}
+                            <a href="/settings" class="button edit-profile js-navigate">Edit Profile</a>
+                            {{/unless}}
+                            {{/is_mine}}
+
+                            {{#is_mine}}
+                            {{#if progress}}
+                            <div class="profile-progression">
+                                <a href="/settings" class="edit-profile-inline js-navigate">Click here to complete your profile</a>
+                                <div class="progressbar progressbar--profile js-profile-progressbar" data-progress="{{progress_num}}" data-total="{{progress_tot}}">
+                                    <div class="progressbar-total"></div>
+                                    <div class="progressbar-value"></div>
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{/is_mine}}
+
+                            {{^is_mine}}
+                            <a class="user-actions {{#following}}status-following{{/following}}" href="#">
+                                <span class="button action iconed follow-user js-follow-user">
+                                    <i class="mini-icon icon-small-add-user"></i> Follow
+                                </span>
+                                <span class="button following-user js-unfollow-user">Following</i></span>
+                                <span class="button unfollow-user js-unfollow-user">Unfollow</i></span>
+                            </a>
+                            {{/is_mine}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="toolbar toolbar-page">
+                <div class="content-std-elastic is--fluid">
+                    <ul class="nav left js-dashboard-nav">
+                        <li class="js-my-lists">
+                            <a class="js-navigate" href="/library/{{username}}">
+                                Lists <b class="cnt cnt-list-count js-my-lists-counter">{{my_lists_count}}</b>
+                            </a>
+                        </li>
+                        <li class="js-my-bookmarks">
+                            <a class="js-navigate" href="/library/{{username}}/bookmarks">
+                                Bookmarks <b class="cnt cnt-list-following js-following-lists-counter">{{following_lists_count}}</b>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav right">
+                        <li>
+                            <a class="js-following-stats" href="#">Following <b class="cnt-following-length">{{following_users_count}}</b></a>
+                        </li>
+                        <li>
+                            <a class="js-followers-stats" href="#">Followers <b class="cnt-following-length">{{followed_by_users_count}}</b></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div><!--  / .toolbar-header  -->
+
+    </div><!--  / .library-page  -->
+
+    <div class="content-std-elastic is--fluid js-changedisplay hide">
+        <div class="toolbar toolbar-changedisplay">
+            <ul class="nav center">
+                <li>
+                    <div class="input-toggle {{!changedisplay-switcher}} js-changedisplay-switcher">
+                        <div class="controls">
+                            <a class="state state-a js-navigate js-route js-route-all" href="/library/{{username}}">All</a>
+                            <a class="state state-b js-navigate js-route js-route-authored" href="/library/{{username}}/created">Created</a>
+                            <a class="state state-c js-navigate js-route js-route-joined" href="/library/{{username}}/joined">Joined</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content-full-elastic js-dashboard-page">
+        <div class="js-dashboard-content"></div>
+    </div>
+
+</div>
+

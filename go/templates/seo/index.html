@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Urlist </title>
+  <link href="http://static.urli.st/favicon.png" type="image/png" rel="icon" />
+
+  <meta name="google-site-verification" content="{{ .Context.GoogleVerification }}" />
+  <meta property="og:image" content="http://static.urli.st/fb-logo.png"/>
+  <meta property="og:title" content="Urlist"/>
+  <meta property="og:url" content="{{ .Context.BaseUrl }}"/>
+  <meta property="og:site_name" content="Urlist"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:description" content="Urlist is a social platform for organising, sharing and discovering links. 
+Collect your links individually or collaboratively, make lists about topics 
+you love and access your resources anywhere, anytime."/>
+
+  <meta property="fb:app_id" content="{{ .Context.FacebookAppId }}" />
+</head>
+<body>
+    <header>
+      <h1>Urlist</h1>
+      <h2>Collect and curate list of links</h2>
+    </header>
+
+    <p>
+      Urlist is a social platform for organising, sharing and discovering links. 
+      Collect your links individually or collaboratively, make lists about topics 
+      you love and access your resources anywhere, anytime.
+    </p>
+
+    <footer>
+      <a href="{{ .Context.BaseUrl }}/i/users/index.html" title="Browse our users directory">Urlist Users Directory</a>
+      <a href="{{ .Context.BaseUrl }}/i/lists/index.html" title="Browse our list directory">Urlist Lists Directory</a>
+      <a href="{{ .Context.BaseUrl}}" title="Join Urlist">Urlist</a>
+      <a rel="publisher" href="https://plus.google.com/115790304811312476586" title="Visit Urlist Google+ Profile">Urlist on Google+</a>
+    </footer>
+</body>
+</html>

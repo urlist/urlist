@@ -1,0 +1,38 @@
+<div class="widget widget-card card-link">
+    <div class="author-badge js-author">
+        <a href="#" class="medium avatar js-navigate">
+            <img src="{{profile_image}}" alt="">
+        </a>
+        <div class="content author-details">
+            <h6 class="username"><a href="#" class="js-navigate js-username">Username</a></h6>
+            <time class="timestamp">{{pretty_date}} ago</time>
+        </div>
+    </div>
+
+    <h3 class="title">
+        <a href="/{{list_hash}}/{{url_hash}}" class="{{!js-navigate}}" target="_blank">{{url_title}}</a>
+    </h3>
+    <h5 class="hostname"><img class="favicon js-favicon" src="{{or favicon '/static/assets/def-favicon.png'}}" alt="" /> {{host}}</h5>
+    <small class="indicator-relist {{show-if relist_amount}} js-has-tooltip" title="Relisted Link" data-tooltip></small>
+    <p class="description js-note {{show-if description}}">
+        {{{html_description}}}
+    </p>
+
+    <div class="toolbar card-toolbar">
+        <ul class="nav left">
+            <li>
+                <span>
+                    <span class="reference-list-index">
+                        <b class="js-index-current">{{position}}</b> of <b class="js-index-total">{{list_links_amount}}</b>
+                    </span>
+                    <span class="reference-list">in <a href="/{{list_hash}}">{{list_title}}</a></span>
+                </span>
+            </li>
+        </ul>
+        <ul class="nav right">
+            <li>
+                <a class="button wide card-action js-relist" href="#">Relist</a>
+            </li>
+        </ul>
+    </div>
+</div>

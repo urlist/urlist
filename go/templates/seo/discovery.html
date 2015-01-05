@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Urlist Discovery{{ if .FocusOn.Topic }} --- {{ .FocusOn.Topic }} {{ else }}{{ end }} </title>
+  <link href="http://static.urli.st/favicon.png" type="image/png" rel="icon" />
+
+  <meta name="google-site-verification" content="{{ .Context.GoogleVerification }}" />
+  <meta property="og:title" content="Urlist Discovery{{ if .FocusOn.Topic }} --- {{ .FocusOn.Topic }} {{ else }} {{ end }}"/>
+  <meta property="og:url" content="{{ .Context.BaseUrl }}/discover"/>
+  <meta property="og:site_name" content="Urlist"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="{{ if .FocusOn.Description }}{{ .FocusOn.Description }}{{ else }} A showcase of the best lists, curated by the Urlist editorial board. {{ end }}"/>
+  <meta property="og:image" content="{{ .Image }}"/>
+  <meta property="fb:app_id" content="{{ .Context.FacebookAppId }}" />
+</head>
+<body>
+    <header>
+      <h1>Discover Urlist</h1>
+      <h3>{{ if .FocusOn.Description }}{{ .FocusOn.Description }}{{ else }} A showcase of the best lists, curated by the Urlist editorial board. {{ end }}</h3>
+
+      <img id="logo" src="{{ .Image }}" alt="Discover Urlist" />
+    </header>
+
+    <ol id="list-links">
+      {{ range $i, $l := .FocusOn.Lists }}
+      <li>
+        <a id="list-hash-{{ $l.Hash }}" href="{{ $.Context.BaseUrl }}/{{ $l.Slug }}" title="">{{ $l.Title }}</a>
+      </li>
+      {{ end }}
+    </ol>
+
+    <footer>
+      <a href="{{ .Context.BaseUrl }}/i/lists/index.html" title="Browse our list directory">Urlist Lists Directory</a>
+      <a href="{{ .Context.BaseUrl}}" title="Join Urlist">Urlist</a>
+      <a rel="publisher" href="https://plus.google.com/115790304811312476586" title="Visit Urlist Google+ Profile">Urlist on Google+</a>
+    </footer>
+</body>
+</html>

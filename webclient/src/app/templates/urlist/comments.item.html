@@ -1,0 +1,22 @@
+<li class="line comment js-comment">
+    <div class="column one">
+        <div class="avatar">
+            <img class="js-author-avatar" src="" alt="" />
+        </div>
+    </div>
+    <div class="column nine">
+        <div class="comment-bubble">
+            <a class="comment-author js-navigate js-author" href="#">Username</a>
+            <div class="comment-date">{{pretty_date}}</div>
+
+            {{#if can_delete}}
+            <a class="comment-delete js-delete-comment" href="#">delete</a>
+            {{/if}}
+
+            <p class="comment-text">
+            {{{html_comment}}}
+            </p>
+        </div>
+    </div>
+    <div class="column two"></div>
+</li> <!-- end .comment -->

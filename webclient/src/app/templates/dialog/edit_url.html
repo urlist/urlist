@@ -1,0 +1,90 @@
+<div class="dialog-header">
+    Edit Link
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <dl class="form-item">
+        <dt class="column three">
+            <label>Edit title</label>
+        </dt>
+        <dd class="column nine">
+            <input class="textfield" type="text" name="title" value="{{title}}"/>
+        </dd>
+    </dl>
+
+    {{!url}}
+
+    <dl class="form-item">
+
+        <dt class="column three">
+            <label>Comment</label>
+        </dt>
+
+        <dd class="column nine">
+            <span class="textarea-with-toolbar on-bottom">
+                <textarea class="simple-textarea js-simple-textarea" name="description" data-count="chars" data-count-limit="400" rel="description-counter" placeholder="Why is this link interesting?">{{description}}</textarea>
+                <div class="toolbar">
+                    <ul class="nav left">
+                        <li class="secondary">
+                            <span>* formatting with markdown is
+                                <span class="help-area">
+                                    <i class="click-me">possible</i>
+                                    <cite class="tooltip-help">
+                                        Links are automatically hyperlinked. Use *for bold words* and **for italic words**
+                                    </cite>
+                                </span>
+                            </span>
+                        </li>
+                        {{!<li><a class="button small" href="#">Add Image</a></li>}}
+                    </ul>
+                    <ul class="nav right">
+                        {{!
+                        <li><span class="button small make-text-bold js-wrap-text-bold">Bold</span></li>
+                        <li><span class="button small make-text-italic js-wrap-text-italic">Italic</span></li>
+                        }}
+                        <li>
+                            <span class="counter-chars"><b id="description-counter">400</b> char</span>
+                        </li>
+                    </ul>
+                </div>
+            </span>
+        </dd>
+
+    </dl>
+
+    {{!<label class="line form-item">
+        <span class="column three">
+            <span class="simple-label">Choose Section</span>
+        </span>
+        <span class="column nine">
+            <select class="simple-select wide" name="target-list-section">
+                { { #sections } }
+                <option value="{ { section_id } }">{ { or title empty_title } }</option>
+                { { /sections } }
+            </select>
+        </span>
+    </label>}}
+
+</div>
+<div class="toolbar dialog-actions">
+
+    <ul class="nav left">
+        {{#if policies.remove_url}}
+        <li>
+            <a class="generic-action js-delete-url" href="#">Delete Link</a>
+        </li>
+        {{/if}}
+    </ul>
+
+    <ul class="nav right">
+        <li>
+            <input class="button action js-url-save" type="submit" value="Save" />
+        </li>
+        <li>
+            <button class="button js-dialog-close js-cancel">Cancel</button>
+        </li>
+    </ul>
+
+</div>

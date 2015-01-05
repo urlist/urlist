@@ -1,0 +1,35 @@
+<div class="dialog-content dialog-standalone">
+
+    <dl class="form-item form-item--alone form-item--nested list-link-area">
+        <label>Add link to</label>
+        <div class="list-selector-bookmarklet js-list-selector"></div>
+    </dl>
+
+    <dl class="form-item form-item--alone">
+        <label>Link title</label>
+        <input class="textfield" name="title" type="text" value="{{title}}" />
+        <span class="truncated-url">{{url}}</span>
+    </dl>
+
+    <div class="line form-item form-item--alone">
+        <label class="hidden">Description</label>
+        <textarea class="simple-textarea" name="description" data-count="chars" data-count-limit="400" rel="description-counter" placeholder="Comment&hellip;">{{description}}</textarea>
+
+        <div class="toolbar bookmarklet-status">
+        <ul class="nav right">
+            <li>
+                <span class="counter-chars"><b id="description-counter">400</b> char</span>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+</div>
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li><input class="button action js-url-save" type="submit" value="Save" /></li>
+        <li><button class="button js-dialog-close js-cancel">Cancel</button></li>
+    </ul>
+
+</div>

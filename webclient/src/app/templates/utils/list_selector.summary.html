@@ -1,0 +1,13 @@
+<dl class="form-item form-item--nested">
+    <!-- <dt class="column six"> -->
+        <label class="hide">Choose section</label>
+    <!-- </dt> -->
+    <dt class="column twelve">
+        <input type="hidden" name="list-type" value="reference" />
+        <select name="target-list-section" aria-label="Choose section">
+            {{#sections}}
+            <option value="{{section_id}}">{{or title empty_title}}</option>
+            {{/sections}}
+        </select>
+    </dt>
+</dl>

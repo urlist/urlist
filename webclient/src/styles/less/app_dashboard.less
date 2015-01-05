@@ -1,0 +1,298 @@
+// Badge for Notifications
+.has-bdg {}
+.bgd-notif-length {
+    // Variables
+    @fg: @white;
+    @bg: #f15555;
+    // Style
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    min-width: 17px;
+    line-height: 17px;
+    text-align: center;
+    color: @fg;
+    padding: 0 5px 1px;
+    background-color: @bg;
+    border-radius: 2px;
+    opacity: 1;
+    .transition(opacity 0.25s linear);
+
+    &:before {
+        content: attr(data-count);
+    }
+    &[data-count="0"] {
+        width: 0;
+        margin-left: -1em;
+        padding: 0;
+        opacity: 0;
+    }
+}
+
+.library-header {
+    padding: 40px 0 0;
+    box-shadow: 0 2px 3px rgba(107,107,107,0.08);
+
+    .avatar-library {
+        margin-left: 20px;
+        width: 150px;
+        height: 150px;
+        border: 1px solid #b8b8b8;
+        box-shadow: 0 0 2px rgba(184,184,184,1);
+    }
+    .avatar-library img {
+        width: 100%;
+        height: auto;
+    }
+
+    .content-library {
+        padding-left: 30px;
+    }
+    .content-library .screenname {
+        margin: 1px 0 15px;
+        font: bold 38px/1 @brand-serif;
+    }
+    .content-library .shortbio {
+        line-height: 1.3;
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+
+    .user-actions {
+
+        width: 112px;
+        margin-top: 14px;
+        display: block;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .button {
+            width: 100%;
+            height: 32px;
+            line-height: 30px;
+            padding: 0;
+        }
+        .following-user {
+            color: #b8b8b8;
+            border-color: #dcdcdc;
+        }
+        .unfollow-user {
+            color: #ff7070;
+        }
+
+        & .following-user { display: none; }
+
+        & .unfollow-user { display: none; }
+
+        &.status-following {
+            &:hover {
+                .unfollow-user {
+                    display: block;
+                }
+                .following-user {
+                    display: none;
+                }
+            }
+            .follow-user {
+                display: none;
+            }
+            .following-user {
+                display: block;
+            }
+            &.following-new:hover {
+                .following-user { display: block; }
+                .unfollow-user { display: none; }
+            }
+        }
+    }
+
+    .edit-profile {
+        width: 112px;
+        height: 32px;
+        line-height: 30px;
+        padding: 0;
+    }
+    .edit-profile-inline {
+        display: inline-block;
+        position: relative;
+        top: -5px;
+        padding-right: 12px;
+        line-height: 21px;
+        font-size: 13px;
+        color: #6b6b6b;
+        text-decoration: underline;
+    }
+    .profile-progression {
+        margin-top: 9px;
+    }
+
+    .user-info {
+        margin: -2px 0 20px;
+        color: #9d9d9d;
+        font-size: 0.875em;
+    }
+    .user-info dt {
+        display: inline-block;
+        margin-right: 0.75em;
+        overflow: hidden;
+        text-overflow: hidden;
+        white-space: ellipsis;
+    }
+}
+
+.toolbar-page {
+    margin-top: 39px;
+    height: auto;
+    line-height: 50px;
+    background-color: #efefef;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+
+    .nav { // deprecated
+        font-size: 16px;
+        height: inherit;
+        line-height: inherit;
+    }
+
+    .nav.left > li, .nav.right > li {
+        margin: 0;
+        // height: inherit;
+        // line-height: inherit;
+    }
+
+    .nav > li > a {
+        overflow: hidden;
+        display: block;
+        padding: 0 20px;
+        // height: inherit;
+        // line-height: inherit;
+        color: @text;
+    }
+
+    .nav > li.active > a, .nav > li > a:hover {
+        background-color: @white;
+        text-decoration: none;
+    }
+
+    .cnt {
+        margin-left: 0.5em;
+    }
+}
+
+.library-page {
+    z-index: 2;
+    position: relative;
+    padding: 0 0 25px;
+
+    .toolbar-changedisplay .changedisplay-switcher {
+        margin: 0 !important; // TMP
+    }
+
+    .content-alert { // ? DEL
+        margin-bottom: 30px;
+    }
+}
+
+.empty-placeholder-notifications,
+.empty-placeholder-dashboard {
+    min-height: 240px;
+}
+
+.search-result-items {
+    margin-top: 20px;
+
+    .highlight {
+        background-color: #e1f8fd;
+        font-weight: bold;
+    }
+
+    .result-related-list {
+        border-bottom: 1px solid #ededed;
+        display: block;
+        padding: 1px 0 0;
+        line-height: 18px;
+        font-size: 14px;
+        .list-title {
+            font-weight: 600;
+            &:before { content: "\201C"; display: inline; }
+            &:after { content: "\201D"; display: inline; }
+        }
+    }
+    .result-item {
+        margin-bottom: 16px;
+        padding-bottom: 7px;
+
+        .link-items {
+            padding: 10px 0;
+        }
+
+        .empty-link-item {
+            color: #848484;
+        }
+
+        .link-item {
+            position: relative;
+            padding-left: 55px;
+            a {
+                display: block;
+                position: relative;
+                padding: 7px 0;
+                color: #4c4c4c;
+                font-size: 16px;
+                line-height: 20px;
+                &:hover {
+                    text-decoration: none;
+                    & .link-favicon {
+                        opacity: 1.00;
+                    }
+                    & .link-title {
+                        text-decoration: underline;
+                    }
+                    & .url-hostname {
+                        color: #848484;
+                    }
+                }
+                .link-favicon {
+                    position: absolute;
+                    top: 8px;
+                    left: -28px;
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 11px;
+                    opacity: 0.40;
+                }
+                .url-hostname {
+                    margin-left: 0.25em;
+                    font-size: 14px;
+                    font-weight: normal;
+                    color: #9d9d9d;
+                    &:before { content: "\0028" }
+                    &:after  { content: "\0029" }
+                }
+            }
+            .desc {
+                margin-bottom: 12px;
+                line-height: 20px;
+                color: #9d9d9d;
+            }
+            .action-relist {
+                position: absolute;
+                top: 0;
+                left: 4px;
+                //line-height: 20px;
+                font-size: 14px;
+                font-weight: bold;
+                color: #db9e35;
+                padding: 7px 0;
+                opacity: 0.5;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

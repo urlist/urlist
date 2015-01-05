@@ -1,0 +1,253 @@
+<div class="landing-header">
+    <div class="line content-std-elastic">
+            <a class="logo" href="/">
+                <img src="/static/assets/landing/logo.png" alt="Urlist" />
+            </a>
+            <p class="app-access">
+                {{#LOGGED}}
+                <a class="js-navigate" href="/dashboard">Go to your Dashboard &raquo;</a>
+                {{/LOGGED}}
+                {{#ANON}}
+                Already registered?
+                <a class="js-login" href="/login">Login</a>
+                {{/ANON}}
+            </p>
+    </div>
+</div>
+
+<div class="landing-content">
+
+    {{#A-GROUP}}
+    <div class="landing-welcome">
+        <div class="landing-welcome-fold clearfix">
+            <div class="line content-std-elastic">
+
+                <h1 class="landing-heading-main">
+                    Share your Knowledge
+                </h1>
+                <h4 class="landing-subheading">
+                    Create lists with your favorite links on topics you’re passionate about. <br>
+                    <strong>Keep your links always at hand</strong>, from work or home. Easily <strong>share</strong> your lists
+                    with your friends or coworkers, on presentations and blogs.
+                </h4>
+                <a href="#" class="button button-landing confirm js-signup">Create your Library!</a>
+
+            </div> <!-- / .line -->
+        </div> <!-- / .line -->
+    </div> <!-- / .landing-welcome -->
+    {{/A-GROUP}}
+    {{#B-GROUP}}
+    <div class="landing-welcome landing-welcome-video">
+        <div class="landing-welcome-fold clearfix">
+            <div class="line content-std-elastic is--fluid">
+
+                <div class="column five">
+                    <h1 class="landing-heading-main">
+                        Share your Knowledge
+                    </h1>
+                    <p class="landing-subheading">
+                        Create lists with your favorite links on topics you’re passionate about.
+                        <strong>Keep your links always at hand</strong>, from work or home.
+                    </p>
+                    <p class="landing-subheading">
+                        Easily <strong>share</strong> your lists with your friends or coworkers,
+                        on presentations and blogs.
+                    </p>
+                    <a href="#" class="button button-landing confirm js-learn-more">Create your Library!</a>
+                    {{!<a href="#" class="button button-landing confirm js-signup">Make your List!</a>}}
+                </div>
+                <div class="column seven">
+                    <iframe class="video-trailer" src="http://player.vimeo.com/video/70849830" width="535" height="301" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                </div>
+
+            </div> <!-- / .line -->
+        </div> <!-- / .line -->
+    </div> <!-- / .landing-welcome.landing-welcome-video -->
+    {{/B-GROUP}}
+
+    <div class="landing-preview" data-source="Landing:preview">
+        <div class="line content-std-elastic is--fluid">
+            <div class="widget-wrapper"></div>
+
+            <a href="/discover" class="button button-landing action js-navigate">
+                Discover more
+            </a>
+        </div>
+    </div>
+
+    <div class="landing-promo" data-source="user-quotes">
+        <div class="line content-std-elastic is--fluid">
+        <div class="landing-slider js-landing-slider">
+
+            <div class="slide">
+                <div class="media slide-content">
+                    <div class="medium">
+                        <div class="avatar">
+                            <img src="//static.urli.st/website/landing/raabeatslesse.jpg" alt="" >
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="profile-details">
+                            <span class="profile-username">Raabster Raabe</span>
+                            <span class="profile-profession">Educator</span>
+                        </h4>
+                        <p class="profile-description">
+                            <span class="profile-quote">
+                                “Personally, I find Urlist invaluable for researching; I have used it for my own course work and for planning my curriculum.”
+                            </span>
+                            <a href="/library/raabeatslesse" class="profile-cta js-navigate">view profile</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="media slide-content">
+                    <div class="medium">
+                        <div class="avatar">
+                            <img src="//urli.st/media/profile_images/504f7899ee99851e43000011.png" alt="" >
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="profile-details">
+                            <span class="profile-username">Michele Gesser</span>
+                            <span class="profile-profession">K12 Technology Coach</span>
+                        </h4>
+                        <p class="profile-description">
+                            <span class="profile-quote">
+                               “I am a huge fan of Urlist! I teach technology professional development to K-12 educators and there’s nothing better than a one-stop-shop URList link with all of my resources.”
+                            </span>
+                            <a href="/library/k12techcoach" class="profile-cta js-navigate">view profile</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {{!
+            <div class="slide">
+                <div class="media slide-content">
+                    <div class="medium">
+                        <div class="avatar">
+                            <img src="//placehold.it/98x98" alt="" >
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="profile-details">
+                            <span class="profile-username">Kate P.</span>
+                            <span class="profile-profession">Blogger 3</span>
+                        </h4>
+                        <p class="profile-description">
+                            <span class="profile-quote">
+                                Home or work, school or library: you can access your lists from your own devices public computers.
+                            </span>
+                            <a href="#" class="profile-cta">view profile</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            }}
+
+        </div>
+        </div>
+    </div> <!-- / .landing-promo -->
+
+    <div class="landing-features">
+            <h3 class="claim">
+                Organize your surfing in a clever way
+            </h3>
+            <ul class="feature-grid">
+                <li class="feature-item feature-item-01">
+                    <div class="line content-std-elastic">
+                        <div class="feature-item-fold">
+                            <div class="image">
+                                <img src="/static/assets/landing/nice.png" alt="">
+                            </div>
+                            <div class="text">
+                                <h4 class="title">
+                                    Simple, handy, beautiful
+                                </h4>
+                                <p class="description">
+                                    Urlist is designed to be as <strong>easy</strong> as possible. <br>
+                                    No tags, no weird options, just links and lists. <br>
+                                    Add notes and customize the cover image to <strong>make your lists more personal</strong> and beautiful. Browse
+                                    the links in a snap, using our <strong>slideshow</strong> feature.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="feature-item feature-item-02">
+                    <div class="line content-std-elastic">
+                        <div class="feature-item-fold">
+                            <div class="image">
+                                <img src="/static/assets/landing/easy.png" alt="">
+                            </div>
+                            <div class="text">
+                                <h4 class="title">
+                                    The content that matters <br>
+                                    in one short link
+                                </h4>
+                                <p class="description">
+                                    Make a <strong>collaborative search</strong> with your team at work. Share references on a <strong>presentation</strong>. Help a friend sharing some good links about <strong>a topic you rule</strong>.
+                                    Using Urlist you need only one <strong>short link</strong> to share
+                                    a group of links together.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="feature-item feature-item-03">
+                    <div class="line content-std-elastic">
+                        <div class="feature-item-fold">
+                            <div class="image">
+                                <img src="/static/assets/landing/friendly.png" alt="">
+                            </div>
+                            <div class="text">
+                                <h4 class="title">
+                                    Your favorite links, every <br>
+                                    time you need them
+                                </h4>
+                                <p class="description">
+                                    Home or work, school or library: you can access <br>
+                                    your lists from your <strong>own devices</strong> or <strong>from public computers</strong>. With Urlist you’ll never need to backup your browser’s favorite again: all your links are saved and always accessible online.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="feature-item feature-item-04">
+                    <div class="line content-std-elastic">
+                        <div class="feature-item-fold">
+                            <div class="image">
+                                <img src="/static/assets/landing/discover.png" alt="">
+                            </div>
+                            <div class="text">
+                                <h4 class="title">
+                                    Find great content, shared <br>
+                                    by like-minded people
+                                </h4>
+                                <p class="description">
+                                    Every day teachers, designers, developers, <br>
+                                    and Internet addicts, collect their best resources using Urlist. <strong>Discover</strong> what they are sharing,
+                                    follow like-minded people to build your <strong>network <br>
+                                    of interests</strong>, and relist the links you like.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+    </div> <!-- / .landing-promo -->
+
+    <div class="landing-closing">
+        <div class="line content-std-elastic">
+            <h3 class="claim">
+                Everyone is an expert. <br>
+                <strong>Ready to share your passions?</strong>
+            </h3>
+
+            <a href="#" class="button button-landing confirm js-signup">Sign Up for free!</a>
+        </div>
+    </div>
+
+</div> <!-- / .landing-content -->

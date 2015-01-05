@@ -1,0 +1,58 @@
+{{#unless onboarding}}
+<div class="dialog-header--contextual">
+    Already registered? <a class="js-login" href="#">Login</a>
+</div>
+{{/unless}}
+
+<div class="dialog-content">
+
+    {{#if onboarding}}
+    <h4 class="heading">Unlock your first list!</h4>
+    <p class="subheading">Create an account and start curating your lists, <strong>its free!</strong></p>
+    {{else}}
+    <h4 class="heading">Join Urlist!</h4>
+    {{/if}}
+
+    <a class="button js-setnext-onboarding button-facebook" data-track-source href="{{facebook_url}}">Connect with <span>Facebook</span></a>
+
+    <p class="subheading">No password to remember and <strong>no spam on your wall :)</strong></p>
+
+    <iframe src="//www.facebook.com/plugins/facepile.php?href=http%3A%2F%2Ffacebook.com%2FUrlist&amp;app_id={{app_id}}&amp;size=small&amp;max_rows=1" scrolling="no" frameborder="0" class="promo-frame" allowTransparency="true"></iframe>
+
+    <div class="instruction simple-alert error-message hide" data-error="already-exists">
+        The email address is already taken.<br />
+        <a class="js-recover-password" href="#">Have you forgot your password?</a></p>
+    </div>
+
+    <div class="instruction simple-alert error-message hide" data-error="too-short">
+        Password must be at least 6 characters
+    </div>
+
+    <div class="instruction simple-alert error-message hide" data-error="invalid-password">
+        Password can contain only <a href="https://en.wikipedia.org/wiki/ASCII">a-z, A-Z and 0-9</a>. <br/>You can also sign in with Facebook
+    </div>
+
+    <div class="js-toggle-one">
+        <p class="instruction instruction--important"><a class="js-setnext-onboarding" href="{{google_url}}">Google+</a> or <a class="js-toggle" href="#">email and password</a></p>
+    </div>
+
+    <div class="js-toggle-two hide">
+        <p class="instruction">Email/Password Signup</p>
+
+        <dl class="form-item form-item--signup">
+            <label class="hidden">Your Email</label>
+            <input class="textfield" type="email" placeholder="Your Email" name="email" data-validator="email"/>
+
+            <label class="hidden">Choose a Password</label>
+            <input class="textfield" type="password" placeholder="Choose a Password" name="password" data-validator="not-empty" />
+
+            <input class="button js-setnext-onboarding confirm widest button--signup js-signup-me" type="submit" value="Confirm" />
+        </dl>
+    </div>
+
+    <p class="legal">
+        By creating an account, I accept Urlist’s <a href="/resources/terms" target="_blank">Terms of Service</a> and <a href="/resources/privacy" target="_blank">Privacy Policy</a>.
+    </p>
+
+</div>
+

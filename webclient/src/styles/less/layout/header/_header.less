@@ -1,0 +1,352 @@
+// Name: Header
+// Desc: Styles for Header
+//
+// Template base:
+// .header-app>...
+
+// Load Notification Popover
+@import "notifications";
+
+// Header
+.header-app {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    .full-height(60px);
+    background: @bgHeader;
+    box-shadow: 0 2px 4px rgba(000,000,000,0.15);
+
+    .app-logo {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -43px;
+        display: block;
+        overflow: hidden;
+        .full-height(60px);
+        &:hover img {
+            opacity: 1;
+        }
+    }
+    .app-logo img {
+        opacity: 0.32;
+        margin-top: 14px;
+        width: 86px;
+        height: 32px;
+        .transition(opacity 0.05s linear);
+    }
+
+    .app-navigation {
+        & > li {
+            &.active > a:not(.button), &.active > span:not(.button),
+            & > a:hover:not(.button), & > span:hover:not(.button) {
+                color: #ffffff;
+            }
+        }
+        & > li.active {
+            background-color: #3e3e3e;
+        }
+    }
+
+    .nav > li {
+        color: @bgColor;
+    }
+    .nav {
+
+        .item-activity {
+            .dropdown-menu {
+                margin-left: 10px;
+            }
+        }
+
+        .no-touch & .nav-item:hover .dropdown {
+            display: block;
+        }
+
+        .nav-item > a, .nav-item > span {
+            display: block;
+            .full-height(60px);
+            color: #b8b8b8;
+            padding: 0 12px;
+            .transition(color 0.05s linear);
+            & > i.mini-icon {
+                margin-right: 10px;
+            }
+            &:hover {
+                color: #ffffff;
+                text-decoration: none;
+            }
+            font-weight: 600;
+        }
+
+        .nav-signup {
+            margin: 0 10px;
+            .button {
+                font-size: 14px;
+            }
+        }
+
+        .nav-login a {
+            // color: #b8b8b8;
+            // font-weight: 600;
+            & {
+                color: #f7f7f7;
+                text-decoration: underline;
+            }
+        }
+
+    }
+
+    .new-list > span {
+        padding-left: 0 !important;
+        padding-right: 20px !important;
+    }
+
+    .nav-item-search {
+        display: inline-block;
+        margin-top: -2px;
+        width: 138px;
+        height: 30px;
+        vertical-align: middle;
+        position: relative;
+        padding: 0;
+
+        // Childs
+        &:after {
+            .pseudo-block();
+            z-index: 3;
+            content: "\e007";
+            right: 9px;
+            top: 7px;
+            width: 16px;
+            height: 16px;
+            font-family: "listicons";
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1;
+            color: #4c4c4c;
+        }
+        .search-input {
+            .appearance(none);
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            width: 138px;
+            margin: 0;
+            height: 30px;
+            background-color: #9d9d9d;
+            border: 0;
+            border-radius: 2px;
+            font-size: 14px;
+            padding: 0 30px 0 10px;
+            .placeholder-color(#4c4c4c);
+            .transition(all .1s ease-in-out);
+        }
+        // Hide the cancel button
+        ::-webkit-search-cancel-button { -webkit-appearance: none; }
+        // Hide the magnifying glass
+        ::-webkit-search-results-button { -webkit-appearance: none; }
+
+        .search-input.focused {
+            background-color: @white;
+            outline: 0;
+            .placeholder-color(#9d9d9d);
+        }
+        .search-submit {
+            position: absolute;
+            z-index: 3;
+            overflow: hidden;
+            right: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: none;
+            border: 0;
+            text-indent: 1000%;
+            cursor: pointer;
+        }
+
+        .search-choice {
+            position: absolute;
+            overflow: hidden;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-color: pink;
+            border-radius: 3px;
+            height: 100px;
+        }
+
+    }
+
+} // end .header
+
+.nav {
+
+    & > li.secondary > a, & > li.secondary > span {
+        color: #9d9d9d;
+    }
+
+    &.actions {
+        font-size: 1.166666667em;
+        font-weight: 600;
+        & > li > a {
+            color: #9d9d9d;
+        }
+        .primary {
+            a {
+                color: #58b3c6;
+            }
+        }
+    }
+
+    & > li {
+        .avatar {
+            display: inline-block;
+            position: relative;
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 0.25em;
+            margin-top: -4px;
+            background: #eee;
+            border: 1px solid #6b6b6b;
+            img {
+                display: block;
+                .square(22px);
+                &[src=""] { display: none }
+            }
+        }
+    }
+}
+
+.dropdown--category-grid {
+    min-width: 422px;
+}
+.dropdown--category-grid .subheader {
+    background-color: #ffffff;
+}
+.dropdown--category-grid .subcontent {
+    // background-color: #f7f7f7;
+}
+.dropdown--category-grid .menu-list li a.featured {
+    color: #3ab0c9;
+}
+.dropdown--category-grid .spotlight {
+    font-weight: 600;
+}
+
+.search_cta-list {
+    position: relative;
+    z-index: 2;
+    top: -3px;
+    padding-top: 3px;
+    overflow: hidden;
+    max-height: 0;
+    height: 0;
+    opacity: 0;
+    width: inherit;
+    background-color: @white;
+    box-shadow: 0 1px 2px rgba(000,000,000,0.50);
+    box-shadow: 0 1px 3px rgba(000,000,000,0.25), 0 1px 0 rgba(000,000,000,0.05);
+    .transition(max-height 40s linear);
+    // Modifiers
+    &.show {
+        max-height: 9999px;
+        height: auto;
+        // top: 0;
+        opacity: 1;
+    }
+}
+.search_cta-list ul.sublist li {
+    position: relative;
+    height: auto;
+    line-height: 30px;
+    border-top: 1px solid #dedede;
+}
+.search_cta-list ul.sublist li a {
+    display: block;
+    height: inherit;
+    line-height: inherit;
+    // font-weight: normal;
+    padding: 0 10px;
+    color: @text;
+}
+.search_cta-list ul.sublist li a:hover {
+    background-color: #e1f8fd;
+    text-decoration: none;
+}
+
+// Specific list for Saved Searches
+.search_cta-list .sublist-savedsearch {
+    font-weight: normal;
+}
+.search_cta-list .sublist-savedsearch ul {
+    color: #9d9d9d;
+    padding: 5px 0;
+    border-top: 1px solid #dedede;
+}
+.search_cta-list .sublist-savedsearch ul li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    line-height: inherit;
+    padding: 0 10px;
+    color: @text;
+}
+.search_cta-list .sublist-savedsearch ul li {
+    position: relative;
+    line-height: 22px;
+}
+.search_cta-list .sublist-savedsearch ul li .saved-searches-summary {
+    display: block;
+    padding: 0 10px 5px;
+    padding: 5px 10px;
+}
+
+.search_cta-list .sublist-savedsearch ul li:hover {
+    a {
+        color: @link;
+        text-decoration: none;
+    }
+    .search-delete {
+        opacity: 0.75;
+    }
+}
+
+.search_cta-list .sublist-savedsearch .search-delete {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    width: 10px;
+    height: 10px;
+    top: 6px;
+    right: 10px;
+    padding: 0;
+    background: url(/static/assets/btn-delete-saved-search.png) center center no-repeat;
+    white-space: nowrap;
+    text-indent: -9999px;
+    opacity: 0.25;
+}
+    .search_cta-list .sublist-savedsearch .search-delete:hover {
+        opacity: 1;
+    }
+
+
+// Helper transition class EXP
+.ac-cutted {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    -webkit-transition: max-height 30s linear, opacity .2s linear;
+       -moz-transition: max-height 30s linear, opacity .2s linear;
+        -ms-transition: max-height 30s linear, opacity .2s linear;
+            transition: max-height 30s linear, opacity .2s linear;
+}
+.ac-cutted-off {
+    overflow: visible;
+    max-height: 9999px;
+    opacity: 1;
+}

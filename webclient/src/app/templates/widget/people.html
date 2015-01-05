@@ -1,0 +1,12 @@
+<ul class="nav left" style="overflow: hidden">
+    <li class="authors">
+        <span class="user {{#hide-if-gt contributors_amount 0}}hide{{/hide-if-gt}}">
+            By <a class="screenname js-screenname js-navigate" href="#">{{screenname}}</a>
+        </span>
+        <span class="followers {{hide-if contributors_amount 0}}">
+            <i class="mini-icon icon-small-users"></i>
+            By <a class="screenname js-screenname js-navigate" href="#">{{screenname}}</a>
+            <b>+{{contributors_amount}}</b>
+        </span>
+    </li>
+</ul>

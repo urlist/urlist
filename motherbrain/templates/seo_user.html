@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page-title %}{{ user_data.get('screen_name') }}{% end %}
+
+{% block body %}
+  <header>
+    <h1>{{ user_data.get('screen_name') }}'s profile</h1>
+    <h2>{{ user_data.get('username') }}</h2>
+  </header>
+
+  <ol>
+  {% for list in lists %}
+    <li>
+      <a href="{{ list.get('hash') }}.html">{{ list.get('title') }}</a>
+    </li>
+  {% end %}
+  </ol>
+
+{% end %}

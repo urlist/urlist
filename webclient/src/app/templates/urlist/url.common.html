@@ -1,0 +1,85 @@
+<li class="link-item js-url-item clearfix {{appendiftrue is_updated "ac-status-change"}} {{#if _status}}status-{{_status}}{{/if}}" data-cid="{{cid}}" data-hash="{{hash}}">
+    <div class="link-content">
+
+        {{#if policies.sort_list}}
+        <div class="drag-handle ui-drag-handle"></div>
+        {{/if}}
+
+        <a class="url-title js-url-title" href="/{{list_hash}}/{{hash}}" target="_blank">{{title}}</a>
+
+        <div class="note js-note {{show-if description}}">
+            <p class="note-text js-text">
+                {{{html_description}}}
+            </p>
+        </div>
+
+        <div class="toolbar small link-toolbar">
+
+            <ul class="nav left context">
+                <li>
+                    <span class="url-favicon">
+                        <img class="js-favicon" src="{{or favicon '/static/assets/def-favicon.png'}}" alt="" />
+                    </span>
+                </li>
+                <li>
+                    <span class="url-hostname">{{host}}</span>
+                </li>
+                {{#by_contributor}}
+                <li>
+                    <span class="url-author">by <a href="/library/{{user_id}}" class="js-url-author js-navigate">{{user_id}}</a></span>
+                </li>
+                {{/by_contributor}}
+
+                <li class="secondary {{show-if relist_amount}}">
+                    <a class="show-relist js-toggle-relist" href="#">
+                    {{#if from_user_id}}
+                        <span class="msg-relist">
+                            <i class="tiny-icon tiny-icon-relist"></i>
+                            {{relist_amount}} relist{{plural relist_amount}}
+                        </span>
+                        from
+                        <span class="js-relist-author relist-subject">
+                        </span>
+                    {{else}}
+                    <span class="msg-relist">
+                        <i class="tiny-icon tiny-icon-relist"></i>
+                        {{relist_amount}} relist{{plural relist_amount}}
+                    </span>
+                    {{/if}}
+                    </a>
+                </li>
+
+                <li class="{{show-if relist_amount}}">
+                    <a class="show-relist-action js-toggle-relist js-toggle" href="#">
+                        <span class="js-toggle-one">view&hellip;</span>
+                        <span class="js-toggle-two">close</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="toolbar small link-actions">
+
+            <ul class="nav right actions">
+
+                {{#if policies.edit_url}}
+                <li>
+                    <a href="#" class="js-edit"><i class="mini-icon icon-midi-more"></i> <span>Edit</span></a>
+                </li>
+                {{/if}}
+
+                {{#if policies.edit_url}}
+                <li><a class="js-move-url" href="#"><i class="mini-icon icon-midi-move"></i> <span>Move</span></a></li>
+                {{/if}}
+                {{#if policies.share_list}}
+                <li class="primary"><a class="js-relist" href="#"><i class="mini-icon icon-midi-relist"></i> <span>Relist</span></a></li>
+                {{/if}}
+            </ul>
+        </div>
+
+        <div class="relist-container js-relist-container">
+        </div>
+    </div>
+
+</li> <!-- end .link-item -->

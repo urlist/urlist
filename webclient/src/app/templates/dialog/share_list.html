@@ -1,0 +1,78 @@
+<div class="dialog-header">
+    {{#if embed}}
+        List widget
+    {{/if}}
+    {{#unless embed}}
+        Share this List
+    {{/unless}}
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    {{#unless embed}}
+    <dl class="form-item">
+        <dt class="column four">
+            <label>Copy &amp; paste the link</label>
+        </dt>
+        <dd class="column eight">
+            <input class="textfield" type="text" value="{{full_url}}" autofocus readonly />
+        </dd>
+    </dl>
+
+    <dl class="form-item">
+        <dt class="column four">
+            <label>Or use instead</label>
+        </dt>
+        <dd class="column eight">
+            <div class="toolbar share_option-bar">
+                <ul class="nav left share_option-list">
+                    <li class="share_option-item share_option-email"><a class="js-trigger-share--email" title="Share via Email" href="#">Email</a></li>
+                    <li class="share_option-item share_option-gplus"><a class="js-trigger-share--gplus" title="Share on Google+"href="#">Google +</a></li>
+                    <li class="share_option-item share_option-twitter"><a class="js-trigger-share--twitter" title="Share by Twitter" href="#">Twitter</a></li>
+                    <li class="share_option-item share_option-facebook"><a class="js-trigger-share--facebook" title="Share to Facebook" href="#">Facebook</a></li>
+                </ul>
+            </div>
+        </dd>
+    </dl>
+    {{/unless}}
+
+    {{#if embed}}
+    <dl class="form-item">
+        <dt class="column four">
+            <label>Copy &amp; Paste this code</label>
+            {{!<div class="notice">Copy and paste the provided HTML code</div>}}
+        </dt>
+        <dd class="column eight js-toggle">
+            <textarea class="has--code js-for-clipboard js-simple-textarea js-toggle-one" readonly autofocus>
+                &lt;blockquote class="urlist-list" id="urlist-{{hash}}"&gt;
+                    &lt;h4&gt;{{urls_amount}} Links from: &lt;a href="{{full_url}}"&gt;{{title}}&lt;/a&gt;&lt;/h4&gt;
+                    {{#if description}}&lt;p&gt;{{{html_description}}}&lt;/p&gt;{{/if}}
+                    &lt;small&gt;&mdash;&lt;a href="//urli.st/library/{{author_username}}"&gt;{{author_screenname}}&lt;/a&gt;, via &lt;a href="//urli.st"&gt;Urlist&lt;/a&gt;&lt;/small&gt;
+                &lt;/blockquote&gt;
+                &lt;script async src="{{embedroot}}/widget/libs/embed.js"&gt;&lt;/script&gt;
+            </textarea>
+            <textarea class="has--code js-for-clipboard js-simple-textarea js-toggle-two" readonly>
+                &lt;iframe id=&quot;list-widget-{{hash}}&quot; style=&quot;box-shadow: 0 1px 3px rgba(188,188,188,0.25);border-radius: 3px;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;-webkit-background-clip: border-box;border: 1px solid #d9d9d9;display: block;overflow: hidden; background-color: transparent;width: 100%;max-width: 620px;margin: 0 auto 20px autopadding: 0;padding: 0;border: 0;height:320px&quot; src=&quot;http://urli.st/widget/{{hash}}&quot;&gt;&lt;/iframe&gt;
+            </textarea>
+
+            <label class="toggle-label">
+                <input class="js-toggle-advanced-embedding" type="checkbox">
+                No Javascript <span class="small">(works best on Wordpress)</span>
+            </label>
+
+        </dd>
+    </dl>
+    {{/if}}
+
+</div>
+
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li>
+            <button class="button js-dialog-close js-cancel">Close</button>
+        </li>
+    </ul>
+
+</div>

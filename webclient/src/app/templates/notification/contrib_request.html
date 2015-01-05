@@ -1,0 +1,22 @@
+<li class="indepth-notification-item js-request{{^read_at}} new{{/read_at}}" data-request-id="{{data.notification_id}}">
+    <div class="notification-content new-contributor-request">
+        <a href="/library/{{username}}" class="sender js-navigate">{{user_screen_name}}</a>
+        <span class="action">invited you to add links to</span>
+        <a href="/{{data.list_hash}}" class="target js-navigate">{{data.list_title}}</a>
+    </div>
+
+    <ul class="action-toolbar js-action-toolbar">
+        {{#unless status}}
+        <li>
+            <a href="#" class="button action js-accept-request">Accept</a>
+        </li>
+        <li>
+            <a href="#" class="button js-decline-request">Decline</a>
+        </li>
+        {{/unless}}
+        <li>
+            <small class="timestamp">{{prettydate sent_at}}</small>
+        </li>
+    </ul>
+</li>
+

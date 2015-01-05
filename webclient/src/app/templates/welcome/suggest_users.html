@@ -1,0 +1,52 @@
+<div class="category-onboarding-header">
+    <div class="wrapper">
+        <h4 class="title">Find <strong>Friends</strong></h4>
+        <div class="pagination-next">
+            <a href="#" class="button js-next">Next &raquo;</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-std-elastic is--fluid">
+
+    <div class="content-onboarding-suggest_users js-toggle {{#facebook_username}}js-switch{{/facebook_username}}">
+
+    <div class="suggest-connect hide js-show-connect">
+        <a href="{{facebook_url}}" class="button button-facebook--onboarding">Connect with <span>Facebook</span></a>
+        <p class="notice">
+            <strong>No spam,</strong> no automatic posting on your wall!
+        </p>
+    </div>
+
+    <div class="js-show-invite">
+        <ul class="user-list--onboarding">
+            {{#to_follow}}
+            <li class="user-item">
+                <figure class="avatar"><img src="{{profile_image}}" alt=""></figure>
+                <label class="screenname">{{screen_name}}</label>
+
+                <a class="follow-actions {{#following}}is--active{{/following}}" href="#" data-user_id="{{user_id}}">
+                    <span class="button action button-action action--follow    js-follow-user">Follow!</span>
+                    <span class="button        button-action action--following js-unfollow-user">Following</span>
+                </a>
+            </li>
+            {{/to_follow}}
+
+
+            {{#invite}}
+            <li class="user-item">
+                <figure class="avatar"><img src="{{profile_image}}" alt=""></figure>
+                <label class="screenname">{{screen_name}}</label>
+
+                <a class="follow-actions {{#following}}is--active{{/following}}" href="#" data-facebook_id="{{facebook_id}}">
+                    <span class="button button-action action--follow    js-invite-user">Invite</span>
+                    <span class="button button-action action--following js-unfollow-user">Invited</span>
+                </a>
+            </li>
+            {{/invite}}
+        </ul>
+    </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="search-result" data-source="Dashboard:search">
+    <div class="content-std-elastic is--fluid">
+        <ul class="search-result-items">
+
+            {{#withLinks}}
+            <li class="result-item">
+                <span class="result-related-list">From <a href="/{{list_hash}}" class="list-title js-navigate">{{highlight ../stems list_title}}</a></span>
+                <ul class="link-items">
+                    {{#urls}}
+                    <li class="link-item">
+                        <a href="/{{list_hash}}/{{url_hash}}" target="_blank">
+                            <img class="link-favicon js-favicon" src="{{favicon}}" alt="" />
+                            <span class="link-title">{{highlight ../../stems url_title}}</span>
+                            <span class="url-hostname">{{hostify url}}</span>
+                        </a>
+                        <p class="desc {{show-if url_description}}">
+                            <span class="js-desc">{{highlight ../../stems url_description}}</span>
+                        </p>
+                        <a href="#" class="action-relist js-relist" data-listhash="{{list_hash}}" data-urlhash="{{url_hash}}">
+                            <i class="mini-icon icon-midi-relist"></i></a>
+                    </li>
+                    {{/urls}}
+
+                    {{^urls}}
+                    <li class="empty-link-item">
+                        No links matching.
+                    </li>
+                    {{/urls}}
+                </ul>
+            </li>
+            {{/withLinks}}
+
+            {{!<a href="#" class="button wide narrow">Load More&hellip;</a>}}
+
+        </ul>
+    </div>
+</div>

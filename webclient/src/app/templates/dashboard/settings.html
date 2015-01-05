@@ -1,0 +1,190 @@
+<div class="line user-settings-page">
+
+    <div class="column twelve">
+
+        <h1 class="page-title">Edit Settings</h1>
+        
+        <div class="button-group-killme">
+            <a href="/library/{{username}}" class="button js-navigate">Back to profile</a>
+            <input class="button action settings-save js-settings-save" type="submit" value="Save changes" />
+        </div>
+
+        {{#if progress}}
+        <div class="message message-box progress js-progress-box">
+            <h4>Your profile is <strong class="js-progress_percentage"></strong> complete. </h4>
+
+            <ul class="js-completion-ul">
+                <li class="progress" data-progress="screen_name" style="text-decoration:line-through;">add your Name (or a nickname. We don't ask for your real name)</li>
+                <li class="progress" data-progress="short_bio" style="text-decoration:line-through;">add a short biography in 80 chars</li>
+                <li class="progress" data-progress="profile_image" style="text-decoration:line-through;">upload a Profile Picture</li>
+            </ul>
+        </div>
+        {{/if}}
+        
+        <h4 class="section-title">Profile</h4>
+        <p class="section-info">These info will appear on your public profile</p>
+
+        <div class="line form-section form-section-profile">
+
+            <div class="column six">
+
+                <label class="simple-label">
+                    Name
+                    <input class="simple-input js-screen-name" placeholder="Your profile name" type="text" name="screen_name" value="{{original_screen_name}}" data-validator="not-empty" />
+                </label>
+                <label class="simple-label">
+                    Short Bio
+                    <input class="simple-input" type="text" placeholder="Tell us why you are awesome! (max 80 chars)" name="short_bio" value="{{short_bio}}" maxlength="80" />
+                </label>
+                <label class="simple-label">
+                    Location
+                    <input class="simple-input" type="text" placeholder="City, Country" name="location" value="{{location}}" />
+                </label>
+                <label class="simple-label">
+                    <input type="checkbox" name="show_facebook_link" {{checkedif show_facebook_link}} />
+                    Show a link to my Facebook profile on my profile
+                </label>
+
+
+            </div>
+            <div class="column six">
+
+                <fieldset class="media avatar-change-field">
+                    <div class="medium avatar js-profile-image-container">
+                        <img src="{{profile_image}}" alt="Your profile image" class="js-profile-image" />
+                    </div>
+
+                    <form action="{{api_root}}user/profile-image" method="post" target="submit-profile-picture" enctype="multipart/form-data">
+                        <div class="content context">
+                            <h5 class="field-subheader">Profile Picture</h5>
+                            <p class="field-info">PNG, GIF or JPG. Max size of 700K</p>
+
+                            <a href="#" class="button small js-upload">Upload Picture</a>
+                            <span class="js-upload-name"></span>
+
+                            <input class="js-upload-real hide" type="file" accept="image/*" name="profile-image" />
+                        </div>
+                        <iframe class="hide js-submit-profile-picture" name="submit-profile-picture"></iframe>
+                    </form>
+
+                </fieldset>
+
+                <label class="simple-label">
+                    Website
+                    <input class="simple-input" type="text" name="website" value="{{website}}" />
+                </label>
+
+            </div>
+
+        </div>
+
+        <p class="section-notice"><b>*Do not include any sensitive information</b> (phone number, bank account number, etc.) in these boxes.</p>
+
+        <h4 class="section-title">Account Settings</h4>
+        <p class="section-info">Email/Password and social logins</p>
+
+        <div class="line form-section form-section-account-settings">
+
+            <div class="column six">
+
+                <label class="simple-label">Username
+                    {{#if username_changed_at}}
+                    <div class="simple-value">
+                        http://urli.st/library/<em>{{username}}</em>
+                    </div>
+                    {{else}}
+                    <div class="simple-value">
+                        http://urli.st/library/<input value="{{username}}" class="simple-input input-with-label" name="username" />
+                    </div>
+                    {{/if}}
+                </label>
+
+                {{#if can_edit_username}}<p class="simple-label"><b>Note: you can change username just once!</b></p>{{/if}}
+
+                <label class="simple-label">Email <input class="simple-input" type="text" value="{{email}}" disabled /></label>
+
+                {{!
+                <label class="simple-label">Add a password for login <a class="button button-edit js-password-add" href="#">Add Password</a></label>
+                }}
+
+
+                <label class="simple-label">Password <a class="button button-edit button-edit-shfted js-password-edit" href="#">Change Password</a></label>
+
+            </div>
+            <div class="column six">
+
+                <fieldset class="connect-social-field">
+                    <h5 class="field-subheader">Social Networks Connections</h5>
+
+                    <label class="label-connection">
+                        Log in with <b>Facebook</b> <input class="js-oauth" type="checkbox" {{checkedif facebook_username}} data-provider="facebook" />
+                        <span class="connect-status {{#if facebook_username}}established{{/if}} js-connect-status">
+                            {{#if facebook_username}}
+                            Connected!
+                            {{else}}
+                            Not connected!
+                            {{/if}}
+                        </span>
+                    </label> <br />
+
+                    <label class="label-connection">
+                        Log in with <b>Twitter</b> <input class="js-oauth" type="checkbox" {{checkedif twitter_username}} data-provider="twitter" />
+                        <span class="connect-status {{#if twitter_username}}established{{/if}} js-connect-status">
+                            {{#if twitter_username}}
+                            Connected!
+                            {{else}}
+                            Not connected!
+                            {{/if}}
+                        </span>
+                    </label> <br />
+
+                    <label class="label-connection">
+                        Log in with <b>Google</b> <input class="js-oauth" type="checkbox" {{checkedif google_username}} data-provider="google" />
+                        <span class="connect-status {{#if google_username}}established{{/if}} js-connect-status">
+                            {{#if google_username}}
+                            Connected!
+                            {{else}}
+                            Not connected!
+                            {{/if}}
+                        </span>
+                    </label>
+                </fieldset>
+
+            </div>
+
+        </div>
+
+        {{!<p class="section-notice"><a class="click-me js-deactivate-account" href="#">Deactivate Account</a></p>}}
+
+        <h4 class="section-title">Notifications</h4>
+        <p class="section-info">Control when Urlist sends emails to you</p>
+
+        <div class="line form-section form-section-notifications">
+
+            <div class="column three section-info">
+                Send me an email when:
+            </div>
+
+            <div class="column five">
+                <label class="simple-label">
+                    <input type="checkbox" name="notify_add_url" {{checkedif notify_add_url}} /> There is a <b>new link</b> on my lists
+                </label>
+                <label class="simple-label">
+                    <input type="checkbox" name="notify_relist" {{checkedif notify_relist}} /> My links are <b>relisted</b>
+                </label>
+                <label class="simple-label">
+                    <input type="checkbox" name="notify_follow_user" {{checkedif notify_follow_user}} /> I'm <b>followed</b> by someone new
+                </label>
+                <label class="simple-label">
+                    <input type="checkbox" name="notify_follow_list" {{checkedif notify_follow_list}} /> Someone is <b>following</b> my lists
+                </label>
+                <label class="simple-label">
+                    <input type="checkbox" name="notify_suggest_url" {{checkedif notify_suggest_url}} /> Someone is <b>suggesting</b> a link
+                </label>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

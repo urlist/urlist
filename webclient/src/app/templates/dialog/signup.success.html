@@ -1,0 +1,31 @@
+<div class="dialog-header">
+    Thank you!
+    {{^onboarding}}
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+    {{/onboarding}}
+</div>
+
+<div class="dialog-content">
+    <dl class="form-item">
+        <dt class="column twelve">
+            <h5 class="question is--important">
+                To complete the process you must activate your account.
+            </h5>
+            <p class="description--lead">
+                We’ve sent a confirmation email. Please <strong>check your inbox</strong> and <strong>click on the link</strong> to activate your account.
+            </p>
+        </dt>
+    </dl>
+</div>
+
+{{^onboarding}}
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li>
+            <a class="button button-dialog-close js-dialog-close" href="#">Close</a>
+        </li>
+    </ul>
+
+</div>
+{{/onboarding}}

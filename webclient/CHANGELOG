@@ -1,0 +1,198 @@
+2013/09/12
+- Add Categories graphical menu (Discover)
+- Static pages have flexible layout
+
+
+2013/09/05
+- Add CTA/Survey in Education Category for teachers and educators
+- New, «Advanced» Embed List option
+- Minor fixes
+
+
+2013/09/04
+- Remove old, useless code and assets
+- Remove imgLiquid JS library
+- Minor fixes
+
+
+2013/09/03
+- Add Notifications Counter in Document Title
+
+
+2013/08/26
+- remove CTA to join beta
+
+
+2013/08/22
+- Add profile completion
+
+
+2013/08/21
+- add CTA to join beta to anon users
+
+
+2013/08/16
+- Allow adding multiple urls
+
+
+2013/08/15
+- Add CTA to join Beta
+
+
+2013/08/12
+- Add "Place" category
+
+
+2013/08/9
+- Empty sections in other peoples lists don't show up
+
+
+2013/07/31
+- Add autoload for new profiles in the `follow more` page
+- Add "create your network" CTA
+- Add a new, simplified, Signup Dialog
+
+
+2013/07/25
+- Introduce network activity
+- Introduce follow more
+
+
+2013/07/24
+- Hotfix for (secret) edited List being transformed to public
+- Temporarily hide «My Network» in Discover
+- New Landing Page with AB test with video or not
+
+
+2013/07/17
+- Introduced first iteration of multiple master
+- Polish the CTA on the List Page
+
+
+2013/07/16
+- Updated backbone to 1.0.0
+- Introduced namespacing (everything of interest is found under ul)
+- Introduced proper documentation across the new code
+- Added beginnings of a unit- and integration testing framework
+- Pre-boarding is now disabled
+- Follow more is ready but hidden: needs some other work
+- Minor fixes
+
+
+2013/07/15
+- add aggressive signup dialog
+
+
+2013/07/09
+- Bookmarklet: custom select elements, minor layout changes
+- Login Dialog: became more mobile friendly
+- Add random claims in List Page (middle page)
+- Add a more user friendly confirm message when adding a List
+- «Bookmark» becomes «Add to Library» as a general action on the List
+- Fix for short Bookmarklet (now it shows more often)
+
+
+2013/07/01
+- Add different CTAs in List Page
+
+
+2013/06/24
+ - Discover: add 'top list' page
+ - Embed: widget available for all
+ - Main: add link to blog in the footer
+ - List: tweak button size in list header
+
+
+2013/06/19
+ - Router: keep url params when rewriting the url with the proper slug
+ - Widget: add code to embed widget! Available only to selected users
+
+
+2013/06/17
+ - Embed: add code to embed list
+
+
+2013/06/11
+ - List: cover image (flickr and remote URL, authorship)
+ - Landing: restyling
+ - List Card: cover image on the top
+ - List Card: share button (on hover)
+ - Discover: internal testing (like global search)
+
+
+2013/06/05
+- Bookmarklet: sharing a Link is now possible
+
+
+2013/05/31
+ - List: add error message if image is too small
+ - List: add notification when visiting a list with pending invitation
+
+
+2013/05/30
+ - Embed: add support for soundcloud.com
+
+
+2013/05/27
+ - Main: fix avatar sizing for profile and list
+
+
+2013/05/27
+ - Embed: add support for vimeo.com
+
+
+2013/05/25
+ - Main: new onboarding for anon users
+
+
+2013/05/22
+ - Resources: update job descriptions
+ - Dialog: new enter transition
+ - List: introduce cover image
+
+
+2013/05/17
+ - Main: add listener to replace URL with brand new slug system
+ - Main: add tooltips plugin + add tooltips on avatars/some buttons
+ - Bugfix: fix double rendering for sections
+
+
+2013/04/18
+ - Main: removed List Types, Fixes, new and refactored parts
+ - Dialog: style refactor and layout refactor of all the Dialogs
+ - Dialog: add delete button to List Settings (now Edit List)
+ - Dialog: detach Edit Contributors form Edit List
+ - Dialog - Edit Link: add delete to Edit Link
+ - Relist/Bookmarklet: Relist and Bookmarklet are now able to create a new List from themself
+ - List Page: remove share from Link Item
+ - List Page: relist log is now shown (needs some more work, as Alberto says)
+ - List Page: new design (de facto)
+ - List Page: fix sort of Link Items
+ - List Page: sections can now be deleted
+ - Website: tweak of the Landing Page
+
+
+2013/03/29
+Add dialog to view followers, disable comments
+ - add referral to feedback dialog
+ - improve scrolling for long dialogs
+ - improve notification dropdown in header
+
+
+2013/03/27
+Responsive profile/dashboard, many bug fixes
+ - updated list header
+ - tweaking sidebar
+ - updated copy (follow -> bookmark and others)
+ - suggested Lists at first login (= empty Dashboard)
+ - add infinite loading
+
+ - fix IE aggressive AJAX caching
+ - fix IE on log messages
+ - add instant feedbacks on follow user/bookmark list
+ - add auto close for bookmarklet
+ - add required login for bookmarklet
+ - update limit in link description to 1k
+ - fix display of relists
+ - remove tracking when Urlist is in DEV mode
+

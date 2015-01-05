@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Urlist Directory - Lists</title>
+</head>
+<body>
+  <h1>Urlist Directory - Lists</h1>
+  <h3>{{ .Index.FirstEntry.Title }} - {{ .Index.LastEntry.Title }}</h3>
+
+  <ol>
+  {{ range .Lists }}
+    <li><a href="{{ $.UrlistHttpAddress }}/{{ .Slug }}">{{ .Title }}</a></li>
+  {{ end }}
+  </ol>
+</body>
+</html>

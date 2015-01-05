@@ -1,0 +1,342 @@
+// Default styles
+@dropMenuItemHeight:   30px;
+@dropMenuItemFontSize: 14px;
+@dropMenuItemPaddingW: 10px;
+@dropMenuItemColor:    @text;
+// Highlight states styles
+@dropMenuItemHighlightBgColor: #e1f8fd;
+
+.dropdown,
+.dropup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    min-width: 140px; // tmp
+    text-align: left; // 1
+    background-color: @bgColor;
+    border: 1px solid #9d9d9d;
+    border-top-width: 0;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 0 7px rgba(000,000,000,0.35);
+    // 1. Overrides possible wrong inherited rules
+}
+.dropdown.is--active,
+.dropup.is--active {
+    display: block;
+}
+.dropdown--floating {
+    // top: 103%;
+    // -webkit-transform: translateY(3px);
+    border-top-width: 1px;
+    border-radius: 3px;
+
+    &:before, &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        &:before, &:after { left: auto; right: 1.5em; }
+        &:before { margin-right: -9px; }
+        &:after { margin-right: -7px; }
+    }
+    &:before {
+        top: -9px;
+        left: 1.5em;
+        margin-left: -10px;
+        border-left: 10.5px solid transparent;
+        border-right: 10.5px solid transparent;
+        border-bottom: 9px solid darken(#9d9d9d, 5%);
+        // -webkit-filter: drop-shadow(0 1px 1px rgba(000,000,000,0.05)); // 1
+        -webkit-transform: rotate(360deg); // 2
+    }
+    &:after {
+        top: -8px;
+        left: 1.5em;
+        margin-left: -10px;
+        border-left: 10.5px solid transparent;
+        border-right: 10.5px solid transparent;
+        border-bottom: 9px solid @bgColor;
+        -webkit-transform:rotate(360deg); // 2
+    }
+    // 1. disabled for better graphic
+    // 2. let Webkit render better the arrow
+}
+
+.dropdown .subheader {
+    position: relative;
+    height: @dropMenuItemHeight;
+    line-height: @dropMenuItemHeight;
+    color: @dropMenuItemColor;
+    border-radius: 2px 2px 0 0;
+}
+.dropdown .subheader .subtitle {
+    margin: 0;
+    line-height: inherit;
+    font-size: @dropMenuItemFontSize;
+    font-weight: 600;
+    padding: 0 @dropMenuItemPaddingW;
+}
+
+.dropdown .subfooter {
+    position: relative;
+    height: auto;
+    color: @dropMenuItemColor;
+}
+.dropdown .subfooter .cta {
+    display: block;
+    margin: 0;
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #4c4c4c; 
+    background-color: #f7f7f7;
+    border-radius: 0 0 2px 2px;
+    &:hover, &:active {
+        text-decoration: none;
+        background-color: rgb(237,237,237);
+    }
+}
+
+.dropdown .subcontent {
+    .clearfix;
+}
+
+.dropdown ul.menu-list {
+    position: relative; // tmp
+    margin: 2px 0;
+}
+
+.dropdown ul.menu-list li {
+    height: @dropMenuItemHeight;
+    line-height: @dropMenuItemHeight;
+}
+
+.dropdown ul.menu-list li a,
+.dropdown ul.menu-list li span {
+    display: block;
+    height: inherit;
+    line-height: inherit;
+    padding: 0 @dropMenuItemPaddingW;
+    color: @dropMenuItemColor;
+}
+.dropdown ul.menu-list li.divider {
+    height: 0;
+    margin: 2px 0;
+    border-bottom: 1px solid lighten(@fgColor, 55%);
+}
+
+.dropdown ul.menu-list li:hover {
+    background-color: @dropMenuItemHighlightBgColor;
+}
+.dropdown ul.menu-list li a:hover {
+    text-decoration: none;
+}
+
+
+
+
+.dropdown-menu, .dropup-menu {
+    display: none;
+    display: block;
+    position: absolute;
+    top: 100%;
+    text-align: left; // 1
+    // 1. Overrides possible wrong inherited rules
+
+    & > ul {
+        z-index: 90;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: auto;
+        min-width: 10em;
+        margin-left: -1px;
+        padding: 0.25em 0;
+        background: @bgColor;
+        border: 1px solid #9d9d9d;
+        .border-radius(0 0 2px 2px);
+        box-shadow: 0 0 7px rgba(000,000,000,0.35);
+        list-style: none;
+        list-style-position: inside;
+
+    &:not(.floating) {
+        .border-radius(2px);
+    }
+
+        & > li {
+            display: block;
+            width: 100%;
+            float: none;
+            height: 2em;
+            line-height: 2em;
+
+            &.divider {
+                height: 0;
+                margin: 0.25em 0;
+                border-bottom: 1px solid lighten(@fgColor, 55%);
+            }
+
+            & > span.subheader {
+                padding: 0 1em;
+                color: lighten(@fgColor, 15%);
+                line-height: 1.666666667em;
+                height: 2.333333333em;
+                font-size: 0.75em;
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+
+                border-bottom: 1px solid lighten(@fgColor, 65%);
+                margin: 0.25em 0;
+
+            }
+
+            & > a, & > span {
+                display: block;
+                padding: 0 0.857142857em;
+                color: @fgColor;
+                font-size: 14px;
+                font-weight: normal;
+                max-width: 300px;
+            }
+            & > a {
+                line-height: 2em;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+
+                &:hover {
+                    background: #e1f8fd;
+                    color: #4c4c4c;
+                }
+            }
+            &.new > a {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &.opened {
+        display: block;
+        & > ul {}
+    }
+
+    &.right {
+
+        right: 0;
+        left: auto;
+        margin-left: auto;
+        margin-right: -1px;
+
+        & {
+            &:before, &:after { left: auto !important; right: 1.5em; } // FIXME, BUG weird without !, only in .dropdown-menu
+            &:before { margin-left: auto; margin-right: -10px; }
+            &:after { margin-left: auto; margin-right: -10px; }
+        }
+    }
+
+    &.floating {
+
+        // padding-top: 3px !important; // POC
+        padding-top: 3px; // POC
+
+        & {
+
+            position: relative;
+
+        // top: 3px; // POC
+        // margin: 0 !important;
+        border-radius: 3px;
+
+        &:before, &:after {
+            content: "";
+            display: block;
+            position: absolute;
+            &:before, &:after { left: auto; right: 1.5em; }
+            &:before { margin-right: -9px; }
+            &:after { margin-right: -7px; }
+        }
+        &:before {
+            top: -9px;
+            left: 1.5em;
+            margin-left: -10px;
+            border-left: 10.5px solid transparent;
+            border-right: 10.5px solid transparent;
+            border-bottom: 9px solid darken(#9d9d9d, 5%);
+            // -webkit-filter: drop-shadow(0 1px 1px rgba(000,000,000,0.05)); // 1
+            -webkit-transform: rotate(360deg); // 2
+        }
+        &:after {
+            top: -8px;
+            left: 1.5em;
+            margin-left: -10px;
+            border-left: 10.5px solid transparent;
+            border-right: 10.5px solid transparent;
+            border-bottom: 9px solid @bgColor;
+            -webkit-transform:rotate(360deg); // 2
+        }
+        // 1. disabled for better graphic
+        // 2. let Webkit render better the arrow
+
+        }
+    }
+
+    &.dropdown-menu-bifold.floating-0 {
+        width: 400px;
+        & > ul {
+            // overflow: hidden;
+            height: 177px;
+        }
+        & > ul > li {
+            float: left !important;
+            width: 50% !important;
+        }
+        & > a, & > span {
+            width: 100% !important;
+            max-width: auto !important;
+        }
+    }
+
+} // end .dropdown-menu, .dropup-menu
+
+.dropdown-menu {
+    // margin-top: -1px;
+}
+
+.dropup-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: -1px;
+    // left: 0;
+    &.floating {
+
+        & {
+
+            &:before {
+                top: auto;
+                bottom: -9px;
+                left: 1.5em;
+                margin-left: -10px;
+                border-left: 10.5px solid transparent;
+                border-right: 10.5px solid transparent;
+                border-top: 9px solid darken(#9d9d9d, 5%);
+                border-bottom: none;
+            }
+            &:after {
+                top: auto;
+                bottom: -8px;
+                left: 1.5em;
+                margin-left: -10px;
+                border-left: 10.5px solid transparent;
+                border-right: 10.5px solid transparent;
+                border-top: 9px solid @bgColor;
+                border-bottom: none;
+            }
+
+        }
+
+    }
+
+} // end .dropup-menu

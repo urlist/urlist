@@ -1,0 +1,99 @@
+/*
+** Nav Object
+*/
+
+@navGapWidth: 9px; // Deprecated -> will be navGapWidth
+@navGapWidthHalf: ceil(@navGapWidth/2);
+@navFontSize: 14px;
+@navHeight: 40px;
+
+.nav {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    font-size: 14px; // TMP
+
+    // Modifiers
+    &.left {
+        float: left;
+    }
+    &.center {
+        display: inline-block;
+    }
+    &.right {
+        float: right;
+    }
+
+    // Childs
+    & > li {
+        display: block;
+        float: left;
+        white-space: nowrap;
+    }
+}
+
+
+/*
+** Navbar Module
+*/
+
+.navbar .nav > li > a {
+    display: block;
+    padding: 0 @navGapWidth;
+}
+
+/*
+** Toolbar module
+*/
+
+.toolbar {
+    display: block;
+    height: @navHeight;
+    line-height: @navHeight;
+    text-align: center;
+
+    // Childs
+    .nav {
+        white-space: nowrap;
+        height: inherit;
+        line-height: inherit;
+    }
+    .nav > li {
+        white-space: nowrap;
+        height: inherit;
+        line-height: inherit;
+    }
+}
+
+.toolbar .nav.left > li {
+    margin-right: @navGapWidth;
+}
+.toolbar .nav.center > li {
+    margin: 0 @navGapWidthHalf;
+}
+.toolbar .nav.right > li {
+    margin-left: @navGapWidth;
+}
+
+.toolbar .nav.left.context {
+    margin-left: @navGapWidth;
+}
+.toolbar .nav.right.context {
+    margin-right: @navGapWidth;
+}
+
+/*
+** Specific Clearfix
+*/
+
+.nav:before, .nav:after,
+.toolbar:before, .toolbar:after {
+    content: "";
+    display: table;
+}
+.nav:after,
+.toolbar:after {
+    clear: both;
+}

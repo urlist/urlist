@@ -1,0 +1,161 @@
+/*
+02 - Layout
+*/
+
+/* Lines & Columns */
+
+.line {
+    width: 960px;
+    max-width: 100%;
+    // min-width: 768px; // THINKME
+    margin: 0 auto;
+
+    .line {
+        width: auto;
+        max-width: none;
+        // margin: 0 -10px;
+    }
+}
+
+// Transitional .line
+.line-t {
+    width: 988px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    .line-t {
+        width: auto;
+        max-width: none;
+    }
+}
+
+.wrapper {
+    width: 960px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.column {
+    float: left;
+    min-height: 1px;
+    // padding: 0 10px;
+    position: relative;
+
+    /* Sizes */
+    &.one { width: 8.3334% }
+    &.two { width: 16.6667% }
+    &.three { width: 25% }
+    &.four { width: 33.3334% }
+    &.five { width: 41.6667% }
+    &.six { width: 50% }
+    &.seven { width: 58.3334% }
+    &.eight { width: 66.6667% }
+    &.nine { width: 75% }
+    &.ten { width: 83.3334% }
+    &.eleven { width: 91.6667% }
+    &.twelve { width: 100% }
+
+    /* Move by (left) */
+    &.move-by-one { margin-left: 8.3334% }
+    &.move-by-two { margin-left: 16.6667% }
+    &.move-by-three { margin-left: 25% }
+    &.move-by-four { margin-left: 33.3334% }
+    &.move-by-five { margin-left: 41.6667% }
+    &.move-by-six { margin-left: 50% }
+    &.move-by-seven { margin-left: 58.3334% }
+    &.move-by-eight { margin-left: 66.6667% }
+    &.move-by-nine { margin-left: 75% }
+    &.move-by-ten { margin-left: 83.3334% }
+    &.move-by-eleven { margin-left: 91.6667% }
+    &.move-by-twelve { margin-left: 100% }
+
+    /* Shift Left */
+    &.left-one { left: 8.3334% }
+    &.left-two { left: 16.6667% }
+    &.left-three { left: 25% }
+    &.left-four { left: 33.3334% }
+    &.left-five { left: 41.6667% }
+    &.left-six { left: 50% }
+    &.left-seven { left: 58.3334% }
+    &.left-eight { left: 66.6667% }
+    &.left-nine { left: 75% }
+    &.left-ten { left: 83.3334% }
+    &.left-eleven { left: 91.6667% }
+    &.left-twelve { left: 100% }
+
+    /* Shift Right */
+    &.right-one { right: 8.3334% }
+    &.right-two { right: 16.6667% }
+    &.right-three { right: 25% }
+    &.right-four { right: 33.3334% }
+    &.right-five { right: 41.6667% }
+    &.right-six { right: 50% }
+    &.right-seven { right: 58.3334% }
+    &.right-eight { right: 66.6667% }
+    &.right-nine { right: 75% }
+    &.right-ten { right: 83.3334% }
+    &.right-eleven { right: 91.6667% }
+    &.right-twelve { right: 100% }
+}
+
+.inset-column {
+    padding-left: 15px;
+}
+
+
+/* Grids */
+.grid {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+// Nicolas Gallagher's micro clearfix 
+.line:before, .line:after,.grid:before, .grid:after, .clearfix:before, .clearfix:after { content: ""; display: table }
+.line:after, .grid:after, .clearfix:after { clear: both }
+.line, .grid, .clearfix, { zoom: 1 }
+
+// Positionings
+.go-left      { float: left; margin: 0 20px 20px 0   }
+.go-right     { float: right; margin: 0 0 20px 20px  }
+.to-left      { left: 0; position: relative          }
+.to-right     { right: 0; position: relative         }
+.align-left   { text-align: left                     }
+.align-center { text-align: center                   }
+.align-right  { text-align: right                    }
+.left         { float: left                          }
+.right        { float: right                         }
+
+.centered     { float: none; margin: 0 auto          }
+.absolute     { position: absolute                   } // DELME
+
+.hide              { display: none  !important; height: 0 !important }
+.show              { display: block !important }
+.show-inline       { display: block !important }
+.show-inline-block { display: block !important }
+
+.invisible         { visibility: hidden !important }
+
+.hidden {
+    position: absolute;
+    width: 1px; /* 0 make is invisible for VoiceOver */
+    height: 1px; /* 0 make is invisible for VoiceOver */
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;    
+}
+
+.container.fluid {
+    .line {
+        width: 100%;
+    }
+}
+
+.container.elastic {
+    .line {
+        width: auto;
+        max-width: 1140px; // 1200
+    }
+}

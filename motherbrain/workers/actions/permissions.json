@@ -1,0 +1,12 @@
+{
+    "add_url": "contributor author",
+    "remove_url": "author",
+    "relist_url": "registered",
+    "add_list": "registered",
+    "remove_list": "author",
+    "follow_list": "registered",
+    "update_list": "author",
+    "add_comment": "registered",
+    "remove_comment": "author",
+    "update_categories": "author"
+}

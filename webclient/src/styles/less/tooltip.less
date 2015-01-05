@@ -1,0 +1,79 @@
+// Name: Tooltip
+// Desc: Shows as a simple baloon around a certain element
+//
+// Template base:
+// <div class="tooltip">Text</div> 
+
+.tooltip {
+    // Variables
+    @fontSize:          12px;
+    @fontWeight:        bold;
+    @fgTooltip:         @white;
+    @bgTooltip:         #555;
+    @bgTooltipFallback: #555;
+    @radius:            1px;
+    @maxWTooltip:       200px;
+    // Styles
+    display: block;
+    position: absolute;
+    z-index: 999999;
+    left: 0;
+    top: -9999px; // 1
+    max-width: @maxWTooltip;
+    font-size: @fontSize;
+    font-weight: @fontWeight;
+    color: @fgTooltip;
+    padding: 3px 8px 3px;
+    background-color: @bgTooltip;
+    border-radius: @radius;
+    // box-shadow: 0 1px 1px rgba(000,000,000,0.07);
+    // 1. makes it insivible, kinda
+
+    // Set options
+    &:after {
+        .pseudo-block();
+        z-index: 1;
+    }
+    &[data-position="top"]:after {
+        left: 50%;
+        top: 100%;
+        margin-left: -7.5px;
+        width: 0;
+        height: 0;
+        border-left: 7.5px solid transparent;
+        border-right: 7.5px solid transparent;
+        border-top: 7px solid @bgTooltip;
+    }
+    &[data-position="bottom"]:after {
+        left: 50%;
+        top:  0;
+        margin-left: -7.5px;
+        margin-top: -7px;
+        width: 0;
+        height: 0;
+        border-left: 7.5px solid transparent;
+        border-right: 7.5px solid transparent;
+        border-bottom: 7px solid @bgTooltip;
+    }
+    &[data-position="right"]:after {
+        left: 0;
+        top: 50%;
+        margin-top: -7.5px;
+        margin-left: -7px;
+        width: 0;
+        height: 0;
+        border-top: 7.5px solid transparent;
+        border-bottom: 7.5px solid transparent;
+        border-right: 7px solid @bgTooltip;
+    }
+    &[data-position="left"]:after {
+        left: 100%;
+        top: 50%;
+        margin-top: -7.5px;
+        width: 0;
+        height: 0;
+        border-top: 7.5px solid transparent;
+        border-bottom: 7.5px solid transparent;
+        border-left: 7px solid @bgTooltip;
+    }
+}

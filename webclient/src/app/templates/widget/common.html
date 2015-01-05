@@ -1,0 +1,79 @@
+<div class="widget-content">
+    <p class="category-header js-list-categories {{show-if label_categories}}">
+        {{label_categories}}
+    </p>
+
+    <div class="widget-preheader">
+        <figure></figure>
+        <div class="toolbar widget-info">
+            <div class="js-widget-people"></div>
+        </div>
+        {{^is_secret}}
+        <a class="action-share-list js-share-list" href="#">Share List</a>
+        {{/is_secret}}
+
+        {{#is_updated}}
+        <div class="ac-status-change js-has-tooltip" title="Recently updated" data-tooltip></div>
+        {{/is_updated}}
+    </div>
+
+    <a class="widget-link js-navigate" href="/{{hash}}">
+
+    <h3 class="title js-list-title">
+        {{#is_secret}}
+        <i class="mini-icon icon-small-padlock js-is-secret"></i>
+        {{/is_secret}}
+        {{title}}
+    </h3>
+
+    {{#details}}
+    {{#if description}}
+    <p class="description js-list-description">
+        {{{crop description 240}}}
+    </p>
+    {{/if}}
+    {{/details}}
+
+    <div class="sublist">
+    </div>
+
+    </a>
+
+    <div class="toolbar widget-toolbar">
+        <ul class="nav left">
+            <li>
+                <span><b>{{urls_amount}}</b> link{{plural urls_amount}}</span>
+            </li>
+            {{#IF-ADMIN}}
+            {{!<li>
+                <a class="js-edit-categories" href="#"><i class="mini-icon icon-small-settings"></i> Edit</a>
+            </li>}}
+            {{/IF-ADMIN}}
+        </ul>
+        <ul class="nav right">
+            <li>
+                {{#if policies.contribute}}
+                <div class="widget-actions">
+                    {{#if policies.edit_list}}
+                        {{#if to_migrate}}
+                            <a class="button wide widget-action make-public-list js-migrate-list" href="#">Make Public!</a>
+                            <span class="button wide widget-action hide">Awesome! &hearts;</span>
+                        {{else}}
+                            <a class="button wide widget-action js-edit-list" href="#">Edit List</a>
+                        {{/if}}
+                    {{else}}
+                    <a class="button wide widget-action js-edit-contributors" href="#">Invite</a>
+                    {{/if}}
+                </div>
+                {{else}}
+                <a class="widget-actions {{#following}}status-following{{/following}}">
+                    <span class="button wide widget-action follow-list js-follow-list" href="#">Add to Library</span>
+                    <span class="button wide widget-action following-list js-unfollow-list" href="#">In your Library</span>
+                    <span class="button wide widget-action unfollow-list js-unfollow-list" href="#">Remove</span>
+                </a>
+                {{/if}}
+            </li>
+        </ul>
+    </div>
+
+</div>

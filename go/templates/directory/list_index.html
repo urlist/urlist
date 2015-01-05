@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Urlist Directory - Lists</title>
+</head>
+<body>
+  <h1>Urlist Directory - Lists</h1>
+
+  <ol>
+  {{ range .Indexes }}
+    <li><a href="{{ $.HttpAddress }}/lists/{{ .Id }}.html">{{ .FirstEntry.Title }} - {{ .LastEntry.Title }}</a></li>
+  {{ end }}
+  </ol>
+</body>
+</html>

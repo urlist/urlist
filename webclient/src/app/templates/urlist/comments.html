@@ -1,0 +1,46 @@
+<div class="toolbar toolbar-secondary">
+    <ul class="nav left regular">
+        <li class="js-toggle {{#unless comments_amount}}js-switch{{/unless}}">
+            <span class="js-toggle-one">
+                <i class="icon-comment-small-grey small"></i>
+                <b class="comments-counter js-comments-amount">{{comments_amount}}</b> Comment{{plural comments_amount}}
+            </span>
+
+            <span class="js-toggle-two">
+                <i class="icon-comment-small-grey small"></i> Add your comment!
+            </span>
+        </li>
+    </ul>
+</div>
+
+<div class="divider-wide"></div>
+
+<div class="line">
+    <div class="column twelve">
+        <ul class="comments js-comments">
+            <li class="line comment comment-new js-comment-new">
+                {{#LOGGED}}
+                {{#if policies.add_comment}}
+                <div class="column one">
+                    <div class="avatar">
+                        <img src="{{CURRENT 'user' 'profile_image'}}" alt="" />
+                    </div>
+                </div>
+                <div class="column nine">
+                    <textarea class="comment-edit" placeholder="Write your comment&hellip;" name="comment"></textarea>
+                </div>
+                <div class="column two">
+                    <a class="button wide js-add-comment" href="#">Comment</a>
+                </div>
+                {{/if}}
+                {{/LOGGED}}
+
+                {{#ANON}}
+                <p>Please <a href="#" class="js-signup">sign up</a> to comment</p>
+                {{/ANON}}
+            </li> <!-- end .comment.new -->
+        </ul>
+
+    <a href="#" class="button small wide js-load-more hide">load more</a>
+    </div> <!-- end .column.twelve -->
+</div> <!-- end .line -->

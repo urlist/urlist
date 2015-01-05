@@ -1,0 +1,57 @@
+<div class="resource-section js-resource-section">
+    <div class="resource-container">
+        <div class="line content-full-elastic resource-content resource-content--amazon">
+
+            {{#if remote.large_image}}
+            <div class="column four">
+                <div class="medium">
+                    <img src="{{remote.large_image}}" alt="" />
+                </div>
+            </div>
+            {{/if}}
+            <div class="column {{#if remote.large_image}}eight{{/if}}">
+                <div class="content-info">
+                    <h3 class="resource-title">
+                        {{title}}
+                    </h3>
+
+                    {{#if remote.formatted_author}}
+                    <p class="resource-author">by <b class="resource-author_reference">{{remote.formatted_author}}</b></p>
+                    {{/if}}
+
+                    <div class="toolbar resource-focus">
+                        <ul class="nav left">
+                            <li>
+                                <span>
+                                    {{#if remote.formatted_price}}
+                                    <span class="pricetag">From <b>{{remote.formatted_price}}</b></span>
+                                    {{else}}
+                                    <span class="pricetag">Price not available</span>
+                                    {{/if}}
+                                </span>
+                            </li>
+                        </ul>
+                        <ul class="nav right">
+                            <li>
+                                <span>
+                                    <a class="button" href="{{url}}" target="_blank">View on Amazon</a>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {{#if description}}
+                    <p class="resource-description">
+                        <b>Comment</b>
+                        {{description}}
+                        <cite class="resource-description_author">
+                            By <a href="/library/{{author.attributes.username}}" class="js-navigate">{{author.attributes.screen_name}}</a>
+                        </cite>
+                    </p>
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<li class="indepth-notification-item{{^read_at}} new{{/read_at}}">
+    <div class="notification-content new-link">
+        <a href="/library/{{username}}" class="sender js-navigate">{{user_screen_name}}</a>
+        <span class="action">added the link</span>
+        <a href="/{{data.list_hash}}/{{data.url_hash}}" class="object" target="_blank">{{data.url_title}}</a>
+        <span class="complement">to</span>
+        <a href="/{{data.list_hash}}" class="target js-navigate">{{data.list_title}}</a>
+    </div>
+
+    <ul class="action-toolbar">
+        <li>
+            <small class="timestamp">{{prettydate sent_at}}</small>
+        </li>
+    </ul>
+
+</li>
+

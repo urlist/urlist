@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{{ user['screen_name'] }}'s lists</title>
+
+        <style>
+            * { box-sizing: border-box }
+            html { font-family: sans-serif }
+            body > ul { list-style: none }
+            body > ul > li { margin-bottom: 30px }
+            h1 { text-align: center }
+            h2 { font-size: 14px; margin: 4px 0 }
+            h2 + p { margin-bottom: 10px }
+            p { font-size: 12px; margin: 4px 0 }
+            time { display: none }
+            footer { text-align: center; font-size: 10px }
+        </style>
+    </head>
+<body>
+    <h1>{{ user['screen_name'] }}'s lists</h1>
+    <ul>
+        {% for hash, l in lists.items() %}
+        <li>
+            <h2>{{ l['title'] }}</h2>
+            <time>{{ l['creation_time'] }}</time>
+
+            {% if l.get('description') %}
+            <p>{{ l['description'] }}</p>
+            {% end %}
+
+            <ul>
+                {% for url in l['urls'] %}
+                <li>
+                    <p><a href="{{url['url']}}">{{url['title'] or url['url']}}</a>
+                    {% if url.get('description') %}
+                    &mdash; {{ url['description'] }}
+                    {% end %}
+                    </p>
+                    <time>{{ url['creation_time'] }}</time>
+                </li>
+                {% end %}
+            </ul>
+        </li>
+        {% end %}
+    </ul>
+
+    <footer><em>So long, and thanks for all the fish</em><br>&ndash;Urlist</footer>
+</body>
+</html>
+

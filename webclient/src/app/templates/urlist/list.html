@@ -1,0 +1,272 @@
+<div class="list-page-container">
+
+<div class="list-content clearfix">
+
+    <div class="list-page {{appendiftrue has_sections 'list-show-sections'}}" data-source="List">
+
+        {{#if policies.accept_url}}
+        {{#if suggested_urls}}
+        <div class="message message-box">
+
+            You have
+            <span class="highlight"><b class="cnt cnt-suggestion-n">{{len suggested_urls}}</b> suggestions</span>
+            waiting
+
+            <a href="#" class="button action wider js-suggested-links">View all!</a>
+
+        </div>
+        {{/if}}
+        {{/if}}
+
+        <div class="head {{#cover_image}}head--custom{{/cover_image}}">
+
+            <div class="head-cover-container">
+                <img class="head-cover js-head-cover" src="{{cover_image}}?v={{slugify cover_image_v}}" alt="" >
+            </div>
+
+            <div class="head-inner js-header-inner">
+
+                <div class="cover-container">
+                    <canvas id="imageCanvas" class="cover-canvas" width="738" height="280"></canvas>
+                    <div class="cover-instructions">
+                        <div class="text">Drag the image to reposition</div>
+                    </div>
+                </div>
+
+                <div class="cover-loader"></div>
+
+                <div class="toolbar toolbar-list_action_set">
+                    {{#if policies.update_cover }}
+                    <ul class="nav left context">
+                        <li>
+                            <a href="#" class="button small list-change-cover js-toggle-menu">
+                                Change Cover
+                            </a>
+                            <div class="dropdown dropdown--floating">
+                                <ul class="menu-list">
+                                    <li class="ac-list-upload-cover"><a class="js-list-upload-cover" href="#">Upload image</a></li>
+                                    <li><a class="js-search-image" href="#">Search on Flickr</a></li>
+                                    <li><a class="js-image-upload-url" href="#">Add from link</a></li>
+                                    <li class="divider"></li>
+                                    <li><a class="js-list-delete-cover" href="#">Delete Cover</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <input class="hidden js-upload-cover_input" type="file" accept="image/*" id="coverUploader" name="coverUploader"/>
+                    {{/if}}
+
+                    {{#is_secret}}
+                    <ul class="nav right context status-secret-list js-is-secret">
+                        <li><span><i class="mini-icon icon-small-private"></i> Unpublished List</span></li>
+                    </ul>
+                    {{/is_secret}}
+
+                </div>
+
+                <div class="toolbar list-info hide">
+                </div>
+
+                <div class="list-main-info">
+                    <h1 class="list-title js-list-title">{{title}}</h1>
+                </div>
+
+                <p class="list-description js-list-description {{show-if description}}">
+                    {{{html_description}}}
+                </p>
+
+            </div> <!-- / .head-inner -->
+
+            <div class="toolbar subheader">
+                <div class="js-toggle js-toggle--edit_cover">
+                    <div class="js-toggle-one">
+                        <ul class="nav left">
+
+                            <li><span></span></li>
+
+                            <li>
+                                <span class="list-header-stat">
+                                    <b class="counter-big js-urls-counter">{{urls_amount}}</b>
+                                    link{{plural urls_amount}}
+                                </span>
+                            </li>
+                            <li>
+                                <span class="list-header-stat">
+                                    <b class="counter-big counter-views">{{views_amount}}</b>
+                                    view{{plural views_amount}}
+                                </span>
+                            </li>
+                            <li class="js-list-followers js-show-followers {{show-if followers_amount}}">
+                                <a class="list-header-stat list-header-stat-followers" href="#">
+                                    in <b class="js-list-followers-counter counter-big">{{followers_amount}}</b> Libraries
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav right">
+
+                            {{#unless policies.add_url}}
+                            <li>
+                                <span>
+                                    <a class="button action suggest-link js-suggest-link-add" href="#">
+                                        <i class="mini-icon icon-small-add"></i> Suggest a Link
+                                    </a>
+                                </span>
+                            </li>
+                            {{/unless}}
+
+                            <li>
+                                <span>
+                                    {{#if policies.edit_list}}
+                                    <a class="button edit-this-list js-edit-list" href="#"><i class="mini-icon icon-small-settings"></i> Edit</a>
+                                    {{/if}}
+                                </span>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="js-toggle-two">
+                        <ul class="nav center">
+                            <li><a class="button js-upload-cover_close" href="#">Discard</a></li>
+                            <li><a class="button action js-upload-cover_save" href="#">Confirm</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            {{#if policies.add_url}}
+                <div class="js-summary"></div>
+            {{else}}
+                {{#if links_amount}}
+                <div class="js-summary"></div>
+                {{/if}}
+            {{/if}}
+
+        </div> <!-- / .head -->
+
+        <div class="add-url-area ui-urls-sections"></div>
+
+        {{#unless policies.add_url}}
+            {{#unless links_amount}}
+            <div class="empty-placeholder js-empty-placeholder">
+                <p>No links yet! <br /> <b>Add to Library</b> to get updates :)</p>
+            </div>
+            {{/unless}}
+        {{/unless}}
+
+        {{#if policies.add_section}}
+        <a class="add-section js-add-section" href="#">+ Add Section</a>
+        {{/if}}
+
+        {{#if links_amount}}
+        <a class="right report-list js-report-list" href="#">Report List</a>
+        {{/if}}
+
+        <br><br>
+
+        {{!<div id="comment-area"></div>}}
+
+    </div> <!-- end .list-page[.list-show-sections] -->
+
+    <div class="sidebar" style="" data-source="List:sidebar">
+
+        <div class="people clearfix"></div>
+
+        <ul class="action_list-list">
+            {{#if policies.follow_list}}
+            <li class="action_list-item">
+                <a href="#" class="bookmark-this-list ac--object js-list-actions {{#following}}is--done{{/following}}">
+                    <span class="ac--todo bookmark-do js-follow-list">
+                        <i class="mini-icon icon-small-bookmark"></i>
+                        <span class="label">Subscribe</span>
+                    </span>
+                    <span class="ac--doing bookmark-doing js-unfollow-list">
+                        <i class="mini-icon icon-small-library"></i>
+                        <span class="label">In your Library</span>
+                    </span>
+                    <span class="ac--undo bookmark-undo js-unfollow-list">
+                        <i class="mini-icon icon-small-remove-block"></i>
+                        <span class="label">Unsubscribe</span>
+                    </span>
+                </a>
+            </li>
+            {{/if}}
+            {{#if policies.share_list}}
+            <li class="action_list-item">
+                <a class="js-share-list" href="#">
+                    <i class="mini-icon icon-small-share"></i>
+                    <span class="label">Share</span>
+                </a>
+            </li>
+            <li class="action_list-item">
+                <a class="js-embed-list" href="#">
+                    <i class="mini-icon icon-small-embed"></i>
+                    <span class="label">Embed on Blog</span>
+                </a>
+            </li>
+            {{/if}}
+            <li class="action_list-item">
+                <a class="js-play-list" href="/{{hash}}/" target="_blank">
+                    <i class="mini-icon icon-small-play"></i>
+                    <span class="label">Play</span>
+                </a>
+            </li>
+            {{#if policies.share_list}}
+            <li class="action_list-item">
+                <label for="clip"><i class="mini-icon icon-small-link"></i></label>
+                <input id="clip" type="text" class="textfield-seamless js-for-clipboard" value="http://urli.st/{{hash}}" readonly>
+            </li>
+            {{/if}}
+        </ul>
+
+        <h5 class="subheader js-categories-subheader">Categories</h5>
+        <ul class="list_category-list js-list_category-list"></ul>
+
+        <div class="feedback-section js-feedback-container hide">
+
+            <div class="feedback-container">
+
+                <p>We’d love to hear what <br> you think, help us making <br> Urlist awesome</p>
+                <div class="js-feedback-status">
+                    <span class="js-toggle-one">
+                        <a class="button wide button-leave-feedback js-leave-feedback" href="#">Leave a feedback!</a>
+                    </span>
+                    <span class="js-toggle-two hide">
+                        <span class="feedback-success">Thank you!</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <h5 class="subheader js-categories-subheader">Related Lists</h5>
+        <h5 class="subheader js-popular-subheader hide">Popular Lists</h5>
+        <div class="js-urlists-suggestion" data-source="List:suggestion"></div>
+
+        <div class="app-footer">
+            <h6 class="company-info">Copyright 2013 Urlist srl</h6>
+            <ul class="plain-menu">
+                <li><a class="js-navigate" href="/resources/about">About Us</a></li>
+                <li><a class="js-navigate" href="/resources/jobs">Jobs</a></li>
+                <li><a class="js-navigate" href="/resources/privacy">Privacy Policies</a></li>
+                <li><a class="js-navigate" href="/resources/terms">Terms of Service</a></li>
+                <li><a class="js-navigate" href="/resources/button">Urlist-it Button</a></li>
+                <li><a href="http://blog.urli.st">Blog</a></li>
+                <li><a href="//facebook.com/urlist" target="_blank">Facebook</a></li>
+                <li><a href="//twitter.com/urlist" target="_blank">Twitter</a></li>
+                <li><a class="js-navigate" href="/resources/help"><b>Urlist Basics</b></a></li>
+            </ul>
+        </div>
+
+    </div> <!-- end .sidebar -->
+
+
+</div> <!-- end .list-page -->
+
+{{#ANON}}
+<div class="discovery-bannercta-signup">
+    <div class="content-std-elastic">
+        <p>Start organizing your surfing in a clever way! <a href="#" class="button action wider js-signup">Learn More</a></p>
+    </div>
+</div>
+{{/ANON}}
+
+</div> <!-- end .list-page-container -->

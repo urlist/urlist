@@ -1,0 +1,11 @@
+// Name: Deck
+// Desc: Contains our Cards, replaces Masonry, de facto
+//
+// Template base:
+// .deck>.card*n
+.deck {
+    .clearfix; // 1
+    width: 105%; // 2
+    // 1. import clearfix mixin
+    // 2. ensures that .deck will always overflow a little bit, allows cards to reflow better
+}

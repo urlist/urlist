@@ -1,0 +1,13 @@
+<ul class="link-list">
+    {{#urls}}
+    <li class="link-item">
+        <a class="link-anchor grid" href="{{url}}">
+            <span class="link-anchor-title">
+                <img class="link-favicon" src="{{or favicon '/static/assets/def-favicon.png'}}" />
+                <b>{{title}}</b>
+            </span>
+            <span class="link-anchor-time">{{creation_time}}</span>
+        </a>
+    </li>
+    {{/urls}}
+</ul>

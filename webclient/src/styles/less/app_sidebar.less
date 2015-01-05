@@ -1,0 +1,522 @@
+.sidebar {
+    position: relative; // 1
+    z-index: 3; // 1
+
+    float: right;
+    width: 232px; // 2
+    margin: 10px 0 20px;
+
+    // 1. Prevent widgets to overlap the Sidebar when the Windows is being resized
+    // 2. DEL when List Page is ready
+
+    // Childs
+    .module {
+        background-color: #f7f7f7;
+        margin-bottom: 20px;
+        border-radius: 3px;
+    }
+
+    .sidebar-section {
+        padding: 0 10px;
+    }
+
+    .inactive-section {
+        color: #b8b8b8;
+        text-decoration: line-through;
+        margin-bottom: 10px;
+        margin-top: -10px;
+    }
+
+    .divider {
+        margin-bottom: 20px;
+        height: 0;
+        display: block;
+        border-top: 1px solid #dbdbdb;
+    }
+    .divider-wide {
+        box-shadow: none;
+    }
+
+    .play-list {
+        width: 118px;
+        margin: 0 10px 12px;
+    }
+
+    .list-main-actions {
+        margin: 0 10px 12px;
+    } // TO DEL
+
+    .list-actions {
+        display: inline-block;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        .button {
+            width: 118px;
+            &:hover {
+                background-color: #f7f7f7;
+                border-color: #b7b7b7;
+            }
+        }
+        .following-list {
+            color: #b8b8b8;
+        }
+        .follow-list {}
+        .unfollow-list {
+            color: #ff7070;
+        }
+
+        & .following-list { display: none; }
+
+        & .unfollow-list { display: none; }
+
+        &.status-following {
+            &:hover {
+                .unfollow-list {
+                    display: block;
+                }
+                .following-list {
+                    display: none;
+                }
+            }
+            .follow-list {
+                display: none;
+            }
+            .following-list {
+                display: block;
+            }
+            &.following-new:hover {
+                .following-list { display: block; }
+                .unfollow-list { display: none; }
+            }
+        }
+    }
+
+    .plain-list {
+        padding: 10px;
+        li {
+            padding-bottom: 0.65em;
+        }
+        .counter-big {
+            font-size: 19px;
+            font-weight: 600;
+        }
+    }
+
+    .counter-list-smaller {
+        display: inline;
+        color: inherit;
+        font-size: 16px;
+        &, & b { font-weight: 800; }
+    }
+
+    .subheader {
+        display: block;
+        margin: 5px 0 0;
+        padding: 0 10px;
+        font-size: 18px;
+        color: @text;
+        font-weight: bold;
+        line-height: 30px;
+    }
+    .list_category-list {
+        margin-bottom: 30px;
+    }
+    .list_category-list:empty {
+        display: none;
+    }
+    .list_category-item {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+    .list_category-item a {
+        font-weight: 600;
+    }
+
+    .feedback-section {
+        margin-top: 10px;
+        padding: 0;
+        overflow: hidden;
+
+        .feedback-container {
+            overflow: hidden;
+            margin: 10px;
+            padding: 10px;
+            background: #ececec url(/static/assets/bg-module-feedback.png) no-repeat left top;
+            border-radius: 3px;
+            text-align: center;
+        }
+
+        p {
+            margin-top: 5px;
+            margin-bottom: 13px;
+            line-height: 19px;
+        }
+
+        .button-leave-feedback {
+            margin: 0;
+        }
+
+        .feedback-success {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .feedback-success:after {
+            content: url(/static/assets/icon-love.png);
+            display: inline-block;
+            position: relative;
+            top: 0.125em;
+            margin-left: 0.5em;
+        }
+
+    }
+
+    .content-author {
+        overflow: hidden;
+        padding-top: 10px;
+        height: 75px;
+
+        .author-badge {
+            display: block;
+            display: table;
+            color: #4c4c4c;
+            height: 60px;
+            padding: 0 10px;
+
+            &:hover {
+                text-decoration: none;
+                & .screenname {
+                    text-decoration: underline;
+                }
+            }
+
+            .author-info {
+                position: relative;
+                top: -3px;
+                display: table-cell;
+                height: auto;
+                line-height: 18px;
+                vertical-align: middle;
+            }
+        }
+
+        .author-action {
+            color: #6b6b6b;
+            font-size: 0.75em;
+            text-decoration: underline;
+        }
+
+        .avatar {
+            display: block;
+            float: left;
+            width: 60px;
+            height: 60px;
+            margin: 0 10px 5px 0;
+            border: 1px solid #707070;
+            img {
+                width: 58px;
+            }
+        }
+        .screenname {
+            display: block;
+            // margin-top: 8px;
+            color: #4c4c4c;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        // .short-bio {
+        //     // display: block;
+        //     clear: both;
+        //     margin-top: 23px;
+        //     margin-bottom: 10px;
+        //     font-size: 14px;
+        // }
+    }
+
+    .people {
+        .user {
+            span {
+                color: #3496ab;
+                vertical-align: middle;
+                &.avatar {
+                    img {
+                        .square(34px);
+                        margin: 5px 5px 5px 0;
+                        border: 1px solid #707070;
+                        display: block;
+                        float: left;
+                    }
+                }
+            }
+        }
+        .contributors-actions {
+            overflow: hidden; // 1
+            // 1. don't like this
+        }
+        // margin-bottom: 20px;
+        color: #6b6b6b;
+        font-size: 0.875em;
+    }
+
+    .contributors-actions {
+        margin: 0 10px;
+    }
+    .contributors-below {
+        margin-top: 10px;
+    }
+
+    .contributors-area {
+        text-align: center;
+        margin-left: 1px;
+        padding-bottom: 2px;
+        .contributors-list {
+            width: 230px;
+            padding: 0 0 0 10px;
+
+            .contributor-item {
+                display: block;
+                float: left;
+                overflow: hidden;
+                width: 37px;
+                height: 37px;
+                margin: 0 6px 6px 0;
+            }
+            .contributor-item.pending {
+                opacity: 0.40;
+            }
+
+            .contributor-avatar {
+                display: block;
+                width: 36px;
+                height: 36px;
+                border: 1px solid #707070;
+                img {
+                    display: block;
+                    width: 34px;
+                    height: 34px;
+                    background: #ffffff;
+                }
+            }
+        }
+
+        .edit-contributors {
+            margin: 0 10px;
+            margin: 5px 10px 0;
+            padding-top: 4px;
+            padding-bottom: 3px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .load-more-contributors {
+            width: 180px;
+            margin: 0 10px;
+            padding-top: 4px;
+            padding-bottom: 3px;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .divider-wide {
+            margin-top: 20px;
+        }
+    }
+
+    .sidebar-suggest-lists {
+        margin-bottom: 20px;
+        .suggest-list {
+            margin: 0 0 11px 0;
+            padding: 0 10px;
+            .list-category {
+                display: block;
+                color: #6b6b6b;
+                font-size: 0.75em;
+                text-transform: uppercase;
+            }
+            .list-title {
+                display: block;
+                color: #4c4c4c;
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .list-stats {
+                display: block;
+                font-size: 14px;
+                color: #b8b8b8;
+                mark {
+                    margin-left: 0.5em;
+                    background: none;
+                    color: #4c4c4c;
+                }
+            }
+            .list-author {
+                color: #6b6b6b;
+            }
+            .button {
+                width: 112px;
+            }
+        }
+    }
+
+    .activities {
+        font-size: 0.875em;
+        line-height: 19px;
+
+        li {
+            margin-bottom: 0.5em;
+            color: #4c4c4c;
+
+            span.message {
+                b, a {
+                    font-weight: 600;
+                }
+                a {
+                    color: #39b0c9;
+                }
+            }
+            small.timestamp {
+                display: block;
+                color: #9d9d9d;
+                text-transform: lowercase;
+            }
+        }
+
+        .subtitle {
+            padding-top: 2px;
+            font-size: 12px;
+            margin: 7px 0 4px 0;
+        }
+    }
+
+    .app-footer {
+        color: #bcbcbc;
+        // border-top: 1px solid #e3e3e3;
+        margin-top: -5px;
+        padding: 10px 0 5px 10px;
+        padding: 0 5px 5px;
+        padding: 5px 10px;
+        .company-info {
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 19px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .plain-menu {
+            display: inline-block;
+            line-height: 19px;
+            font-size: 13px;
+        }
+        .plain-menu li {
+            margin-right: 0.25em;
+            display: inline;
+        }
+        .plain-menu li a {
+            color: #b8b8b8;
+        }
+
+    }
+}
+
+.author-lists-counter {
+    text-decoration: none;
+}
+    .author-links-counter {
+        display: inline-block;
+        margin-left: 0.5em;
+}
+
+.js-followed-by-users {
+    margin-bottom: 15px;
+} // TMP | DEL
+
+.action_list-list {
+    padding: 15px 0;
+}
+.action_list-item {
+    padding: 0 10px;
+}
+.action_list-item a {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: @text;
+    padding: 2px 0;
+}
+.action_list-item a:hover {
+    text-decoration: none;
+}
+.action_list-item a:hover .label {
+    text-decoration: underline;
+}
+.action_list-item .label {
+    margin-left: 0.75em;
+}
+.action_list-item .highlight {
+    color: @link;
+}
+.action_list-item .textfield-seamless {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+    -webkit-font-smoothing: antialiased;
+       -moz-font-smoothing: antialiased;
+        -ms-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+    margin-left: 0.25em;
+    line-height: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: @link;
+    padding: 2px 0.45em;
+    border: 1px solid transparent;
+    box-shadow: none;
+    .border-radius(3px);
+    .transition(all .1s linear);
+
+    &:hover {
+        cursor: pointer;
+        border-color: #ddd;
+        box-shadow: inset 0 0 5px fade(#c7c7c7, 15%);
+    }
+    &:focus {
+        background-color: @white;
+        border-color: #b8b8b8;
+        color: #575757;
+        box-shadow: inset 0 0 5px fade(#c7c7c7, 50%);
+    }
+}
+
+.action_list-item .bookmark-do {}
+.action_list-item .bookmark-doing {
+    color: #b8b8b8;
+}
+.action_list-item .bookmark-undo {
+    color: #ff7070;
+}
+
+
+// @me, to be moved
+/* Object do/undo actions (wip) */
+// --
+// A small abstraction for objects that have two (do/undo like)
+// actions, possibly with a transitional status
+// --
+// .is--done      | action done/undone
+// .is--triggered | action is newly done
+
+.ac--object .ac--doing { display: none } // aka following
+.ac--object .ac--undo  { display: none } // aka unfollow
+
+.ac--object.is--done .ac--todo  { display: none  } // aka follow
+.ac--object.is--done .ac--doing { display: block } // aka following
+
+.ac--object.is--done:hover .ac--doing { display: none  } // aka following
+.ac--object.is--done:hover .ac--undo  { display: block } // aka unfollow
+
+.ac--object.is--done.is--triggered:hover .ac--doing { display: block } // aka following
+.ac--object.is--done.is--triggered:hover .ac--undo  { display: none  } // aka unfollow

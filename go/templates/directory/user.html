@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>Urlist Directory - Users</title>
+</head>
+<body>
+  <h1>Urlist Directory - Users</h1>
+  <h3>{{ .Index.FirstEntry.Username }} - {{ .Index.LastEntry.Username }}</h3>
+
+  <ol>
+  {{ range .Users }}
+    <li><a href="{{ $.UrlistHttpAddress }}/user/{{ .Username }}">{{ .Username }} - {{ .ScreenName }}</a></li>
+  {{ end }}
+  </ol>
+</body>
+</html>

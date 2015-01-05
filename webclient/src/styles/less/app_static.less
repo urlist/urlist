@@ -1,0 +1,855 @@
+.category-page-header {
+    position: relative;
+    height: 160px;
+    margin: 20px 0 10px;
+    background-color: #ffffff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgba(184,184,184,0.30);
+
+    .badge {
+        display: block;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+        width: 150px;
+        height: 150px;
+    }
+
+    .title {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font: bold 60px/150px "PT Serif", Georgia, serif;
+        text-align: center;
+        text-shadow: 0 2px 4px rgba(076,076,076,0.20);
+    }
+
+    .actions {
+        position: absolute;
+        right: 9px;
+        bottom: 5px;
+    }
+}
+.category-tip {
+    margin-bottom: 30px;
+    height: 37px;
+    line-height: 34px;
+    font-size: 1em;
+    text-align: center;
+    background-color: #fffedf;
+    border: 1px solid #eee3b9;
+    border-radius: 3px;
+}
+
+.landing-page {
+    // background: #2c2d31 url(/static/assets/landing/bg-main.png) repeat;
+    background-color: #ffffff;
+
+    #main {
+        // background: #2c2d31 url(/static/assets/landing/bg-main.png) repeat;
+        background: @white;
+    }
+
+    .column {
+        padding: 0 10px;
+    }
+
+    .widget-wrapper {
+        min-height: 300px;
+    }
+
+    .content-app {
+        padding: 0;
+    }
+
+    .landing-header {
+        height: 60px;
+        overflow: hidden;
+        background-color: #26272a;
+        box-shadow: 0 2px 4px rgba(000,000,000,0.21);
+
+        .logo {
+            float: left;
+            margin-left: 24px;
+            height: 60px;
+            img {
+                display: block;
+                width: 80px;
+                height: 60px;
+            }
+        }
+        .app-access {
+            float: right;
+            margin-right: 20px;
+            height: 60px;
+            line-height: 60px;
+            font-size: 12px;
+            font-weight: 600;
+
+            a {
+                color: #9d9d9d;
+            }
+        }
+    }
+
+    .landing-welcome {
+        background: #333742 url(/static/assets/_patterns/space.png) repeat-x center top;
+
+        .landing-welcome-fold {
+            background: transparent url(/static/assets/landing/bg-heading.png) no-repeat center top;
+        }
+
+        .line {
+            position: relative;
+            padding-bottom: 35px;
+        }
+
+        .line:after {
+            .pseudo-block();
+            left: 0;
+            bottom: -20px;
+            width: 259px;
+            height: 344px;
+            background: url(/static/assets/landing/spaceboy-first.png) no-repeat left top;
+        }
+
+        &.landing-welcome-video {
+            .line {
+                // overflow: hidden;
+                background: transparent url(/static/assets/landing/bg-heading.png) no-repeat center top;
+            }
+            .line:after {
+                display: none;
+            }
+            .landing-welcome-fold {
+                background: none;
+            }
+            .landing-heading-main,
+            .landing-subheading {
+                text-align: left;
+                max-width: none;
+            }
+            .landing-heading-main {
+                margin-top: 4px;
+                font-size: 42px;
+            }
+            .landing-subheading {
+                margin: 5px 0 9px;
+                padding: 0;
+                font-size: 16px;
+                line-height: 21px;
+            }
+            .button-landing {
+                margin-top: 24px;
+                margin-left: 0;
+            }
+            .video-trailer {
+                margin-top: 60px;
+                margin-bottom: 51px;
+                float: right;
+                background: #14181e url(/static/assets/landing/cover-trailer.jpg) no-repeat center center;
+                background-size: cover;
+            }
+        }
+
+        .landing-welcome-fold {
+            background: transparent url(/static/assets/landing/bg-heading.png) no-repeat center top;
+        }
+
+        .line {
+            position: relative;
+            padding-bottom: 35px;
+        }
+
+        .line:after {
+            .pseudo-block();
+            left: 0;
+            bottom: -20px;
+            width: 259px;
+            height: 344px;
+            background: url(/static/assets/landing/spaceboy-first.png) no-repeat left top;
+        }
+    }
+
+    .landing-heading-main {
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        padding: 51px 0 20px;
+        color: #ffffff;
+        font: bold 50px/1 "PT Serif", "Georgia", serif;
+        text-align: center;
+    }
+    .landing-subheading {
+        position: relative;
+        z-index: 1;
+        margin: 6px auto 17px;
+        max-width: 580px;
+        padding: 0 0 20px;
+        color: #ffffff;
+        line-height: 1.555555556;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .button-landing {
+        display: block;
+        width: 212px;
+        height: 57px;
+        margin: 0 auto;
+        padding: 0;
+        border-radius: 3px;
+        line-height: 55px;
+        font-size: 1em;
+        font-weight: 600;
+    }
+
+    .widget-wrapper {
+        margin-top: 20px;
+        margin-bottom: 11px;
+    }
+
+    .landing-button-explore {
+        padding: 0;
+        font-size: 1em;
+        width: 282px;
+        height: 52px;
+        line-height: 50px;
+
+        box-shadow: 0 2px 2px rgba(000,000,000,0.15), 0 0 5px rgba(142,221,239,0.50);
+    }
+
+    .landing-heading-continue {
+        margin: 0;
+        padding: 20px 0;
+        color: #f7f7f7;
+        font: bold 45px/45px "PT Serif", "Georgia", serif;
+    }
+    .landing-subheader-continue {
+        margin: 0px 0;
+        font-size: 18px;
+        line-height: 18px;
+        color: #b8b8b8;
+    }
+
+    .landing-preview {
+        padding-bottom: 31px;
+    } // end .landing-preview
+
+    .landing-promo {
+        height: 300px;
+        position: relative;
+        background-color: #2b2f39;
+
+        .line {
+            height: 300px;
+        }
+
+        .landing-slider {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            background-color: #2b2f39;
+
+            .slide {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 300px;
+                top: 0;
+                left: 0;
+                padding-top: 0;
+                background-color: #2b2f39; // 1
+            }
+            // 1. Prevent overlapping slides
+
+            .slide-content {
+                margin: 0 auto;
+                width: 630px;
+                height: 300px;
+                color: @white;
+                padding-top: 80px;
+            }
+            .slide-content .avatar {
+                display: block;
+                width: 100px;
+                height: 100px;
+                border: 1px solid #b8b8b8;
+                img { width: 98px; height: 98px }
+            }
+            .slide-content .profile-details {
+                margin-top: 2px;
+                font-size: 21px;
+                padding-left: 40px;
+
+                .profile-username:after {
+                    content: ",";
+                }
+                .profile-profession {
+                    margin-left: 0.25em;
+                    font-weight: bold;
+                }
+            }
+            .slide-content .profile-description {
+                margin: 0;
+                padding: 15px 0 0 40px;
+            }
+            .slide-content .profile-quote {
+                font-size: 21px;
+                line-height: 24px;
+            }
+            .slide-content .profile-cta {
+                margin-left: 0.25em;
+                font-size: 12px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+        .orbit, .orbit-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+        }
+        .orbit-bullets {
+            position: absolute;
+            z-index: 9999;
+            overflow: hidden;
+            top: 247px;
+            left: 50%;
+            // 0. Interesting: auto negative margin-left
+
+            li {
+                display: block;
+                overflow: hidden;
+                float: left;
+                width: 8px;
+                height: 8px;
+                margin: 0 5px;
+                line-height: 9999px;
+                background-color: #414753;
+                border-radius: 100%;
+                cursor: pointer;
+            }
+            li.active, li:hover {
+                background-color: #94dff0;
+            }
+        }
+
+        .slider-nav {
+            position: absolute;
+            z-index: 3333;
+            top: 0;
+            width: 100px;
+            .left, .right {
+                background: red;
+            }
+        }
+
+        .button-signup {
+            display: block;
+            width: 222px;
+            height: 62px;
+            margin: 0 auto;
+            padding: 0;
+            line-height: 60px;
+            font-size: 16px;
+            box-shadow: 0 0 5px rgba(142,221,239,0.50);
+        }
+
+        .lead-description {
+            margin: 20px auto;
+            color: #8eddef;
+            font-size: 16px;
+            text-align: center;
+        }
+
+    } // .landing-promo
+
+    .landing-features {
+        overflow: hidden;
+
+        .claim {
+            margin: 0 0 9px;
+
+            font: bold 36px/60px "PT Serif", Georgia, serif;
+            text-align: center;
+            padding: 50px 0 38px;
+            background-color: #f7f7f7;
+        }
+        .feature-grid {
+            overflow: hidden;
+            padding-bottom: 63px;
+        }
+        .feature-item {
+            margin: 0 auto;
+            overflow: hidden;
+            height: 380px;
+            // padding: 52px 0;
+            border-bottom: 1px solid #e7e7e7;
+
+            // Modifiers
+            &.feature-item-01 {
+                height: 340px;
+            }
+            &.feature-item-02 {}
+            &.feature-item-03 {}
+            &.feature-item-04 {
+                border-bottom: none;
+            }
+            &.feature-item-04 .text .title {
+                padding-top: 75px;
+            }
+
+            // Childs
+            .feature-item-fold {
+                width: 88%;
+                margin: 0 auto;
+                .clearfix;
+            }
+
+            .image, .text {
+                position: relative;
+                float: left;
+                width: 50%;
+            }
+            .image img {
+                display: block;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .text .title, .text .description {
+                margin: 0 auto;
+                max-width: 400px;
+                padding: 0 25px;
+            }
+            .text .title {
+                padding-top: 82px;
+                line-height: 32px;
+                font-size: 26px;
+            }
+            .text .description {
+                margin-top: 22px;
+                line-height: 24px;
+                font-size: 16px;
+            }
+        }
+        .feature-item:nth-child(even) {
+            .image {
+                left: 50%;
+            }
+            .text {
+                left: -50%;
+            }
+        }
+    } // end .landing-features
+
+    .landing-closing {
+        position: relative;
+        color: #ffffff;
+        background: #2b2f39 url(/static/assets/_patterns/space.png) repeat-x center center;
+
+        .line {
+            min-height: 252px;
+            position: relative;
+            background: transparent url(/static/assets/landing/bg-closing.png) repeat-x center top;
+        }
+
+        .line:after {
+            .pseudo-block();
+            left: 0;
+            bottom: 0;
+            width: 243px;
+            height: 302px;
+            background: url(/static/assets/landing/spaceboy-second.png) no-repeat left top;
+        }
+
+        .claim {
+            position: relative;
+            z-index: 1;
+            margin: 41px 0 40px;
+
+            font: normal 26px/36px "PT Serif", Georgia, serif;
+            text-align: center;
+        }
+    } // end .landing-closing
+
+}
+
+.content-primary {
+    width: 77%;
+    padding: 0;
+    padding-bottom: 39px;
+    border-left: 1px solid #b8b8b8;
+    border-right: 1px solid #b8b8b8;
+    box-shadow: 0 0 6px rgba(000,000,000,0.21);
+}
+
+.static-page {
+
+    .content-std-elastic {
+        border-left: 1px solid #d5d5d5;
+    }
+
+    h3 {
+        margin-top: 22px;
+        margin-bottom: 6px;
+        padding: 0 39px;
+        font-size: 21px;
+        font-weight: bold;
+    }
+    h4 {
+        margin-top: 22px;
+        margin-bottom: 16px;
+        padding: 0 39px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    h5 {
+        margin-top: 22px;
+        margin-bottom: 16px;
+        padding: 0 39px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    img {
+        max-width: 100%;
+        margin: 30px 0;
+        border: 1px solid #d5d5d5;
+    }
+    a img {
+        border: none;
+    }
+    p {
+        padding: 0 39px;
+        font-size: 1em;
+        line-height: 21px;
+        &.leading {
+            font-weight: 600;
+        }
+        &.closing {
+            margin-top: 2.5em;
+        }
+        &.urlist-button-stage {
+            padding: 0;
+            margin: 30px 39px 27px;
+            background: url(/static/assets/resources/urlist-button-stage.png) no-repeat left top;
+            max-width: 622px;
+            height: 85px;
+            .button-bookmarklet {
+                width: 170px;
+                margin: 17px 20px;
+                padding: 18px;
+            }
+        }
+    }
+    em {
+        color: #3ab0c9;
+        font-style: normal;
+    }
+
+    .resources-sidebar {
+        width: 23%;
+    }
+
+    .simple-textarea {
+        .appearance(none);
+        display: block;
+        width: 90%;
+        max-width: 520px;
+        min-height: 120px;
+        padding: 8px 10px;
+        margin: 5px 39px;
+        border: 1px solid #b8b8b8;
+        .border-radius(3px);
+        box-shadow: inset 0 0 5px fade(#c7c7c7, 50%);
+        color: #6b6b6b;
+        font: normal 14px/18px "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        resize: none;
+        .placeholder-color(#6b6b6b);
+        .placeholder-color(#9d9d9d);
+        &:focus {
+            outline: none;
+            border-color: #8c8c8c;
+            .placeholder-color(#bbb);
+        }
+    }
+}
+
+.static-menu {
+    margin-top: 14px;
+    & > li {
+        margin-bottom: 2px;
+        & > a {
+            display: block;
+            padding: 0 20px;
+            height: 38px;
+            line-height: 38px;
+            color: #4c4c4c;
+            font-size: 1em;
+            font-weight: 600;
+            &:hover {
+                background-color: #f7f7f7;
+                text-decoration: none;
+            }
+        }
+        &.active a {
+            background-color: #f7f7f7;
+        }
+    }
+}
+
+.static-page .page-title {
+    width: 100%;
+    background: #f7f7f7;
+    margin: 0;
+    font: bold 40px/40px "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+    padding: 47px 39px 14px;
+} // !!! Solve the duplicate-moral-question asap
+
+/*
+// 404 Error
+*/
+.error-404 {
+    min-height: 680px;
+    background: #2b2f39 url(/static/assets/_patterns/space.png) repeat;
+
+    h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 100%;
+        margin: 0;
+        background: url(/static/assets/bg-404-error.png) no-repeat center 40px;
+        text-indent: -99999px;
+        // opacity: 0;
+    }
+}
+
+.discovery-page {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    min-height: 800px;
+    background-color: #ffffff;
+
+    .widget-wrapper.last {
+        padding-bottom: 40px;
+    }
+    .widget-wrapper.not-logged {
+        padding-bottom: 0px;
+    }
+
+    .page-header {
+        overflow: hidden;
+        min-height: 137px;
+        color: #ffffff;
+        background-color: #373a3a;
+    }
+    .page-header.header-category {
+        @bgCstm1: #66ced3;
+        @bgCstm2: #f2cd70;
+        @bgCstm3: #a0704f;
+        @bgCstm4: #ea7c56;
+
+        .inner {
+            position: relative;
+            z-index: 2;
+            padding-left: 157px;
+            text-shadow: 0 2px 2px rgba(000,000,000,0.10);
+        }
+
+        .inner:after {
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: -30px;
+            width: 200px;
+            min-height: 137px;
+            background-position: left center;
+            background-repeat: no-repeat;
+        }
+
+        &.category--information-media { background-color: @bgCstm3; .inner:after { background-image: url(/static/assets/category/bg-information-media.jpg); } }
+        &.category--education { background-color: @bgCstm1; .inner:after { background-image: url(/static/assets/category/bg-education.jpg); } }
+        &.category--society-politics { background-color: @bgCstm2; .inner:after { background-image: url(/static/assets/category/bg-society-politics.jpg); } }
+        &.category--business { background-color: @bgCstm4; .inner:after { background-image: url(/static/assets/category/bg-business.jpg); } }
+        &.category--passions-hobbies { background-color: @bgCstm1; .inner:after { background-image: url(/static/assets/category/bg-passions-hobbies.jpg); } }
+        &.category--cooking { background-color: @bgCstm2; .inner:after { background-image: url(/static/assets/category/bg-cooking.jpg); } }
+        &.category--culture-arts { background-color: @bgCstm2; .inner:after { background-image: url(/static/assets/category/bg-culture-arts.jpg); } }
+        &.category--science-nature { background-color: @bgCstm3; .inner:after { background-image: url(/static/assets/category/bg-science-nature.jpg); } }
+        &.category--activism { background-color: @bgCstm1; .inner:after { background-image: url(/static/assets/category/bg-activism.jpg); } }
+        &.category--technology { background-color: @bgCstm4; .inner:after { background-image: url(/static/assets/category/bg-technology.jpg); } }
+        &.category--controversial { background-color: @bgCstm4; .inner:after { background-image: url(/static/assets/category/bg-controversial.jpg); } }
+        &.category--places        { background-color: @bgCstm4; .inner:after { background-image: url(/static/assets/category/bg-places.png); } }
+    }
+}
+.page-title {
+    display: inline-block;
+    margin-top: 32px;
+    margin-bottom: 0;
+    margin-right: 0.375em;
+    font: bold 66px/1 "PT Serif", Georgia, serif;
+}
+.page-subtitle {
+    display: inline-block;
+    font: normal 21px/1 "PT Serif", Georgia, serif;
+}
+.page-actions {
+    margin-bottom: 22px;
+    background-color: #f1f1f1;
+    box-shadow: 0 1px 0 rgba(000,000,000,0.09), 0 2px 3px rgba(000,000,000,0.05);
+    .toolbar {
+        padding: 0;
+        overflow: hidden;
+        height: 50px;
+    }
+    .toolbar .nav--navigation > li {
+        margin-right: 0;
+    }
+    .toolbar .nav--navigation > li a {
+        line-height: 54px;
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #4c4c4c;
+        padding: 0 20px;
+    }
+    .toolbar .nav--navigation > li > span .button {
+        margin-top: 7px;
+        line-height: 32px;
+    }
+    .toolbar .nav--navigation > li a:hover,
+    .toolbar .nav--navigation > li.active a {
+        background-color: #fff;
+        text-decoration: none;
+    }
+    .button {
+        top: 4px;
+        // box-shadow: 0 0 10px red;
+    }
+}
+.discovery-heading {
+    margin: 28px 0 39px;
+    height: 59px;
+    line-height: 57px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    h3 {
+        line-height: 45px;
+        font-size: 24px;
+        color: #4c4c4c;
+        padding: 0 9px;
+    }
+}
+.discovery-bannercta-signup {
+    margin-top: 0;
+    min-height: 140px;
+    background-color: #373a3a;
+    vertical-align: middle;
+    position: relative;
+
+    & > div {
+        &:before {
+            .pseudo-block();
+            // top: -118px;
+            bottom: 0;
+            z-index: 1;
+            width: 220px;
+            height: 258px;
+            background: url(/static/assets/discovery/fg-bannercta.png) no-repeat left top;
+        }
+    }
+
+    p {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        margin: 0;
+        min-height: 140px;
+        line-height: 140px;
+        font-size: 24px;
+        text-align: center;
+        padding-left: 100px;
+        color: #ffffff;
+    }
+
+    .button {
+        top: -3px;
+        margin-left: 34px;
+    }
+}
+.discovery-messagebar {
+    margin: 20px 0;
+    padding: 22px 0;
+    color: #4c4c4c;
+}
+.discovery-messagebar p {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+.discovery-messagebar .button {
+    top: -2px;
+}
+
+.toolbar-changedisplay {
+    margin: 4px auto 21px;
+    
+    // Mixins
+    .clearfix;
+    
+    // Childs
+    .excerpt {
+        position: relative;
+        top: 2px;
+        font-size: 18px;
+    }
+    .changedisplay-switcher {
+        margin: 5px 0 0;
+        top: 0;
+        float: none;
+    }
+}
+
+.discovery-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.discovery-claim {
+    margin: 20px auto 31px;
+    text-align: center;
+
+    // Childs
+    h1 {
+        position: relative;
+        top: -5px;
+        // margin: 47px auto 9px;
+        margin: 10px auto 16px;
+        line-height: 1;
+        font-size: 28px;
+    }
+    h4 {
+        margin: 2px auto 28px;
+        line-height: 1;
+        font-size: 22px;
+        color: #9d9d9d;
+    }
+    .button {
+        width: 132px;
+        font-size: 14px;
+        padding: 13px 12px;
+    }
+    .progressbar {
+        margin: 10px auto 30px;
+    }
+}

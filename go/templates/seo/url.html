@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> {{ .Url.Title }} </title>
+  <link href="http://static.urli.st/favicon.png" type="image/png" rel="icon" />
+
+  <meta name="google-site-verification" content="{{ .Context.GoogleVerification }}" />
+  <meta property="og:title" content="{{ .Url.Title }}"/>
+  <meta property="og:url" content="{{ .Context.BaseUrl }}/{{ .List.Slug }}/{{ .Url.Slug }}"/>
+  <meta property="og:site_name" content="Urlist"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="{{ if .Url.Description }}{{ .Url.Description }}{{ else }} Listed on {{ .List.Title }} by {{ .Author.ScreenName }} {{ end }}"/>
+  <meta property="og:updated_time" content="{{ .List.LastActionTime }}"/>
+  <meta property="og:image" content="{{ .Image }}"/>
+
+  <meta property="fb:app_id" content="{{ .Context.FacebookAppId }}" />
+</head>
+<body id="list-hash-{{ .List.Hash }}">
+    <header>
+      <h1 id="url-title">{{ .Url.Title }}</h1>
+      <h2 id="url-author">listed by {{ .Author.ScreenName }}</h2>
+      <h3 id="list-title">on {{ .List.Title }}</h3>
+
+      <img id="logo" src="{{ .Image }}" alt="{{ .Url.Title }} Cover Image" />
+    </header>
+
+    {{ if .Url.Description }}
+    <p>
+        {{ .Url.Description }}
+    </p>
+    {{ end }}
+
+    <p>
+      <a id="url-hash-{{ .Url.Hash }}" href="{{ .Url.Url }}" title="{{ .Url.Title }} on Urlist" rel="nofollow">{{ .Url.Title }}</a>
+      was listed on <a href="{{ .Context.BaseUrl }}/{{ .List.Slug }}">{{ .List.Title }}<a/>
+      by <a href="{{ .Context.BaseUrl }}/user/{{ .Author.Username }}">{{ .Author.ScreenName}}</a>
+      using <a href="http://urli.st">Urlist</a>.
+    </p>
+
+    <aside>
+      <a id="author-username-{{ .Author.Username }}" href="{{ .Context.BaseUrl }}/user/{{ .Author.Username }}" rel="author" title="Visit {{ .Author.ScreenName }} profile">
+        <img src="{{ .Author.ProfileImage }}" alt="{{ .Author.ScreenName }}" />
+      </a>
+    </aside>
+
+    <footer>
+      <a href="{{ .Context.BaseUrl}}" title="Join Urlist">Urlist</a>
+      <a rel="publisher" href="https://plus.google.com/115790304811312476586" title="Visit Urlist Google+ Profile">Urlist on Google+</a>
+    </footer>
+</body>
+</html>

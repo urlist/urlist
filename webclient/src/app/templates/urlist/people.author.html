@@ -1,0 +1,28 @@
+<a class="author-badge js-navigate" href="/library/{{username}}">
+    <span class="avatar">
+        <img src="{{profile_image}}" alt="{{screen_name}}" />
+    </span>
+    <span class="author-info">
+        <span class="screenname js-navigate" href="/library/{{username}}">{{screen_name}}</span>
+        <span class="desc">
+            <span class="author-lists-counter"><b>{{lists_amount}}</b> lists</span>
+            <span class="author-links-counter"><b>{{links_amount}}</b> links</span>
+        </span>
+    </span>
+</a>
+
+{{#if short_bio}}
+<p class="short-bio">
+    {{crop short_bio 80}}
+</p>
+{{/if}}
+
+<!--
+{{#unless short_bio}}
+<p class="short-bio">
+    Tell something about you, write a short bio.
+    <a class="button button-inline small js-navigate" href="/settings" title="Go to the Settings Page">Add</a>
+</p>
+{{/unless}}
+-->
+

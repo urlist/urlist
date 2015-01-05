@@ -1,0 +1,50 @@
+<div class="dialog-header">
+    New List
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <!-- <div class="js-title"> ? -->
+    <dl class="form-item">
+        <dt class="column three">
+            <label>Title</label>
+        </dt>
+        <dd class="column nine">
+            <input id="title-list-{{hash}}" class="textfield" type="text" name="title" value="" autocomplete="off" data-error="Enter the title of the list" data-validator="not-empty" placeholder="ex. Best Tiramisu Recipes" />
+        </dd>
+    </dl>
+
+    {{#if secret_lists_left}}
+    <dl class="form-item">
+        <dt class="column three">
+            <label>Change Visibility</label>
+        </dt>
+        <dd class="column nine">
+            <div class="textbox">
+                <div class="input-switcher">
+                    <input id="is-public" class="control" type="radio" name="secret" value="false" checked="checked">
+                    <label for="is-public" class="state state-a">Public</label>
+                    <input id="is-secret" class="control" type="radio" name="secret" value="true">
+                    <label for="is-secret" class="state state-b">Unpublished</label>
+                </div>
+                <div class="dialog-notice"><b>{{secret_lists_left}}</b> unpublished left</div>
+            </div>
+        </dd>
+    </dl>
+    {{/if}}
+
+</div>
+
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li>
+            <input class="button action js-url-save" type="submit" value="Go!" />
+        </li>
+        <li>
+            <button class="button js-dialog-close js-cancel">Cancel</button>
+        </li>
+    </ul>
+
+</div>

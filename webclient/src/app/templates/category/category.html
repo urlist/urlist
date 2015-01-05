@@ -1,0 +1,36 @@
+<div class="discovery-page">
+    <div class="page-header header-category category--{{name}}">
+        <div class="inner content-std-elastic is--fluid">
+            <h1 class="page-title">{{label}}</h1>
+        </div>
+    </div>
+    <div class="page-actions">
+        <div class="content-std-elastic is--fluid">
+            <div class="toolbar actions js-toolbar">
+                <ul class="nav left nav--navigation">
+                    <li>
+                        <a href="/category/{{slugify label}}/popular" class="js-navigate js-popularity">Popular</a>
+                    </li>
+                    <li>
+                        <a href="/category/{{slugify label}}/new" class="js-navigate js--creation_time">Recent</a>
+                    </li>
+                    {{#LOGGED}}
+                    <li>
+                        <a href="/category/{{slugify label}}/network" class="js-navigate js-network">My Network</a>
+                    </li>
+                    {{/LOGGED}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-std-elastic is--fluid">
+        {{#if-equal name "education"}}
+        <div class="message-box is--upon">
+            Are you a teacher or an educator? We would love to have your feedback on Urlist! <a href="https://docs.google.com/a/urli.st/forms/d/1D3ZnK5fzJ2iNIn5AGImBxYlnji43eejTdLEXkj3lXDQ" class="button action" target="_blank">Take the survey</a>
+        </div>
+        {{/if-equal}}
+    </div>
+    <div class="content-full-elastic">
+        <div class="widget-wrapper"></div>
+    </div>
+</div>

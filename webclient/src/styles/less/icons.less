@@ -1,0 +1,282 @@
+// icons.less
+//
+// Need to be planned well
+
+[data-icon]:before {
+    speak: none;
+    content: attr(data-icon);
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-right: 0.25em;
+    width: 16px;
+    line-height: 1;
+    font-family: "listicons";
+    font-size: 16px !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+}
+
+.midi-icon,
+.mini-icon,
+.maxi-icon,
+.giga-icon {
+    speak: none;
+    content: attr(data-icon);
+    display: inline-block;
+    position: relative;
+    top: 3px;
+    margin-right: 0.25em;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+    font-family: "listicons" !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; // from ff > v22
+}
+.mini-icon {
+    margin-right: 0;
+}
+
+.maxi-icon {
+    top: 6px;
+    width: 32px;
+    height: 32px;
+    font-size: 32px !important;
+}
+
+.giga-icon {
+    top: 24px;
+    width: 96px;
+    height: 96px;
+    font-size: 96px !important;
+}
+
+.mini-icon.context {
+    margin-right: 0;
+    margin-left: 0.25em;
+}
+
+.tiny-icon {
+    speak: none;
+    content: attr(data-icon);
+    display: inline-block;
+    position: relative;
+    // margin-right: 0.25em;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    padding: 0 !important;
+    text-align: left !important;
+    font-family: "listicons" !important;
+    font-size: 16px !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    font-weight: normal !important;
+    -webkit-font-smoothing: antialiased;
+}
+.tiny-icon:before {
+    position: relative;
+    top: 2px;
+    left: -2px;
+}
+
+.tiny-icon-relist:before { content: "\e002"; }
+
+// @spriteX: 20px;
+// @spriteY: 20px;
+@spriteBase: 20px;
+
+.spriteCoords(@x :0, @y: 0) {
+    background-position: (@x * @spriteBase) (@y * @spriteBase);
+}
+
+.spriteCoordsPx(@x :0, @y: 0) {
+    background-position: @x @y;
+}
+
+i[class^="icon"] {
+    -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box;
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    // margin-right: 0.25em;
+
+    padding-right: 0.25em;
+    // margin-left: -0.25em;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &[class~="tiny"] {
+        .square(8px);
+    }
+
+    &[class~="small"] {
+        top: -1px;
+        .square(15px);
+        // margin-right: 0;
+    }
+
+    &[class~="small-n"] {
+        top: 0;
+        .square(10px);
+    }
+
+    &, &[class~="regular"] {
+        top: -2px;
+        .square(21px);
+    }
+
+    &[class~="big"] {
+        .square(32px);
+    }
+
+    &[class~="gigantic"] {
+        .square(72px);
+    }
+
+    &[class~="enormous"] {
+        .square(72px);
+    }
+
+    &[class~="size-header"] {
+        .size(32px, 20px);
+    }
+}
+
+// Small
+.icon-private { // should be "small"
+    background-image: url(/static/assets/icon-padlock.png);
+} // LEGACY
+
+.icon-edit-small {
+    top: -0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(/static/assets/icons/icon-mini-edit.png);
+} // LEGACY
+.icon-mini-relist {
+    top: -1px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(/static/assets/icons/icon-mini-relist.png);
+} // LEGACY
+.icon-mini-url {
+    top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 16px !important;
+    height: 16px !important;
+    background-image: url(/static/assets/icons/icon-mini-url.png);
+} // LEGACY
+
+
+// Font-based icons
+.icon-small-activity:before {
+    content: "\e018";
+}
+.icon-small-add:before {
+    content: "\e01f";
+}
+.icon-small-remove:before {
+    content: "\e020";
+}
+.icon-small-add-block:before {
+    content: "\e022";
+}
+.icon-small-add-user:before {
+    content: "\e010";
+}
+.icon-small-agree:before {
+    content: "\e01d";
+}
+.icon-small-anchor:before {
+    content: "\e00b";
+}
+.icon-small-link:before {
+    content: "\e00a";
+}
+.icon-small-edit:before {
+    content: "\e00c";
+}
+.icon-small-grid:before {
+    content: "\e005";
+}
+.icon-small-delete:before {
+    content: "\e01b";
+}
+.icon-small-embed:before {
+    content: "\e021";
+}
+.icon-small-search:before {
+    content: "\e007";
+}
+.icon-small-settings:before {
+    content: "\e009";
+}
+.icon-small-bookmark:before {
+    content: "\e000";
+}
+.icon-small-library:before {
+    content: "\e01c";
+}
+.icon-small-import:before {
+    content: "\e013";
+}
+.icon-small-export:before {
+    content: "\e014";
+}
+.icon-small-padlock:before {
+    content: "\e00d";
+}
+.icon-small-remove-block:before {
+    content: "\e023";
+}
+.icon-small-share:before {
+    content: "\e003";
+}
+.icon-small-share-facebook:before {
+    content: "\e015";
+}
+.icon-small-play:before {
+    content: "\e016";
+}
+.icon-small-users:before {
+    content: "\e017";
+}
+.icon-small-private:before {
+    content: "\e00d";
+}
+.icon-small-view:before {
+    content: "\e00e";
+}
+.icon-small-warning:before {
+    content: "\e01e";
+}
+
+
+.icon-midi-more:before {
+    content: "\e024";
+}
+.icon-midi-move:before {
+    content: "\e025";
+}
+.icon-midi-relist:before {
+    content: "\e026";
+}
+
+.button .mini-icon {
+    height: auto;
+    line-height: inherit;
+    margin-top: -3px; // TMP
+    top: 0.1875em; // TMP
+}

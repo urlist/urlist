@@ -1,0 +1,24 @@
+<li class="media contributor-item {{#author}}contributor-author{{/author}} {{#if-equal status 'pending'}}pending{{/if-equal}} js-contributor" data-user-id="{{user_id}}">
+    <span class="medium avatar">
+        <img class="img" src="{{profile_image}}" alt="" />
+    </span>
+
+    <span class="content username">
+        {{screen_name}}
+        {{#author}}<i>(author)</i>{{/author}}
+        {{#itsme}}<i>(you)</i>{{/itsme}}
+        {{#if-equal status "pending"}}<i>(invite sent)</i>{{/if-equal}}
+    </span>
+
+    {{#unless author}}
+    {{#if itsme}}
+    <a class="contributor-delete js-contributor-delete" href="#" title="Leave the list">
+        Leave
+    </a>
+    {{else}}
+    <a class="contributor-delete js-contributor-delete" href="#" title="Remove Contributor">
+        Remove
+    </a>
+    {{/if}}
+    {{/unless}}
+</li>

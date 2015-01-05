@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block page-title %}{{ list_data.get('title') }}{% end %}
+{% block page-description %}{{ list_data.get('description') }}{% end %}
+
+{% block body %}
+  <header>
+    <h1>{{ list_data.get('title') }}</h1>
+    <h2>Urlist by {{ user_data.get('screen_name') }}</h2>
+  </header>
+
+  <ol>
+  {% if list_data.get('type') == 'reference' and list_data.get('sections') %}
+    {% for section_data in sorted(list_data.get('sections'), key=lambda x: x.get('position')) %}
+    <li> 
+      <h3> {{ section_data.get('title') }}</h3>
+      <ol>
+        {% for url in [x for x in list_data.get('urls') if x.get('section') == section_data.get('id')] %}
+        <li>
+          <a href="{{ url.get('url') }}">{{ url.get('title') }}</a>
+        </li>
+        {% end %}
+      </ol>
+    </li>
+    {% end %}
+  {% else %}
+    {% for url in sorted(list_data.get('urls'), key=lambda x: x.get('position')) %}
+    <li>
+      <a href="{{ url.get('url') }}">{{ url.get('title') }}</a>
+    </li>
+    {% end %}
+  {% end %}
+  </ol>
+
+{% end %}

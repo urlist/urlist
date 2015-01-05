@@ -1,0 +1,81 @@
+.is-ie {
+    #messageSignUp {
+        height: 50px;
+        padding: 10px 0;
+    }
+}
+.lt-ie9 {
+
+    // Dialog Stage fix
+    .dialog-centering {
+        background: url(/static/assets/bg-fallback-dialog-stage.png) repeat !important;
+    }
+
+    // [IE 8] Fix semi-transparent background-color for Category Label (List w/ Cover)
+    .toolbar-list_action_set .list-category {
+        background: transparent url(/static/assets/bg-fallback-dialog-stage.png) repeat !important;
+    }
+
+    // Choose Category dialog alternate layout
+    .category-grid {
+        .category-item {
+            position: relative;
+        }
+        .category-control {
+            position: absolute;
+            z-index: 2;
+            right: 6px;
+            bottom: -2px;
+            height: 26px;
+            display: block;
+        }
+    }
+
+    // Pick up your favorite Categories (Onboarding) alternate layout
+    .category-onboarding-item .control {
+        position: absolute;
+        z-index: 2;
+        right: 14px;
+        bottom: 42px;
+        height: 26px;
+        display: block;
+    }
+
+    // Onboarding - Pick Categories shows a thick, that IE8 doesn't filter out
+    .category-onboarding-item .thumbnail:after {
+        display: none;
+    }
+
+    .embed-frame {
+        min-height: 500px;
+        height: 500px;
+    }
+
+    .active-sticky {
+        border-bottom: 1px solid #eee;
+    }
+
+    .profile-item {
+        width: 1008px;
+    }
+
+    .cardlist-shield {
+        background: transparent url(/static/assets/_utils/spacer.gif) repeat;
+        z-index: 33;
+        right: 20px;
+    }
+    .cardlist-user-follow {
+        display: none;
+    }
+
+}
+
+.lte-ie9 {
+    .js-upload, .js-upload-name {
+        display: none !important;
+    }
+    .js-upload-real {
+        display: block !important;
+        height: auto !important;
+    }
+}

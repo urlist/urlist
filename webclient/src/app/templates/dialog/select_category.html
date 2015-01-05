@@ -1,0 +1,36 @@
+<div class="dialog-content">
+
+    <div class="line form-item">
+        <a href="#" class="dialog-close js-dialog-close" style="top: -10px; right: -5px; z-index: 2">&times;</a>
+        <p class="slogan" style="font-size: 28px">Pick <strong>1</strong> or <strong>2</strong> categories</p>
+    </div>
+
+    <div class="line form-item">
+        <div class="column twelve">
+        <ul class="line category-grid">
+            {{#all_categories}}
+            <li class="column six category-item">
+                <input class="category-control" id="{{id}}" type="checkbox" name="category" value="{{id}}" {{checkedifeq ../categories id}}>
+                <label class="media category-label js-legacy-category-label" for="{{id}}">
+                    <span class="medium">
+                        <img src="/static/assets/categories/category-{{slugify label}}.png" alt="" />
+                    </span>
+                    <span class="content">{{label}}</span>
+                </label>
+            </li>
+            {{/all_categories}}
+        </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="toolbar dialog-actions">
+
+    <ul class="nav right">
+        <li>
+        <input class="button action js-url-save {{#unless label_categories}}inactive{{/unless}}" {{#unless label_categories}}disabled{{/unless}} type="submit" value="Done" />
+        </li>
+    </ul>
+
+</div>

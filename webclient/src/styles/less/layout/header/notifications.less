@@ -1,0 +1,72 @@
+// Name: Notification Popover
+// Desc: Styles for Notifications on the Header
+//
+// Template base:
+// ...
+
+.dropdown--notifications {
+    left: auto;
+    right: 0;
+    right: 131px;
+    width: 360px;
+    &:before {
+        left: auto;
+        right: 3em;
+        margin-left: -10px;
+    }
+    &:after {
+        left: auto;
+        right: 3em;
+        margin-left: -10px;
+    }
+}
+.dropdown--notifications .notification-list {
+    max-height: 300px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; // 1
+    // 1. enhance scroll on touchscreen devices
+}
+.dropdown--notifications .notification-item {
+    width: 100%;
+    height: auto;
+    padding: 0;
+    line-height: 16px;
+    font-size: 14px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: none;
+    border-bottom: 1px solid #dbdbdb;
+    white-space: normal;
+
+    // @riccardo: I've added this rule here
+    &.new {
+        background-color: #fffcf0;
+    }
+
+    &:hover {
+        background-color: #f7f7f7;
+        border-color: #d2d2d2;
+    }
+}
+.dropdown--notifications .notification-item a {
+    display: block;
+    height: inherit;
+    line-height: inherit;
+    padding: 7px @dropMenuItemPaddingW;
+    color: @dropMenuItemColor;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+.dropdown--notifications .notification-item a .target {
+    // @riccardo: commented out this
+    //color: @link;
+}
+.dropdown--notifications .notification-item a .timestamp {
+    display: block;
+    margin-top: 3px;
+    font-size: 14px;
+    color: #9d9d9d;
+}

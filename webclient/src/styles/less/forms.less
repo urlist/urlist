@@ -1,0 +1,373 @@
+// Name: Forms
+// Desc: Styles for our forms, both in website and webapp
+//
+// Template base:
+// form.form-content>dl.form-item>dt(...)+dd(...)
+
+.form-content {
+    padding-top: 20px;
+}
+
+
+
+.form-item {
+    .small {
+        color: #9d9d9d;
+    }
+    .toggle-label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .clearfix;
+    display: block;
+    position: relative;
+    margin-bottom: 20px;
+
+    // Modifiers
+    &.form-item--isolated {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    &.form-item--nested {
+        margin-bottom: 0; // TMP
+        &, & .column {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    &.form-item--alone {
+        // Deprecated » now .line
+        // New assignment » --contiguous
+        margin-bottom: 10px;
+    }
+    &.form-item--prominent {
+        padding-bottom: 5px;
+    }
+    &.form-item--dividing {
+        border-bottom: 1px solid #ededed;
+        padding-bottom: 10px;
+    }
+
+    // Childs
+    .incomplete {
+        background-color: #FFFEDF;
+        border-color: #D1C69D;
+    }
+
+    label {
+        display: block;
+        width: 100%;
+        min-height: 30px;
+        line-height: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #6b6b6b;
+        padding: 7px 0 0;
+
+        // Childs
+        & i { font-style: normal; font-weight: normal; }
+    }
+
+    .textfield, textarea {
+        display: block;
+        margin: 0;
+        width: 100%;
+        min-height: 37px;
+        padding: 4px 10px 6px;
+        color: #575757;
+        white-space: normal;
+        .placeholder-color(#9d9d9d);
+        font: normal 16px/24px "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+        border: 1px solid #b8b8b8;
+        .border-radius(3px);
+        box-shadow: inset 0 0 5px fade(#c7c7c7, 50%);
+        -webkit-font-smoothing: antialiased;
+           -moz-font-smoothing: antialiased;
+            -ms-font-smoothing: antialiased;
+                font-smoothing: antialiased;
+
+        &:focus {
+            outline: none;
+            color: inherit;
+            .placeholder-color(#c6c6c6);
+            border-color: #8c8c8c;
+        }
+    }
+
+    textarea {
+        min-height: 70px;
+        .transition(height .2s ease-out);
+
+        // Modifiers
+        &.has--code {
+            padding-top: 8px;
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            line-height: 1.25;
+            font-weight: bold;
+            color: #6b6b6b;
+        }
+    }
+    select {
+        display: block;
+        position: relative;
+        top: 6px;
+        width: 100%;
+        height: 28px;
+        padding: 4px;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+        outline: 0;
+        &:focus {
+            outline: 0;
+        }
+    }
+    .textbox {
+        display: block;
+        width: 100%;
+        height: 30px;
+        line-height: 20px;
+        font-size: 14px;
+        padding: 7px 0 0;
+
+        // Modifiers
+        &.is--subtle {
+            color: #b8b8b8;
+            a, b, strong {
+                color: #6b6b6b;
+            }
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+    .input-group {
+        // Modifiers
+        &.has--first-input {
+            .textfield { border-radius: 3px 0 0 3px; }
+        }
+        &.has--last-input {
+            .textfield { border-radius: 0 3px 3px 0; }
+        }
+    }
+    .prefix, .postfix {
+        display: block; // TMP but nice
+        overflow: hidden;
+        white-space: no-wrap;
+        min-height: 37px;
+        line-height: 27px;
+        font-size: 14px;
+        text-align: center;
+        color: #6b6b6b;
+        padding: 3px 0;
+        background: #f7f7f7;
+        border: 1px solid #dadada;
+    }
+    .prefix {
+        border-right: none;
+        // Modifiers
+        &.is--sibling-input { border-radius: 3px 0 0 3px; }
+    }
+    .postfix {
+        border-left: none;
+        // Modifiers
+        &.is--sibling-input { border-radius: 0 3px 3px 0; }
+    }
+    .simple-value { // not really present yet
+        overflow: hidden;
+        white-space: no-wrap;
+        min-height: 37px;
+        color: #6b6b6b;
+
+        // Childs
+        .value-prefix {
+            color: #9d9d9d;
+        }
+    }
+    .textarea-with-toolbar {
+        display: block;
+        overflow: hidden; // ?
+        border: 1px solid #b8b8b8;
+        border-radius: 3px;
+
+        // Modifiers
+        &.on-bottom {
+            
+            textarea {
+                border: none;
+                border-radius: 3px 3px 0 0;
+            }
+            .toolbar {
+                height: 30px;
+                line-height: 30px;
+                padding: 0 10px;
+                border-top: 1px solid lighten(#b8b8b8, 5%);
+            }
+        }
+    }
+    .inline-cta {
+        color: #6b6b6b;
+        text-decoration: underline;
+
+        // Modifiers
+        &.is--important {
+            font-weight: 600;
+        }
+    }
+
+}
+
+.input-switcher {
+    .user-select();
+    display: block;
+    float: left;
+    position: relative;
+    top: -6px;
+    margin-right: 10px;
+    width: 200px;
+    height: 32px;
+    padding: 0;
+    color: #555555;
+    background-color: #dbdbdb;
+    border: 1px solid #b8b8b8;
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(000,000,000,0.17) inset;
+    overflow: hidden;
+
+    .control {
+        position: absolute;
+        visibility: hidden;
+    }
+    .control:checked + .state, .state.active {
+        color: #6b6b6b;
+        margin: 0;
+        background-color: transparent;
+        border: 1px solid transparent;
+        cursor: default;
+    }
+    .control:checked + .state-a, .state-a.active {
+        margin-left: -1px;
+    }
+    .control:checked + .state-b, .state-b.active {
+        margin-right: -1px;
+    }
+
+    .state {
+        position: relative;
+        display: block;
+        float: left;
+        top: -1px;
+        width: 100px;
+        height: 32px;
+        line-height: 31px;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0;
+        color: #aaaaaa;
+        background-color: #f7f7f7;
+        border: 1px solid #b8b8b8;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .state-a {
+        float: left;
+        margin-left: -1px;
+        border-radius: 3px 0 0 3px;
+    }
+    .state-b {
+        float: right;
+        margin-right: -1px;
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.input-toggle {
+    .user-select();
+    position: relative;
+    top: -6px;
+    margin-right: 0 auto;
+    width: 302px;
+    height: 32px;
+    padding: 0;
+    color: #555555;
+    border-radius: 3px;
+    border-right: 1px solid #b8b8b8;
+    border-left: 1px solid #b8b8b8;
+    box-shadow: 0 0 4px rgba(000,000,000,0.17) inset;
+    overflow: hidden;
+
+    .controls {
+        position: relative;
+        left: -1px;
+        top: 0;
+        width: 110%;
+        overflow: hidden;
+        height: inherit;
+        padding: 0;
+        color: #555555;
+        background-color: #dbdbdb;
+        background-color: #dbdbdb;
+        border: 1px solid #b8b8b8;
+        border-radius: 3px;
+        box-shadow: 0 0 4px rgba(000,000,000,0.17) inset;
+    }
+
+    .state.active {
+        top: -1px;
+        height: 34px;
+        color: #6b6b6b;
+        margin-right: 0;
+        background-color: transparent;
+        border: 1px solid transparent;
+        
+        cursor: default;
+    }
+
+    .state {
+        -webkit-box-sizing: content-box;
+           -moz-box-sizing: content-box;
+                box-sizing: content-box;
+        position: relative;
+        display: block;
+        float: left;
+        top: -1px;
+        margin-right: -1px;
+        width: 99px;
+        height: 32px;
+        line-height: 31px;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+
+        background-color: #f7f7f7;
+        border: 1px solid #b8b8b8;
+        box-shadow: 0 0 3px rgba(000,000,000,0.15);
+
+        padding: 0;
+        color: #aaaaaa;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .state-a {
+        margin-left: -1px;
+        border-radius: 3px 0 0 3px;
+    }
+    .state-a.active {
+        width: 98px;
+        margin-left: 0;
+    }
+    .state-b {
+        // border-radius: 3px 3px;
+    }
+    .state-c {
+        border-radius: 0 3px 3px 0;
+    }
+}

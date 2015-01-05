@@ -1,0 +1,26 @@
+<div class="category-onboarding-header">
+    <div class="wrapper">
+        <h4 class="title">Pick up your favorite Categories</h4>
+        <div class="pagination-next">
+            <a href="#" class="button inactive js-next">Next &raquo;</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-std-elastic is--fluid">
+
+    <ul class="category-onboarding-grid">
+        {{#all_categories}}
+        <li class="category-onboarding-item js-legacy-category-label">
+            <input class="control" id="{{id}}" type="checkbox" name="category" value="{{slug}}">
+            <label class="content" for="{{id}}">
+                <figure class="thumbnail">
+                    <img src="/static/assets/onboarding/pick_categories/category-{{slugify label}}.png?v=1" alt="" />
+                </figure>
+                <span class="label">{{label}}</span>
+            </label>
+        </li>
+        {{/all_categories}}
+    </ul>
+
+</div>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> {{ .Key }} {{ .Type }} on Urlist </title>
+  <link href="http://static.urli.st/favicon.png" type="image/png" rel="icon" />
+
+  <meta name="google-site-verification" content="{{ .Context.GoogleVerification }}" />
+  <meta property="og:title" content="Lists for {{ .Type }} {{ .Key }} at Urlist"/>
+  <meta property="og:url" content="{{ .Context.BaseUrl }}/{{ .CanonicalUrl }}"/>
+  <meta property="og:site_name" content="Urlist"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Lists for {{ .Type }} {{ .Key }} at Urlist"/>
+  <meta property="og:image" content="{{ .Image }}"/>
+  <meta property="fb:app_id" content="{{ .Context.FacebookAppId }}" />
+</head>
+<body>
+    <header>
+      <h1>List for {{ .Key }}</h1>
+      <h3>{{ .ListsAmount }} lists in {{ .Key }}</h3>
+
+      <img id="logo" src="{{ .Image }}" alt="Discover Urlist" />
+    </header>
+
+    <ol id="list-links">
+      {{ range $i, $l := .Lists }}
+      <li>
+        <a id="list-hash-{{ $l.Hash }}" href="{{ $.Context.BaseUrl }}/{{ $l.Slug }}" title="{{ $l.Title }}">{{ $l.Title }}</a>
+        {{ if $l.Description }}<p>{{ $l.Description }}</p>{{end}}
+
+        <ol>
+        {{ range $y, $u := $l.Urls }}
+          <a id="url-hash-{{ $u.Hash }}" href="{{ $.Context.BaseUrl }}/{{ $l.Slug }}/{{ $u.Slug }}" title="{{ $u.Title }}">{{ $u.Title }}</a>
+          {{ if $u.Description }}<p>{{ $u.Description }}</p>{{end}}
+        {{ end }}
+        </ol>
+      </li>
+      {{ end }}
+    </ol>
+
+    <footer>
+      <a href="{{ .Context.BaseUrl }}/i/lists/index.html" title="Browse our list directory">Urlist Lists Directory</a>
+      <a href="{{ .Context.BaseUrl}}" title="Join Urlist">Urlist</a>
+      <a rel="publisher" href="https://plus.google.com/115790304811312476586" title="Visit Urlist Google+ Profile">Urlist on Google+</a>
+    </footer>
+</body>
+</html>

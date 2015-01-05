@@ -1,0 +1,54 @@
+<div class="dialog-header">
+    Suggested Links
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <ul class="suggested_links-list">
+
+        {{#suggested_urls}}
+        <li class="suggested_links-item" data-suggestion_id="{{suggestion_id}}">
+        <a href="{{url}}" class="title" target="_blank">{{decodeURIComponent url}}</a>
+            <small class="url">{{description}}</small>
+
+            <div class="toolbar">
+                <ul class="nav left">
+                    <li><span class="author">By <a href="#" target="_blank" data-user_id="{{user_id}}">Screen Name</a></span></li>
+                    <li><span class="timestamp">{{prettydate sent_at}}</span></li>
+                </ul>
+                <div class="actions_link js-actions_link">
+                    <ul class="nav right js-toaccept">
+                        <li>
+                            <span>
+                                <a href="#" class="button action js-trigger-accepted">Accept</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <a href="#" class="button js-trigger-noaccept">Decline</a>
+                            </span>
+                        </li>
+                    </ul>
+                    <ul class="nav right hide js-accepted">
+                        <li>
+                            <span>
+                                <b>Listed!</b>
+                            </span>
+                        </li>
+                    </ul>
+                    <ul class="nav right hide js-noaccept">
+                        <li>
+                            <span>
+                                <b>Declined</b>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+        {{/suggested_urls}}
+
+    </ul>
+
+</div>

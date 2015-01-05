@@ -1,0 +1,422 @@
+{{ define "list" }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Urlist</title>
+        <!-- <link rel="stylesheet" href="{{ .BaseUrl }}/{{ .AppMountPoint }}/styles/main.css"> -->
+
+        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=PT+Serif:700" rel="stylesheet" type="text/css">
+
+        <style>
+
+        /* Custom Reset */
+        html, body, div, span, h4, a, cite, em, img, small, strong, b, i, ul, li {
+            -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* Styles */
+        body {
+            overflow: hidden;
+            background-color: #fff;
+            font: normal 14px/1 "Source Sans Pro";
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .heading {
+            position: relative;
+            height: 110px;
+            background-color: #363a45;
+            background-color: #4c4c4c;
+            -webkit-background-clip: padding-box;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: 10px;
+        }
+        .heading-cover {
+            position: absolute;
+            width: 100%;
+            height: 110px;
+            background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABaCAYAAAB5XDy9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RUJBRjRENkNCMzExMUUyQkU4QTlERjNDMzQ3RjA1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RUJBRjREN0NCMzExMUUyQkU4QTlERjNDMzQ3RjA1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdFQkFGNEQ0Q0IzMTExRTJCRThBOURGM0MzNDdGMDUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdFQkFGNEQ1Q0IzMTExRTJCRThBOURGM0MzNDdGMDUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aMNH0AAAADlJREFUeNpiYIACRiYYwcSEg8uEhcApASaYCUswY1HHjFcJTi5OMZIUk+4CnEpIChJiwxk9ZgACDABGXgF5GRaEhgAAAABJRU5ErkJggg==') repeat-x left bottom;
+        }
+        .list-author {
+            display: block;
+            line-height: 40px;
+            position: absolute;
+            top: 70px;
+            font-weight: 600;
+            padding: 0 20px;
+            color: #fff;
+        }
+        .list-author a {
+            color: #fff;
+        }
+        .list-author a:hover {
+            text-decoration: underline;
+        }
+
+        .list-do_bookmark {
+            display: inline-block;
+            line-height: 40px;
+            position: absolute;
+            right: -2px;
+            top: 70px;
+            font-size: 12px;
+            text-align: right;
+            text-transform: uppercase;
+            padding: 0 20px;
+            color: #fff;
+        }
+        .list-do_bookmark .label {
+            opacity: 0;
+            transition: all 0.1s linear;
+        }
+        .list-do_bookmark:hover .label, .list-do_bookmark:hover img {
+            opacity: 1;
+        }
+        .list-do_bookmark img {
+            opacity: 0.60;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            transition: all 0.1s linear;
+        }
+
+        .list-title {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            padding: 19px 20px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 25px;
+            font-family: "PT Serif", "Georgia", serif;
+        }
+        .list-title.has-cover {
+            text-shadow: 0 1px 10px rgba(000,000,000,1);
+        }
+        .list-title a {
+            color: inherit;
+        }
+        .list-title a:hover {
+            text-decoration: underline;
+        }
+
+        .subsection-item {
+            list-style: none;
+            margin: 0 0 7px;
+            padding: 0;
+        }
+        .subsection-label {
+            width: 100%;
+            display: block;
+            position: relative;
+            line-height: 21px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            color: #4c4c4c;
+            margin: 0 0 3px;
+            padding: 0 10px 0 8px;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .link-list {
+            position: relative;
+            z-index: 1;
+            padding: 5px 14px 5px;
+        }
+        .link-item {
+            width: 100%;
+            display: block;
+            position: relative;
+            font-size: 14px;
+            line-height: 18px;
+            white-space: nowrap;
+            color: #4c4c4c;
+            padding: 0 10px 0 19px;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .link-item:before {
+            content: "\2022";
+            display: block;
+            position: absolute;
+            left: -10px;
+            left: 5px;
+            top: 0;
+            width: 10px;
+            height: 21px;
+            line-height: 21px;
+            text-align: center;
+        }
+        .link-item a {
+            color: inherit;
+        }
+        .link-item a:hover {
+            text-decoration: underline;
+        }
+        .link-item:not(:last-child) {
+            margin-bottom: 3px;
+        }
+        .link-item .hostname {
+            margin-left: 0.25em;
+            color: #9d9d9d;
+        }
+
+        /*
+        **  Bottom Toolbar
+        */
+            .toolbar {
+                position: absolute;
+                z-index: 99;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background: #f7f7f7;
+                height: 31px;
+                line-height: 31px;
+                font-size: 14px;
+                list-style: none;
+            }
+            .toolbar:before {
+                content: "";
+                display: block;
+                position: absolute;
+                z-index: 99;
+                top: -45px;
+                width: 100%;
+                height: 45px;
+                background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAtCAYAAABvewHEAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMTU3QkJCQkNDMTIxMUUyQkU4QTlERjNDMzQ3RjA1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMTU3QkJCQ0NDMTIxMUUyQkU4QTlERjNDMzQ3RjA1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdFQkFGNERDQ0IzMTExRTJCRThBOURGM0MzNDdGMDUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkYxNTdCQkJBQ0MxMjExRTJCRThBOURGM0MzNDdGMDUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+p+IyUQAAADhJREFUeNpi+P//PwMTAwMDC4hgQyXYQQQHnOBEJbhwEdx4ZdFMQRjPjuYCBqDT/oNYDJQQAAEGAFn9CEvyd8P5AAAAAElFTkSuQmCC) repeat-x left top;
+            }
+            .toolbar li {
+                float: left;
+            }
+            .toolbar li > a {
+                display: inline-block;
+            }
+
+            .toolbar .list-do_play a {
+                width: 38px;
+                text-align: center;
+                background: #f0efef;
+            }
+            .toolbar .list-do_play a:hover {
+                background: #e8e8e8;
+            }
+            .toolbar .list-do_play a img {
+                vertical-align: middle;
+                display: inline-block;
+                margin-top: -2px;
+                width: 16px;
+                height: 16px;
+            }
+
+            .toolbar .list-do_view {
+                padding: 0 16px;
+            }
+            .toolbar .list-do_view a {
+                color: #9d9d9d;
+            }
+            .toolbar .list-do_view .link-stats {
+                text-transform: lowercase;
+                color: #4c4c4c;
+            }
+            .toolbar .list-do_view .link-counter {
+                margin-left: 0.25em;
+            }
+
+            .toolbar .list-from_author {
+                float: right;
+                padding: 0 9px;
+                font-weight: normal;
+                color: #9d9d9d;
+            }
+            .toolbar .list-from_author a {
+                color: #4c4c4c;
+            }
+
+
+        </style>
+
+        <script>
+            window.addEventListener("message", function (event) {
+              event.source.postMessage("" + document.height, event.origin);
+            }, false);
+        </script>
+    </head>
+
+    <body class="">
+
+    <div class="heading" style="background-image: url({{ .List.CoverImage }})">
+        {{ if .List.CoverImage }}<div class="heading-cover"></div>{{end}}
+        <h4 class="list-title {{ if .List.CoverImage }}has-cover{{end}}"><a href="http://urli.st/{{ .List.Hash }}?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" target="_blank">{{ .List.Title }}</a></h4>
+    </div>
+
+    <cite class="list-author">By <a href="//urli.st/user/{{ .Author.Username }}?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" target="_blank">{{ .Author.ScreenName }}</a></cite>
+
+    <a href="http://urli.st/{{ .List.Hash }}?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" class="list-do_bookmark" target="_blank">
+        <span class="label">Save for later</span>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGMTU3QkJCRkNDMTIxMUUyQkU4QTlERjNDMzQ3RjA1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGMTU3QkJDMENDMTIxMUUyQkU4QTlERjNDMzQ3RjA1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkYxNTdCQkJEQ0MxMjExRTJCRThBOURGM0MzNDdGMDUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkYxNTdCQkJFQ0MxMjExRTJCRThBOURGM0MzNDdGMDUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Y5fdowAAAHxJREFUeNq8U0EKgDAM63yF+tp+SvAq03fVDibKWJvpwEAuaxa6tCMRieIj1cliSArCCFZhoE78bhAz77e9zEDKTFAHq3J2FWCEExhz7A0xoA4W5fhYnAufF6kpxM0x2pWHFyLn1rg4N/8CVS5TxQQasCHgFgP2BKh+CjAAhvySMiQwX38AAAAASUVORK5CYII=" alt="">
+    </a>
+
+    <ul class="link-list">
+      {{ range $k, $v := .UrlsBySection }}
+      <li class="subsection-item">
+        {{ if $k }}<h5 class="subsection-label"><a name="{{ $k }}">{{ $k }}</a></h5>{{ end }}
+        <ul class="link-sublist">
+          {{ range $v }}
+          <li class="link-item">
+            <a href="//urli.st/{{ $.List.Hash }}/{{ .Hash }}?utm_source={{ $.RefererHost }}&utm_medium=widget&utm_content={{ $.Author.Username }}&utm_campaign=embedding" target="_blank">
+                <span class="title">{{ .Title }}</span>
+                <span class="hostname">({{ Domain .Url }})</span>
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      </li>
+      {{ end }}
+    </ul>
+
+    <ul class="toolbar">
+        <li class="list-do_play">
+            <a href="//urli.st/{{ $.List.Hash }}/?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" target="_blank" title="Play the List"><img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3RUJBRjREQUNCMzExMUUyQkU4QTlERjNDMzQ3RjA1MSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3RUJBRjREQkNCMzExMUUyQkU4QTlERjNDMzQ3RjA1MSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdFQkFGNEQ4Q0IzMTExRTJCRThBOURGM0MzNDdGMDUxIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjdFQkFGNEQ5Q0IzMTExRTJCRThBOURGM0MzNDdGMDUxIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+l6hD6AAAAudJREFUeNqsl79rVEEQx+/eSVQ8chaKCMafKdScRNRKsTBgYe7UQlFP04f8A+ZSaNQmXpHKJulzxIBaGE0jxkYtg5r4o0hUJCCihQmRcCGC34Hvk2Wyd7f73g184G7e7szsj9mdTebz+YSjpEEn6ACHwR6Q4bcF8AW8AZNgAiy5GE06BCCOesE1BuEi4rwMSgysqgQ1vq0HA+AT6PZwHs5WN/sO0JZXALvBS1AETYno0kQbr2jTKYA28Bocs3z7xmk9A1rABtJCXYlttBylzbZ6e2AXR75DtZsHfeA+WK0z6hQocOptdk6Cr7YZkOl6ZOkkOzoLRhyci/xl2yz7miK2H5p7wgzgJjiiOgyBc0wzX1lg3yGlFx839BJIqn1Uu/UpOM8RxRFZksc8Q0KpgAOSouEM9Crn88z7uM7DJblKm2aKXw+XIE1nphRrTLuMZm+E5SgqXRfYFHBq0irVxmoYOwtmQD/Y6BHEmEpR8ZkLeLab4pJq4vgWmAaul4nYHFW6DgmgXSknPUa1D4x7LMsL9b9dAmhVypkIG811WbTtVgmgWSl/RdztLsvyU/1vDhKNlyRxEglgUem2RHS8DG7zCB6v0mar+r8oAcwqZTaC8yfgEJdguUY7bXtWAnirlKc8HH/meS+bcM6hvbb9LrCkRoHnd9zp1rKOtk15HvDS+WMod4IrDZhuLZdp26wbJwL+GFGN7xoVry3n5zz3SIY2TZGidSlMwxKvSLNwKDsshet1XFaFToU+/xckUjoPqo45cC9mECnayCn9YFiumwfRHTClGvbwnM9EcJ5h3x6ln6KvNSWZTMtFVTgkeF1P8/5OOY66i+d+p6UovWQut+1lJKXzM7C9Slk+yhvzA/hB/TZwkFd7Qe32UL6D0+C9y9NMHhEPWM83QmTaL5jleL2XkTQ8wdRZieF4hTaO25zXextW+BjZD4ZdX7vGITPMvn0qxb1fx9We51IBbea337wXvJ/n/wQYANjapQtoM8diAAAAAElFTkSuQmCC" alt="Play"/></a>
+        </li>
+        <li class="list-do_view">
+            <a href="//urli.st/{{ $.List.Hash }}?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" target="_blank">
+                View all <span class="link-stats"><b class="link-counter">{{ len .List.Urls }}</b> Links</span>
+            </a>
+        </li>
+        <li class="list-from_author">
+            made with <a href="//urli.st?utm_source={{ .RefererHost }}&utm_medium=widget&utm_content={{ .Author.Username }}&utm_campaign=embedding" target="_blank">Urlist</a>
+        </li>
+    </ul>
+
+    </body>
+
+</html>
+<!--
+
+// User is a lightweight struct which fetch only the essentials field.
+type User struct {
+    UserId     bson.ObjectId `bson:"_id" json:"user_id"`
+    Username   string `bson:"username" json:"username"`
+    ScreenName string `bson:"screen_name" json:"screen_name"`
+    ProfileImage       string `bson:"profile_image" json:"profile_image"`
+    NoTrack bool     `bson:"__notrack" json:"__notrack"`
+    IsAnonymous bool `bson:"is_anonymous" json:"is_anonymous"`
+    Website    string `bson:"website" json:"website"`
+    ShortBio   string `bson:"short_bio" json:"short_bio"`
+}
+
+
+assets := []string{"assets", "styles", "app", "libs"}
+
+/assets == assets/widget/assets
+/styles == assets/widget/styles
+...
+
+// A List is a document owned by a registered Urlist user,
+// and editable by it's contributors, containing Urls.
+type List struct {
+    Hash         string `json:"hash"`
+    Title        string `json:"title"`
+    Description  string `json:"description"`
+
+    Categories   []string `bson:"categories" json:"categories"`
+
+    // When IsSecret is true, the list is visible only to it's owner and contributors.
+    IsSecret     bool `bson:"is_secret" json:"is_secret"`
+    // When IsUnlisted is true, the list will not appear in the user library.
+    IsUnlisted   bool `bson:"is_unlisted" json:"is_unlisted"`
+
+    LastActionTime time.Time `bson:"last_action_time" json:"last_action_time"`
+    UpdateTime   time.Time `bson:"update_time" json:"update_time"`
+    CreationTime time.Time `bson:"creation_time" json:"creation_time"`
+
+    UserId       string `bson:"user_id" json:"user_id"`
+
+    Urls         []Url          `json:"urls"`
+    Sections     []Section      `json:"sections"`
+    Contributors []Contributor  `json:"contributors"`
+
+    // Followers IDs in a flat array: [foo, bar]
+    Followers_   []string `bson:"followers" json:"-"`
+    // Followers IDs in an array of dictionary: [{'user_id': 'foo'} ...
+    Followers    []map[string] string `bson:"followers_virtual" json:"followers"`
+
+    // True if the current user if following this list
+    Following bool `json:"following"`
+
+    LinksAmount  int `bson:"links_amount" json:"links_amount"`
+
+    ViewsAmount  int `bson:"views_amount" json:"views_amount"`
+
+    CoverImage interface{} `bson:"cover_image,omitempty" json:"cover_image"`
+    CoverImageVersion time.Time `bson:"cover_image_v,omitempty" json:"cover_image_v"`
+
+    // Last time that the current user visited the list
+    // Refer to the visit_tracker collection
+    LastVisit *time.Time `bson:"last_visit,omitempty" json:"last_visit,omitempty"`
+
+    isRendered, isCached bool
+
+    CachedAt time.Time `bson:"cached_at" json:"cached_at"`
+
+    Slug string `json:"slug"`
+
+    Rank float64
+}
+
+// Url are owned by a registered Urlist user and contained in a
+// List.
+type Url struct {
+    Hash         string `json:"hash"`
+    ListHash     string `bson:"list_hash" json:"list_hash"`
+    ListTitle    string `bson:"list_title" json:"list_title"`
+    Url          string `json:"url"`
+    Title        string `json:"title"`
+    CreationTime time.Time `bson:"creation_time" json:"creation_time"`
+    Description  string    `json:"description"`
+    UserId       string `bson:"user_id" json:"user_id"`
+    SectionId    int `bson:"section" json:"section"`
+    Position     int `json:"position"`
+
+    Favicon      string `json:"favicon"`
+
+    Username     string `json:"username"`
+
+    // BUG(adp): EmbedHandler, should use an hard coded blacklist to automatically
+    // set this field for certain domain.
+    EmbedHandler string `bson:"embed_handler" json:"embed_handler"`
+
+    // Owner of the url when the first relist happened
+    FromUserId   string `bson:"from_user_id" json:"from_user_id"`
+    FromListHash string `bson:"from_list_hash" json:"from_list_hash"`
+    FromUrlHash  string `bson:"from_url_hash" json:"from_url_hash"`
+
+    Relists      []RelistItem `json:"relists"`
+    RelistAmount int `json:"relist_amount"`
+
+    Slug string `bson:"slug" json:"slug"`
+}
+
+-->
+{{ end }}

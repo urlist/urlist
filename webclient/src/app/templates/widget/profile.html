@@ -1,0 +1,34 @@
+<div class="slide">
+
+<div class="widget widget-card card-profile">
+    <a href="/library/{{username}}" class="avatar js-navigate"><img src="{{profile_image}}" alt=""></a>
+    <h4 class="screenname">
+        <a href="/library/{{username}}" class="js-navigate">{{username}}</a>
+    </h4>
+    <ul class="stat-list">
+        <li class="stat-item highlighted"><b class="counter-list-n">{{lists_amount}}</b> Lists</li>
+        <li class="stat-item"><b class="counter-link-n">{{links_amount}}</b> Links</li>
+    </ul>
+    <div class="card-action-main">
+        <a href="#" class="button action wider follow-user js-user-follow" href="#">
+            <i class="mini-icon icon-small-add-user"></i> Follow
+        </a>
+    </div>
+</div>
+
+<div class="cardlist-shield"></div>
+
+<a href="#" class="cardlist-user-follow js-trigger-user-follow">
+    <span class="label-follow">
+        <i class="maxi-icon icon-small-add-user"></i> Follow
+    </span>
+    <span class="label-following">
+        <i class="giga-icon icon-small-agree"></i> <span class="hidden">Following!</span>
+    </span>
+</a>
+
+<div class="cardlist-user-following"></div>
+
+<div data-view="lists"></div>
+
+</div>

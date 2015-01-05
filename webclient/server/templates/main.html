@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="lt-ie9 lte-ie9 is-ie"> <![endif]-->
+<!--[if lte IE 9]>     <html class="lte-ie9 is-ie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Urlist</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script>
+        API_ROOT = "{{ api_root }}";
+        APPLICATION = "{{ app }}";
+        TEMPLATES = {};
+    </script>
+
+    {% raw resources %}
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : window.CONFIG.fb.app_id,
+      channelUrl : '/fb/channel.html',
+      status     : true,
+      cookie     : true,
+      xfbml      : true,
+      frictionlessRequests: true
+    });
+
+    // Additional init code here
+
+  };
+
+  // Load the SDK asynchronously
+  // TODO: load Zuckerberg's SDK only if needed!1!!
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+<div id="urlist-content"></div>
+</body>
+
+</html>

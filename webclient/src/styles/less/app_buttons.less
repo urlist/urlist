@@ -1,0 +1,299 @@
+.button {
+
+    // Local Variables
+
+    @fgBtn:                  #4c4c4c;
+    // Normal
+    @bgBtn_normal:           #f7f7f7;
+    @bgBtn_normal-hover:     #ededed;
+    @bgBtn_normal-active:    darken(@bgBtn_normal,  4%);
+    @bgBtn_normal_border:    #b8b8b8;
+    // Confirm
+    @bgBtn_confirm:          #cde374;
+    @bgBtn_confirm-hover:    darken(@bgBtn_confirm, 4%);
+    @bgBtn_confirm-active:   darken(@bgBtn_confirm, 4%);
+    // Action
+    @bgBtn_action:           #94dff0;
+    @bgBtn_action-hover:     darken(@bgBtn_action,  4%);
+    @bgBtn_action-active:    darken(@bgBtn_action,  4%);
+    // Recommend
+    @bgBtn_recommend:        #ff6565;
+    @bgBtn_recommend-hover:  darken(@bgBtn_recommend, 4%);
+    @bgBtn_recommend-active: darken(@bgBtn_recommend, 4%);
+
+    // Paddings
+    @paddingBtn_h-small:    4px; // Small
+    @paddingBtn_v-small:   10px;
+    @paddingBtn_h-regular:  9px; // Regular
+    @paddingBtn_v-regular: 12px;
+    @paddingBtn_h-big:     14px; // Big
+    @paddingBtn_v-big:     14px;
+
+    // Styles
+    .appearance(none);
+
+    display: inline-block;
+    position: relative;
+    padding: @paddingBtn_h-regular @paddingBtn_v-regular;
+
+    line-height: 1; // 1 (?)
+    font: 600 12px/16px "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
+
+    color: @fgBtn;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    background-color: @bgBtn_normal;
+    border: 1px solid @bgBtn_normal_border;
+    border-radius: 3px;
+    box-shadow: 0 2px 2px rgba(000,000,000,0.08);
+
+    cursor: pointer;
+    // .anim(all, .05s, ease-out);
+
+    //
+    // Button states
+
+    // :hover
+    &:hover {
+        background-color: @bgBtn_normal-hover;
+        border-color: darken(@bgBtn_normal-hover, 25%);
+        color: @fgBtn;
+        box-shadow: 0 1px 2px rgba(000,000,000,0.10);
+        text-decoration: none;
+    }
+
+    // :active
+    &:active {
+        background-color: @bgBtn_normal-active;
+        border-color: darken(@bgBtn_normal-active, 25%);
+        color: @fgBtn;
+        box-shadow: inset 0 1px 4px rgba(000,000,000,0.45);
+    }
+
+    &.inactive {
+        opacity: 0.65;
+        cursor: default;
+        pointer-events: none;
+        .user-select();
+
+        background-color: @bgBtn_normal !important;
+        border-color: darken(@bgBtn_normal, 25%) !important;
+        color: @fgBtn !important;
+
+        &:hover, &:active {
+            background-color: @bgBtn_normal;
+            border-color: darken(@bgBtn_normal, 25%);
+            color: @fgBtn;
+        }
+    }
+
+    // Button widths //
+
+    // Narrow
+    &.narrow {
+        padding: ( @paddingBtn_h-regular * 2/2.5 ) @paddingBtn_v-regular;
+    }
+
+    // Wide
+    &.wide {
+        display: block;
+        margin-bottom: 1em;
+    }
+    &.wider {
+        padding-left: ( @paddingBtn_v-regular * 1.5 );
+        padding-right: ( @paddingBtn_v-regular * 1.5 );
+    }
+    &.widest {
+        display: block;
+        width: 100%;
+    }
+
+    // Button sizes //
+
+    &.tiny     { font-size: 0.625em }
+    &.small    { font-size:  0.75em }
+    &.big      { font-size: 1.375em }
+    &.huge     { font-size:  1.75em }
+    &.gigantic { font-size:     2em }
+    &.enormous { font-size:   2.5em }
+    &.titanic  { font-size:     4em }
+
+    // Small
+    &.small {
+        padding: @paddingBtn_h-small @paddingBtn_v-small;
+        font-size: 14px;
+        font-weight: 600;
+        font-size: 12px;
+    }
+        // Small featured (?)
+        &.small-featured {
+            padding: @paddingBtn_h-small @paddingBtn_v-regular;
+            line-height: 1;
+            font-size: 0.8125em;
+            font-weight: bold;
+            text-transform: none;
+        }
+
+    // Big
+    &.big {
+        font-size: 0.875em;
+        line-height: 1em; // 1
+        padding: @paddingBtn_h-big @paddingBtn_v-big;
+        // 1. Fix for possible line-height misplacements
+    }
+
+    // Faux button (Dialogs)
+    &.button-faux {
+        padding: 8px 12px;
+        color: #b8b8b8;
+        background-color: #f7f7f7;
+        border: none;
+        box-shadow: none;
+
+        // Button states
+        &:hover {
+            color: #6b6b6b;
+        }
+        // Modifiers
+        &.is--small {
+            padding: 4px 6px;
+        }
+        &.is--embedded {
+            padding: 4px 6px;
+        }
+        &.is--wider {
+            padding-left: 9px;
+            padding-right: 9px;
+        }
+    }
+
+    // Confirm
+    &.confirm {
+        background-color: @bgBtn_confirm;
+        border-color: darken(@bgBtn_confirm, 25%);
+        color: @fgBtn;
+
+        // Button states
+        &:hover {
+            background-color: @bgBtn_confirm-hover;
+            border-color: darken(@bgBtn_confirm-hover, 25%);
+            color: @fgBtn;
+        }
+
+        &:active {
+            background-color: @bgBtn_confirm-active;
+            border-color: darken(@bgBtn_confirm-active, 25%);
+            color: @fgBtn;
+        }
+    }
+
+    // Action
+    &.action {
+        background-color: @bgBtn_action;
+        border-color: darken(@bgBtn_action, 25%);
+        color: @fgBtn;
+
+        // Button states
+        &:hover {
+            background-color: @bgBtn_action-hover;
+            border-color: darken(@bgBtn_action-hover, 25%);
+            color: @fgBtn;
+        }
+
+        &:active {
+            background-color: @bgBtn_action-active;
+            border-color: darken(@bgBtn_action-active, 25%);
+            color: @fgBtn;
+        }
+    }
+
+    // Recommend
+    &.recommend {
+        background-color: @bgBtn_recommend;
+        border-color: darken(@bgBtn_recommend, 25%);
+        color: @fgBtn;
+
+        // Button states
+        &:hover {
+            background-color: @bgBtn_recommend-hover;
+            border-color: darken(@bgBtn_recommend-hover, 25%);
+            color: @fgBtn;
+        }
+        &:active {
+            background-color: @bgBtn_recommend-active;
+            border-color: darken(@bgBtn_recommend-active, 25%);
+            color: @fgBtn;
+        }
+    }
+
+    // Deprecated
+    &.fade-button {
+        top: 1px;
+        font-size: 14px;
+
+        background-color: none;
+        border-color: transparent;
+        box-shadow: none;
+
+        &:hover {
+            background-color: @bgBtn_normal-hover;
+            border-color: darken(@bgBtn_normal-hover, 25%);
+            color: @fgBtn;
+            box-shadow: 0 2px 2px rgba(000,000,000,0.15);
+        }
+
+        &:active {
+            background-color: @bgBtn_normal-active;
+            border-color: darken(@bgBtn_normal-active, 25%);
+            color: @fgBtn;
+            box-shadow: inset 0 1px 4px rgba(000,000,000,0.45);
+        }
+    }
+    // Deprecated
+    &.real-fade-button-0 {
+        background-color: transparent;
+        border-color: transparent;
+        box-shadow: none;
+
+        &:hover {
+            background-color: #f7f7f7;
+            border-color: darken(@grey, 10%);
+            .box-shadow(0 1px 1px rgba(0,0,0,0.07));
+        }
+    }
+
+    &.button-inline {
+        margin-left: 0.25em;
+    }
+
+} // end .button
+
+.button-inline {
+    display: inline-block;
+    font-size: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.button-group {
+    display: inline-block;
+}
+
+.button-toggle {
+    display: inline-block;
+    overflow: hidden;
+    box-shadow: 0 1px 1px rgba(000,000,000,0.07);
+    line-height: 1; // fix for box-shadow
+    vertical-align: middle;
+    top: -0.09375em; // FIXME (semi-fix)
+    position: relative;
+    .button {
+        margin: 0;
+        display: block;
+        float: left;
+        &:not(:first-child) { margin-left: 0; border-left: 0; }
+    }
+} // end .button-group

@@ -1,0 +1,73 @@
+<div class="header-app js-header-main clearfix">
+    <div class="content-std-elastic is--fluid">
+        <a class="app-logo js-navigate" href="/">
+            <img src="/static/assets/logo.png" alt="Urlist" />
+        </a>
+
+        <ul class="nav left app-navigation">
+            {{#LOGGED}}
+            <li class="nav-item new-list">
+                <span>
+                    <a class="button js-new-list" rel="new-list" data-source="header" href="#">
+                        <i class="mini-icon icon-small-add"></i> New list
+                    </a>
+                </span>
+            </li>
+            {{/LOGGED}}
+        </ul>
+
+        <ul class="nav right app-navigation">
+
+            {{#LOGGED}}
+            <li class="nav-item action js-nav-item js-item-library">
+                <a class="js-navigate" href="/library/{{username}}">
+                    <i class="avatar"><img src="{{profile_image}}" alt="" /></i>
+                    <span>My Profile</span>
+                </a>
+                <div class="dropdown dropdown--floating">
+                    <ul class="menu-list">
+                        <li><a class="js-navigate" href="/library/{{username}}">View my Profile</a></li>
+                        <li><a class="js-navigate" href="/settings">Account settings</a></li>
+                        <li><a class="js-navigate" href="/resources/help">Help</a></li>
+                        <li class="divider"></li>
+                        <li class="secondary"><a href="/logout" class="js-navigate">Log out</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item item-dashboard item-activity js-nav-item js-notifications">
+                <a class="js-navigate" href="/activity">
+                    <span class="notification-button">
+                        <i class="mini-icon icon-small-activity"></i>
+                        <span class="notification-badge js-notifications-counter" data-count="{{notifications_counter}}"></span>
+                    </span>
+                    <span class="item-label hidden">Notifications</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <span>
+                    <form class="nav-item-search js-search-form">
+                        <input class="search-input js-search-input" type="text" placeholder="Search">
+                        <input class="search-submit" type="submit" value="Find">
+                        <div class="search_cta-list">
+                            <ul class="sublist ac-cutted js-load-astype">
+                                <li><a class="js-search-globally" href=""><i class="mini-icon icon-small-search"></i> Global</a></li>
+                                <li><a class="js-search-in-library" href=""><i class="mini-icon icon-small-search"></i> My Library</a></li>
+                            </ul>
+                            <div class="sublist-savedsearch js-saved-searches"></div>
+                        </div>
+                    </form>
+                </span>
+            </li>
+            {{/LOGGED}}
+
+            {{#ANON}}
+            <li class="nav-signup"><a class="button js-signup" href="#">Make a list</a></li>
+            <li class="nav-login">
+                <a class="js-login" href="#">Login</a></span>
+            </li>
+            {{/ANON}}
+
+        </ul>
+    </div>
+</div>

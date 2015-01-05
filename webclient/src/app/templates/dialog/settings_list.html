@@ -1,0 +1,123 @@
+<div class="dialog-header">
+    Edit List
+    <a href="#" class="dialog-close js-dialog-close">&times;</a>
+</div>
+
+<div class="dialog-content">
+
+    <dl class="form-item">
+        <dt class="column three">
+            <label>List Title</label>
+        </dt>
+        <dd class="column nine">
+            <input class="textfield" type="text" name="title" value="{{title}}" maxlength="60" />
+        </dd>
+    </dl>
+
+    <dl class="form-item">
+        <dt class="column three">
+            <label>Description</label>
+        </dt>
+        <dd class="column nine">
+            <textarea class="js-simple-textarea" placeholder="Why you created this list? You can also put #hashtags to categorize this List by keyword." name="description" data-count="chars" data-count-limit="400" rel="description-counter">{{description}}</textarea>
+            <div class="toolbar">
+                {{!
+                <ul class="nav left">
+                    <li class="secondary">
+                    <span>* formatting with markdown is
+                        <span class="help-area">
+                            <i class="click-me">possible</i>
+                            <cite class="tooltip-help">
+                                Links are automatically hyperlinked. Use *for bold words* and **for italic words**
+                            </cite>
+                        </span>
+                    </span>
+                    </li>
+                </ul>
+                }}
+                <ul class="nav right">
+                    <li>
+                        <span class="counter-chars"><b id="description-counter">400</b> char</span>
+                    </li>
+                </ul>
+            </div>
+        </dd>
+    </dl>
+
+    {{#is_secret}}
+    <div class="form-item {{show-if is_secret}}">
+        <dt class="column three">
+            <label>Make it Public</label>
+        </dt>
+        <dd class="column nine">
+            <span class="textbox">
+                <input id="is-public" type="checkbox" name="secret" value="false" title="Make it Public">
+            </span>
+        </dd>
+    </div>
+    {{/is_secret}}
+
+    <dl class="form-item">
+        <dt class="column three">
+            <label>Category</label>
+        </dt>
+
+        <span class="js-category-change {{show-if label_categories}}">
+            <dt class="column seven">
+                <span class="textbox">
+                    <span class="label-categories js-label-categories">{{label_categories}}</span>
+                </span>
+            </span>
+            <dd class="column two">
+                <a class="button wide js-edit-categories" href="#">Change</a>
+            </dd>
+        </span>
+        <span class="js-category-add {{#if label_categories}}hide{{/if}}">
+            <span class="column four">
+                <a class="button wide js-edit-categories" href="#">Choose Categories!</a>
+            </span>
+        </span>
+
+    </dl>
+
+    <dl class="form-item">
+
+        {{#if contributors_amount}}
+        <dt class="column twelve">
+            <span class="textbox is--subtle">
+                There are <b class="contributors_amount">{{contributors_amount}} contributors</b> on this list.
+                <a class="inline-cta is--important js-edit-contributors" href="#">Invite more people!</a>
+            </span>
+        </dt>
+        {{/if}}
+
+        {{#unless contributors_amount}}
+        <dt class="column three"></dt>
+        <dd class="column nine">
+            <span class="textbox align-right">
+                <a class="inline-cta is--important js-edit-contributors" href="#">Need help? Invite people to add links!</a>
+            </span>
+        </dd>
+        {{/unless}}
+
+    </dl>
+
+</div>
+
+<div class="toolbar dialog-actions">
+
+    <ul class="nav left">
+        <li>
+            <a class="generic-action js-delete-list" href="#">Delete List</a>
+        </li>
+    </ul>
+    <ul class="nav right">
+        <li>
+            <input class="button action js-url-save" type="submit" value="Save" />
+        </li>
+        <li>
+            <button class="button js-dialog-close js-cancel">Cancel</button>
+        </li>
+    </ul>
+
+</div>

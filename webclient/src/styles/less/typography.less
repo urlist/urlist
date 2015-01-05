@@ -1,0 +1,70 @@
+/*
+    01 - Typography
+*/
+
+    body {
+        font: 1em/1.5em "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #4c4c4c;
+
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        position: relative;
+        margin: 0 0 1rem 0;
+        margin: 0.25em 0;
+
+        font-weight: normal;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    h1 { font-size: 2.75em;  line-height: 1em; }
+    h2 { font-size: 2.25em;  line-height: 1em; }
+    h3 { font-size: 1.75em;  line-height: 1em; }
+    h4 { font-size: 1.375em; line-height: 1em; }
+    h5 { font-size: 1.125em; line-height: 1em; }
+    h6 { font-size: 0.875em; line-height: 1em; }
+
+    h1, h2, h3, h4, h5, h6 {
+
+        small {
+            font-size: 0.75em;
+        }
+
+        font-weight: 500;
+
+        &.subheader {
+            font-weight: lighter;
+            color: lighten(@fgColor, 25%);
+        }
+    }
+
+    h6 { font-weight: bold }
+
+    p {
+        font-size: 0.875em;
+        &.subheader {
+            font-size: 1.375em;
+            font-weight: 300;
+        }
+    }
+
+    p, pre, address {
+        margin-bottom: 0.875em;
+        position: relative;
+    }
+
+    strong, b { font-weight: bold }
+    em { font-style: italic;      }
+    small { font-size: 0.75em;    }
+
+    mark { background: rgba(255,255,000,0.35)                      }
+    ins { background: rgba(000,255,255,0.25); text-decoration: none }
+
+    a {
+        color: @link;
+    }

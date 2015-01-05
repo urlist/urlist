@@ -1,0 +1,11 @@
+<li class="notification-item">
+    <a class="js-navigate" href="/{{data.list_hash}}">
+        <b class="sender">{{user_screen_name}}</b>
+        <span class="action">accepted your link</span>
+        <b class="object">{{decodeURIComponent data.suggested_url}}</b>
+        <span class="complement">to</span>
+        <b class="target">{{data.list_title}}</b>
+
+        <time class="timestamp">{{prettydate sent_at}}</time>
+    </a>
+</li>

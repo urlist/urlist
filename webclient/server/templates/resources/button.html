@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="page-title">Urlist button</h1>
+
+<p class="urlist-button-stage">
+    <a class="button big confirm button-bookmarklet" href="javascript:(function(){f='http://urli.st/bookmarklet/add?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title);a=function(){if(!window.open(f,'_urlist_bookmarklet','location=yes,links=no,scrollbars=no,toolbar=no,width=600,height=430'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})();" title="Drag me in the Bookmarks toolbar">Urlist Button</a>
+</p>
+
+<h3>Save links while browsing</h3>
+<p>
+    Once installed the <b>Urlist button</b> allows you to save links in your lists right away, while you're browsing the Internet. Just click on the button: a pop-up window will appear where you can edit all the details of the link or even start a new list.
+</p>
+
+<h3>Install the Urlist button</h3>
+
+<h5>Chrome</h5>
+<p>
+    Click on the menu on the top right corner of the browser’s window, go to Settings and on “Appearance” control that “Always show the bookmarks bar” is checked. <br>
+    Then <b>drag the green button</b> on your bookmarks bar: done!
+</p>
+
+<h5>Firefox</h5>
+<p>
+    If you don’t see your bookmarks toolbar go to <b>View > Toolsbars > Bookmarks Toolbar</b> <br>
+    Then <b>drag the green button</b> on your bookmarks bar: done!
+</p>
+
+<p>
+    <img src="/static/assets/resources/urlist-button-example_chrome.png" alt >
+</p>
+
+<p>
+</p>
+
+<h3>Are you using a tablet or a smartphone?</h3>
+<p>Copy the code below into the URL field of a <b>new bookmark</b></p>
+
+<form>
+    <textarea class="simple-textarea">
+        javascript:(function(){f='http://urli.st/bookmarklet/add?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title);a=function(){if(!window.open(f,'_urlist_bookmarklet','location=yes,links=no,scrollbars=no,toolbar=no,width=600,height=430'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})();
+    </textarea>
+</form>
+
+{% end %}

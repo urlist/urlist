@@ -1,0 +1,206 @@
+// Name: Link
+// Desc: A special card tailored to show Link informations
+//
+// Template base:
+// templates/card/_link.html (POC)
+
+
+// Link Card Item
+.card-link {
+    // Mixins base
+    .card; // import card mixin
+
+    // Childs
+    &:after {
+        .pseudo-block();
+        z-index: 1;
+        left: 0;
+        bottom: 31px;
+        width: 100%;
+        height: 82px;
+        .gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+        border-bottom: 29px solid @white;
+    }
+
+    .author-badge {
+        // Mixins base
+        .media;
+
+        // Childs
+        .avatar {
+            margin: 6px 10px 0 7px;
+            width: 34px;
+            height: 34px;
+            border: 1px solid #6b6b6b;
+            img {
+                display: block;
+                margin: 0 auto;
+                width: 32px;
+            }
+        }
+
+        .author-details {
+            height: 40px;
+        }
+        .username {
+            margin: 9px 0 0;
+            line-height: 1;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4c4c4c;
+            a {
+                color: inherit;
+            }
+        }
+        .timestamp {
+            display: block;
+            line-height: 16px;
+            font-size: 14px;
+            color: #9d9d9d;
+        }
+    }
+    .indicator-relist {
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 9px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 1;
+        text-align: center;
+        color: #f1cd6f;
+        &:after {
+            //from .icon-relist-nu
+            content: "\e001";
+            font-family: "listicons";
+        }
+    }
+    .title {
+        margin: 21px 0 7px;
+        line-height: 27px;
+        font-size: 21px;
+        padding: 0 11px;
+        a {
+            color: inherit;
+        }
+    }
+    .hostname {
+        position: relative;
+        font-size: 13px;
+        line-height: 15px;
+        color: #9d9d9d;
+        padding: 0 11px 0 37px;
+    }
+    .hostname .favicon {
+        position: absolute;
+        left: 11px;
+        top: -3px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-top: 3px;
+        line-height: inherit;
+    }
+    .description {
+        margin-top: 13px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #9d9d9d;
+        padding: 0 11px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .card-toolbar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 31px;
+        line-height: 31px;
+        font-size: 13px;
+        color: #9d9d9d;
+        background-color: #f7f7f7;
+    }
+
+    .reference-list-index {
+        margin-left: 16px;
+        color: #9d9d9d;
+
+        b {
+            font-weight: 600;
+            color: #4c4c4c;
+        }
+    }
+
+    .reference-list {
+        text-align: left;
+        display: inline-block;
+        width: 210px;
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        z-index: 2;
+        bottom: 39px;
+        left: 11px;
+        font-size: 14px;
+        color: #4c4c4c;
+
+        a {
+            display: inline;
+            width: 201px;
+            font-weight: 600;
+            text-align: left;
+            color: #3ab0c9;
+            padding-right: 10px;
+        }
+    }
+
+    .card-action {
+        min-width: 90px;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        background-color: #f0efef;
+        box-shadow: none;
+
+        &:hover {
+            background-color: #e8e8e8;
+        }
+        &:active {
+            background-color: #e2e2e2;
+        }
+    }
+
+}
+
+.widget-content {
+    position: relative;
+    height: 320px;
+    padding-top: 80px;
+
+    .title {
+        display: inline-block;
+        overflow: hidden;
+        margin: 0 0 5px 0;
+        padding: 15px 11px 4px;
+        font: bold 20px/24px "PT Serif", Georgia, serif;
+        color: #353535;
+        white-space: pre-line;
+        text-overflow: ellipsis;
+        i {
+            top: 0;
+            margin: 0;
+        }
+    }
+
+    .description {
+        margin: 5px 10px;
+        font-size: 14px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+} // end .card-link

@@ -1,0 +1,71 @@
+<div class="navigation-page js-nav" data-source="Navigation">
+
+    <div class="toolbar top-bar js-header-navigation">
+        <ul class="nav left context">
+
+            {{#LOGGED}}
+            <li>
+                <a class="back-to-list js-close-navigation js-navigate" href="/{{hash}}">Back to list</a>
+            </li>
+            {{#if policies.edit_url}}
+            <li>
+                <a class="button-inline js-edit-url" href="#" title="Edit Link" data-tooltip data-position="bottom"><i class="icon icon-edit-small"></i></a>
+            </li>
+            {{/if}}
+            <li>
+                <a href="#" class="button-inline js-relist" title="Relist this Link"><i class="icon icon-mini-relist"></i> Relist this</a>
+            </li>
+            {{/LOGGED}}
+
+        </ul>
+
+        <nav class="control-list">
+            <a href="#" class="control-item control-item--prev js-nav-prev js-navigate">Prev</a>
+            <span class="control-item js-open-details">
+                <span class="counter-current js-nav-current">{{current}}</span>
+                of
+                <span class="counter-total js-nav-total">{{total}}</span>
+            </span>
+            <a href="#" class="control-item control-item--next js-nav-next js-navigate">Next</a>
+        </nav>
+
+        <ul class="nav right context">
+
+            {{#LOGGED}}
+            <li>
+                <span>
+                    <a class="open-details active js-nav-title" href="#">
+                        <span class="label">Loading...</span> <i class="icon icon-mini-url"></i>
+                    </a>
+                </span>
+            </li>
+            {{/LOGGED}}
+
+            {{#ANON}}
+            <li>
+                <span>
+                    <b class="prominent">From <a class="js-close-navigation js-navigate" href="/{{hash}}">{{title}}</a></b>
+                </span>
+            </li>
+            <li>
+                <span>
+                    <a href="/{{hash}}" class="button button-faux is--small is--wider button-bookmark-list js-navigate js-close-navigation">
+                        Discover more
+                        <i class="mini-icon context icon-small-share"></i>
+                    </a>
+                </span>
+            </li>
+            {{/ANON}}
+
+        </ul>
+
+    </div>
+
+    <div class="embed-frame js-embed">
+
+    </div>
+
+    <div class="navigation-sidebar js-nav-sidebar-placeholder hide"></div>
+
+</div>
+

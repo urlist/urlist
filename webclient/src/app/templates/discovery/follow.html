@@ -1,0 +1,37 @@
+{{^display_following}}
+<div class="content-std-elastic is--fluid">
+    <div class="discovery-claim">
+        <h1>Follow the <strong>best curators</strong> on Urlist</h1>
+        <h4>Build your network of interest</h4>
+    </div>
+</div>
+{{/display_following}}
+
+{{#display_following}}
+<div class="is-stickyarea">
+    <div class="content-std-elastic is--fluid">
+        <div class="discovery-claim discovery-stickyarea">
+            <div class="js-toggle">
+                <div class="js-toggle-one">
+                    <h1>Follow <b>5</b> of the best curators</h1>
+                </div>
+                <div class="js-toggle-two">
+                    <h1>Great!</h1>
+                </div>
+            </div>
+
+            <div class="progressbar progressbar-5 js-progressbar" data-progress="{{following_users_count}}" data-total="5">
+                <div class="progressbar-total"></div>
+                <div class="progressbar-value"></div>
+                <a href="/discover/network" class="progressbar-result js-navigate">Go to my Network!</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{{/display_following}}
+
+<div class="content-std-elastic is--fluid has-stickyarea" data-source="Discovery:network">
+    <div class="widget-wrapper clearifx" data-view="follow"></div>
+</div>
+

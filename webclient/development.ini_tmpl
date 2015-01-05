@@ -1,0 +1,9 @@
+port = 9999
+debug = True
+port = 9999
+debug = True
+api_root = '//test.urli.st/api/'
+client_root = '//localhost:9999/'
+
+# mapper can be 'prod', 'dev'
+mapper = 'dev'
